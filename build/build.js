@@ -53,7 +53,7 @@ function sidebar(prefix, activeKey) {
     .map((ch) => {
       const key = "ch" + ch.n;
       const active = activeKey === key ? " active" : "";
-      return `      <a class="side-link${active}" href="${prefix}index.html#ch${ch.n}"><span class="ic">${ch.n === 0 ? "◍" : "◆"}</span>第${ch.n}章　${ch.title}</a>`;
+      return `      <a class="side-link${active}" href="${prefix}index.html#ch${ch.n}"><span class="ic">💗</span>第${ch.n}章　${ch.title}</a>`;
     })
     .join("\n");
 
@@ -61,18 +61,10 @@ function sidebar(prefix, activeKey) {
 <aside class="sidebar" id="sidebar">
   <a class="brand" href="${prefix}index.html">${BRAND}</a>
 
-  <div class="sidebar-profile">
-    <div class="avatar" id="pavatar">会</div>
-    <div>
-      <div class="pname" id="pname">会員のあなた</div>
-      <div class="prole">受講生</div>
-    </div>
-  </div>
-
   <nav class="side-nav">
     <div class="side-group">メイン</div>
-    <a class="side-link${activeKey === "home" ? " active" : ""}" href="${prefix}index.html"><span class="ic">⌂</span>ホーム</a>
-    <a class="side-link${activeKey === "content" ? " active" : ""}" href="${prefix}index.html#dashboard"><span class="ic">▤</span>学習コンテンツ</a>
+    <a class="side-link${activeKey === "home" ? " active" : ""}" href="${prefix}index.html"><span class="ic">💗</span>ホーム</a>
+    <a class="side-link${activeKey === "content" ? " active" : ""}" href="${prefix}index.html#dashboard"><span class="ic">💗</span>学習コンテンツ</a>
 
     <div class="side-group">全9パート</div>
 ${chapterLinks}

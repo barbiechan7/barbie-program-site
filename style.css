@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
 
 :root {
   --bg: #FDF7F8;
@@ -29,7 +29,7 @@ body {
 }
 
 h1, h2, h3, .serif {
-  font-family: 'Shippori Mincho', serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--ink);
@@ -57,7 +57,7 @@ img { max-width: 100%; display: block; }
   justify-content: space-between;
 }
 .brand {
-  font-family: 'Shippori Mincho', serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 17px;
   font-weight: 700;
 }
@@ -115,7 +115,7 @@ img { max-width: 100%; display: block; }
   position: absolute;
   left: 32px;
   bottom: 32px;
-  font-family: 'Shippori Mincho', serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 22px;
   line-height: 1.7;
   color: var(--ink);
@@ -149,7 +149,7 @@ img { max-width: 100%; display: block; }
   border-bottom: 1px solid var(--line);
 }
 .lesson-num {
-  font-family: 'Shippori Mincho', serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 22px;
   color: var(--accent);
 }
@@ -185,7 +185,7 @@ img { max-width: 100%; display: block; }
   padding: 20px 18px;
   font-size: 13px;
 }
-.chapter-roadmap .cell .cnum { color: var(--accent); font-family: 'Shippori Mincho', serif; font-size: 15px; margin-right: 4px;}
+.chapter-roadmap .cell .cnum { color: var(--accent); font-family: 'Noto Sans JP', sans-serif; font-size: 15px; margin-right: 4px;}
 .chapter-roadmap .cell.active { background: var(--accent-tint); }
 .chapter-roadmap .cell.disabled { color: var(--ink-soft); }
 .chapter-roadmap .cell .status { display:block; font-size: 11px; color: var(--ink-soft); margin-top: 4px; }
@@ -246,8 +246,8 @@ img { max-width: 100%; display: block; }
   padding-top: 4px;
 }
 .article .lede {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 18px;
+  font-size: 16.5px;
+  font-weight: 500;
   line-height: 1.95;
   color: var(--ink);
 }
@@ -367,27 +367,6 @@ footer {
   overflow-y: auto;
 }
 .sidebar .brand { font-size: 14px; display: block; line-height: 1.55; word-break: keep-all; letter-spacing: 0; }
-.sidebar-profile {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: var(--accent-tint);
-}
-.sidebar-profile .avatar {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  background: var(--grad);
-  color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Shippori Mincho', serif;
-  font-size: 17px;
-  flex-shrink: 0;
-}
-.sidebar-profile .pname { font-size: 13.5px; font-weight: 700; }
-.sidebar-profile .prole { font-size: 11.5px; color: var(--ink-soft); }
 
 .side-nav { display: flex; flex-direction: column; gap: 4px; }
 .side-nav .side-group {
@@ -406,7 +385,7 @@ footer {
   color: var(--ink);
   transition: background .15s, color .15s;
 }
-.side-nav a .ic { width: 18px; text-align: center; opacity: .8; }
+.side-nav a .ic { width: 18px; text-align: center; font-size: 12px; flex-shrink: 0; }
 .side-nav a:hover { background: var(--sage-tint); }
 .side-nav a.active { background: var(--accent-tint); color: var(--accent-deep); font-weight: 700; }
 .side-nav a.is-done .ic { color: var(--ok); opacity: 1; }
@@ -539,7 +518,7 @@ footer {
 }
 .resume-card:hover { transform: translateY(-1px); box-shadow: 0 10px 26px -14px var(--accent-deep); }
 .resume-card .rc-eyebrow { font-size: 11.5px; opacity: .85; letter-spacing: .06em; }
-.resume-card .rc-title { font-family: 'Shippori Mincho', serif; font-size: 17px; margin-top: 3px; }
+.resume-card .rc-title { font-family: 'Noto Sans JP', sans-serif; font-size: 17px; margin-top: 3px; }
 .resume-card .rc-arrow { font-size: 20px; flex-shrink: 0; }
 
 /* ---- roadmap stepper ---- */
@@ -582,7 +561,7 @@ footer {
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-size: 14px;
-  font-family: 'Shippori Mincho', serif;
+  font-family: 'Noto Sans JP', sans-serif;
   background: var(--paper);
   border: 2px solid var(--line);
   color: var(--ink-soft);
@@ -625,14 +604,14 @@ footer {
   border-radius: 9px;
   background: var(--accent-tint);
   color: var(--accent-deep);
-  font-family: 'Shippori Mincho', serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 14px;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
 .chapter-head.all-done .chapter-badge { background: var(--accent); color: #fff; }
 .chapter-meta { flex: 1; min-width: 0; }
-.chapter-meta .ch-title { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 15.5px; }
+.chapter-meta .ch-title { font-family: 'Noto Sans JP', sans-serif; font-weight: 700; font-size: 15.5px; }
 .chapter-meta .ch-sub { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
 .chapter-count {
   font-size: 11.5px;
@@ -713,10 +692,55 @@ footer {
 /* lesson page main uses .lesson-shell already defined; tighten for app shell */
 .app .lesson-shell { padding: 8px 0 40px; max-width: var(--max); }
 
+/* ===================== スマホ最適化 ===================== */
+@media (max-width: 900px) {
+  .main { padding: 20px 16px 72px; }
+  .lesson-shell h1 { font-size: 23px; line-height: 1.55; margin-bottom: 24px; }
+  .article p { font-size: 15px; margin-bottom: 22px; }
+  .article h2 { font-size: 17.5px; margin: 34px 0 16px; }
+  .worksheet-card { margin: 40px 0 8px; padding: 20px; flex-direction: column; align-items: flex-start; }
+  .worksheet-card .wbtn { width: 100%; text-align: center; padding: 13px; }
+  .video-caption { margin-bottom: 36px; }
+}
+
 @media (max-width: 600px) {
-  .course-head, .roadmap-wrap { padding-left: 18px; padding-right: 18px; }
-  .resume-card { flex-direction: row; }
-  .complete-bar { flex-direction: column; align-items: stretch; text-align: center; }
-  .chapter-head { padding: 16px; gap: 12px; }
-  .lesson-row { padding: 14px 16px; }
+  .course-head { padding: 22px 18px 20px; border-radius: 12px; }
+  .course-head h1 { font-size: 18px; line-height: 1.55; letter-spacing: 0; }
+  .course-head p { font-size: 13px; margin-bottom: 18px; }
+  .progress-row { gap: 12px; }
+  .progress-label { font-size: 12px; }
+
+  .resume-card { padding: 16px 18px; gap: 12px; border-radius: 10px; }
+  .resume-card .rc-title { font-size: 14.5px; line-height: 1.5; }
+  .resume-card .rc-arrow { font-size: 17px; }
+
+  .roadmap-wrap { padding: 20px 0 18px; }
+  .roadmap-wrap h2 { margin-left: 18px; }
+  .roadmap { padding: 0 14px; }
+  .rm-step { width: 92px; }
+  .rm-step + .rm-step::before { left: -46px; width: 92px; }
+
+  .chapter { border-radius: 10px; }
+  .chapter-head { padding: 14px 15px; gap: 12px; }
+  .chapter-badge { width: 30px; height: 30px; font-size: 13px; }
+  .chapter-meta .ch-title { font-size: 14.5px; }
+  .chapter-meta .ch-sub { display: none; }
+  .chapter-count { font-size: 11px; }
+
+  .lesson-row { padding: 13px 15px; gap: 12px; }
+  .lesson-row .lr-title { font-size: 13px; }
+  .lesson-row .lr-type { display: none; }
+
+  .complete-bar { flex-direction: column; align-items: stretch; text-align: center; margin-top: 32px; padding: 20px; }
+  .complete-btn { width: 100%; padding: 13px; }
+
+  .lesson-nav { flex-direction: column; gap: 18px; }
+  .lesson-nav .next { text-align: left; }
+
+  .breadcrumb { margin-bottom: 18px; }
+}
+
+@media (max-width: 380px) {
+  .rm-step { width: 84px; }
+  .rm-step + .rm-step::before { left: -42px; width: 84px; }
 }

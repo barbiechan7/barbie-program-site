@@ -41,24 +41,11 @@
   }
 
   /* ---------- Netlify Identity ゲート ---------- */
-  function showApp(user) {
+  function showApp() {
     var g = document.getElementById("gateScreen");
     var s = document.getElementById("siteContent");
     if (g) g.style.display = "none";
     if (s) s.style.display = "block";
-    if (user) fillProfile(user);
-  }
-  function fillProfile(user) {
-    try {
-      var nm =
-        (user.user_metadata && user.user_metadata.full_name) ||
-        (user.email ? user.email.split("@")[0] : "") ||
-        "会員のあなた";
-      var el = document.getElementById("pname");
-      if (el) el.textContent = nm;
-      var av = document.getElementById("pavatar");
-      if (av && nm) av.textContent = nm.trim().charAt(0).toUpperCase();
-    } catch (e) {}
   }
   function showGate() {
     var g = document.getElementById("gateScreen");
@@ -68,10 +55,10 @@
   }
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", function (user) {
-      user ? showApp(user) : showGate();
+      user ? showApp() : showGate();
     });
-    window.netlifyIdentity.on("login", function (user) {
-      showApp(user);
+    window.netlifyIdentity.on("login", function () {
+      showApp();
       window.netlifyIdentity.close();
     });
     window.netlifyIdentity.on("logout", showGate);
