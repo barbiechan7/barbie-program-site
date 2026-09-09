@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+:root {
+  --bg: #FDF7F8;
+  --paper: #FFFFFF;
+  --ink: #2E2226;
+  --ink-soft: #7A6670;
+  --accent: #D6698F;
+  --accent-deep: #A84770;
+  --sage: #8C6B7A;
+  --sage-tint: #F2E9EC;
+  --accent-tint: #FBE6ED;
+  --line: #F0DCE2;
+  --max: 720px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .serif {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+/* ---- top nav ---- */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(250, 247, 243, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.topnav-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+.brand span { color: var(--accent); }
+.topnav-links {
+  display: flex;
+  gap: 22px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.topnav-links a:hover { color: var(--accent); }
+
+/* ---- hero (index) ---- */
+.hero {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 88px 24px 64px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+}
+.hero-eyebrow {
+  color: var(--accent);
+  font-size: 13px;
+  margin-bottom: 18px;
+  letter-spacing: 0.08em;
+}
+.hero h1 {
+  font-size: 40px;
+  line-height: 1.5;
+  margin: 0 0 22px;
+}
+.hero p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.9;
+  max-width: 46ch;
+}
+.hero-mark {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 2px;
+  background:
+    radial-gradient(circle at 30% 25%, var(--accent-tint), transparent 60%),
+    radial-gradient(circle at 75% 70%, var(--sage-tint), transparent 55%),
+    var(--paper);
+  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.hero-mark::after {
+  content: "痩せようとしない、\A心を整える3ヶ月";
+  white-space: pre;
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 22px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+/* ---- section shell ---- */
+.section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 18px;
+  margin-bottom: 36px;
+}
+.section-head h2 { font-size: 24px; margin: 0; }
+.section-head .note { color: var(--ink-soft); font-size: 13px; }
+
+/* ---- lesson index list ---- */
+.lesson-list { list-style: none; margin: 0; padding: 0; }
+.lesson-list li {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 22px 4px;
+  border-bottom: 1px solid var(--line);
+}
+.lesson-num {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 22px;
+  color: var(--accent);
+}
+.lesson-title { font-size: 16px; }
+.lesson-title .kicker {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+}
+.lesson-go {
+  font-size: 13px;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  padding: 7px 16px;
+  border-radius: 2px;
+  transition: border-color .15s, color .15s;
+}
+.lesson-list a:hover .lesson-go {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.chapter-roadmap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.chapter-roadmap .cell {
+  background: var(--paper);
+  padding: 20px 18px;
+  font-size: 13px;
+}
+.chapter-roadmap .cell .cnum { color: var(--accent); font-family: 'Shippori Mincho', serif; font-size: 15px; margin-right: 4px;}
+.chapter-roadmap .cell.active { background: var(--accent-tint); }
+.chapter-roadmap .cell.disabled { color: var(--ink-soft); }
+.chapter-roadmap .cell .status { display:block; font-size: 11px; color: var(--ink-soft); margin-top: 4px; }
+
+/* ---- lesson page ---- */
+.lesson-shell { max-width: var(--max); margin: 0 auto; padding: 56px 24px 96px; }
+.lesson-kicker {
+  color: var(--accent);
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+.lesson-shell h1 {
+  font-size: 30px;
+  line-height: 1.6;
+  margin: 0 0 34px;
+}
+
+.video-frame {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 12px;
+}
+.video-frame .play {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+.video-frame .play::after {
+  content: "";
+  width: 0; height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 13px solid var(--accent);
+  margin-left: 3px;
+}
+.video-frame .placeholder-text {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+.video-caption {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin: 0 0 48px;
+}
+
+.article p { margin: 0 0 26px; font-size: 15.5px; }
+.article h2 {
+  font-size: 20px;
+  margin: 48px 0 22px;
+  padding-top: 4px;
+}
+.article .lede {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 18px;
+  line-height: 1.95;
+  color: var(--ink);
+}
+
+.worksheet-card {
+  margin: 56px 0 8px;
+  border: 1px solid var(--line);
+  background: var(--sage-tint);
+  padding: 26px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.worksheet-card .wtitle { font-size: 15px; margin-bottom: 4px; }
+.worksheet-card .wnote { font-size: 12.5px; color: var(--ink-soft); }
+.worksheet-card .wbtn {
+  flex-shrink: 0;
+  background: var(--sage);
+  color: #fff;
+  font-size: 13px;
+  padding: 11px 22px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.lesson-nav {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.lesson-nav a:hover { color: var(--accent); }
+.lesson-nav .dir { display: block; font-size: 11px; margin-bottom: 4px; }
+.lesson-nav .next { text-align: right; }
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+/* ---- login gate ---- */
+.gate-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.gate-box {
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+  padding: 48px 36px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.gate-box .brand { justify-content: center; margin-bottom: 22px; font-size: 15px; }
+.gate-box h1 { font-size: 22px; margin: 0 0 12px; }
+.gate-box p { color: var(--ink-soft); font-size: 13.5px; margin: 0 0 28px; line-height: 1.8; }
+.gate-box .wbtn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  padding: 13px 32px;
+  border-radius: 2px;
+  cursor: pointer;
+  border: none;
+}
+.gate-box .wbtn:hover { background: var(--accent-deep); }
+#logoutLink { cursor: pointer; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; padding-top: 56px; }
+  .hero h1 { font-size: 30px; }
+  .chapter-roadmap { grid-template-columns: 1fr; }
+  .lesson-list li { grid-template-columns: 40px 1fr; }
+  .lesson-list .lesson-go { display: none; }
+  .worksheet-card { flex-direction: column; align-items: flex-start; }
+}

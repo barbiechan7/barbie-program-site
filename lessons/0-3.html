@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>この講座で大切にすること｜一生ダイエッター卒業プログラム</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<div class="gate-screen" id="gateScreen">
+  <div class="gate-box">
+    <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
+    <h1>会員限定ページです</h1>
+    <p>登録済みのメールアドレスとパスワードでログインしてください。</p>
+    <button class="wbtn" onclick="netlifyIdentity.open('login')">ログイン</button>
+  </div>
+</div>
+
+<div id="siteContent" style="display:none">
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="brand" href="../index.html">一生ダイエッター<span>卒業プログラム</span></a>
+    <div class="topnav-links">
+      <a href="../index.html">レッスン一覧に戻る</a>
+      <a id="logoutLink" onclick="netlifyIdentity.logout()">ログアウト</a>
+    </div>
+  </div>
+</nav>
+
+<div class="lesson-shell">
+  <div class="lesson-kicker">第0章　はじめに　③</div>
+  <h1>この講座で大切にすること</h1>
+
+  <div class="video-frame">
+    <div>
+      <div class="play"></div>
+      <div class="placeholder-text">動画はこちらに公開されます</div>
+    </div>
+  </div>
+  <p class="video-caption">※ 動画は限定公開のYouTubeリンクに差し替えてください（現在プレースホルダー）</p>
+
+  <div class="article">
+    <p class="lede">この講座には、いくつかの約束があります。難しいことは何もありません。むしろ、これまで自分に課してきたルールを手放すためのものです。</p>
+    
+<h2>6つの約束</h2>
+<p><strong>① 他人と比べません。</strong>他の参加者の進み具合や、体型と、あなた自身を比べる必要はまったくありません。それぞれのペースがあり、それぞれの背景があります。</p>
+<p><strong>② 過去の自分とも、無理に比べません。</strong>「前はもっと頑張れていたのに」というふうに、過去の自分を基準にしすぎると、今の自分を苦しめてしまいます。今日は今日の自分を見ていく。それで十分です。</p>
+<p><strong>③ 完璧を目指しません。</strong>この講座のワークも、生活習慣も、6割から8割できていれば十分です。全部を完璧にこなそうとすると、必ずどこかで疲れてしまいます。</p>
+<p><strong>④ 体重より、感情や状態を優先します。</strong>体重計の数字よりも、「今日はどんな気持ちだったか」「よく眠れているか」ということに、意識を向けていきます。体重は、あくまで結果であって、目的ではありません。</p>
+<p><strong>⑤ 自分のペースを尊重します。</strong>3ヶ月というのは、あくまで目安です。早く進みたい章もあれば、じっくり向き合いたい章もあると思います。どちらも間違いではありません。</p>
+<p><strong>⑥ ここは、ジャッジされない場所です。</strong>どんな感情も、どんな経験も、どんなに小さな一歩も、否定されることはありません。</p>
+
+<h2>迷ったときは</h2>
+<p>もし途中で、「比べてしまっている」「完璧を求めてしまっている」と気づいたときは、この章を、また読み返してみてください。</p>
+
+  </div>
+
+  <div class="worksheet-card">
+    <div>
+      <div class="wtitle">第0章-③ 6つの約束シート</div>
+      <div class="wnote">6つの約束を手元に置いておける、印刷用のシンプルなシートです。</div>
+    </div>
+    <a class="wbtn" href="../worksheets/0-3.pdf">ワークシートDL</a>
+  </div>
+
+  <div class="lesson-nav">
+    <a href="0-2.html"><span class="dir">← 前のレッスン</span>なぜ今までダイエットが苦しかったのか</a>
+    <a href="0-4.html" class="next"><span class="dir">次のレッスン →</span>あなたが頑張らなくていい理由</a>
+  </div>
+</div>
+
+<footer>
+  © 2026 一生ダイエッター卒業プログラム　無断転載・再配布を禁じます。
+</footer>
+
+</div>
+
+<script>
+  function showApp() {
+    document.getElementById('gateScreen').style.display = 'none';
+    document.getElementById('siteContent').style.display = 'block';
+  }
+  function showGate() {
+    document.getElementById('gateScreen').style.display = 'flex';
+    document.getElementById('siteContent').style.display = 'none';
+  }
+  netlifyIdentity.on('init', function(user) { user ? showApp() : showGate(); });
+  netlifyIdentity.on('login', function() { showApp(); netlifyIdentity.close(); });
+  netlifyIdentity.on('logout', showGate);
+  netlifyIdentity.init();
+</script>
+
+</body>
+</html>

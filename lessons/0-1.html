@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>この講座の進め方｜一生ダイエッター卒業プログラム</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<div class="gate-screen" id="gateScreen">
+  <div class="gate-box">
+    <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
+    <h1>会員限定ページです</h1>
+    <p>登録済みのメールアドレスとパスワードでログインしてください。</p>
+    <button class="wbtn" onclick="netlifyIdentity.open('login')">ログイン</button>
+  </div>
+</div>
+
+<div id="siteContent" style="display:none">
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="brand" href="../index.html">一生ダイエッター<span>卒業プログラム</span></a>
+    <div class="topnav-links">
+      <a href="../index.html">レッスン一覧に戻る</a>
+      <a id="logoutLink" onclick="netlifyIdentity.logout()">ログアウト</a>
+    </div>
+  </div>
+</nav>
+
+<div class="lesson-shell">
+  <div class="lesson-kicker">第0章　はじめに　①</div>
+  <h1>この講座の進め方</h1>
+
+  <div class="video-frame">
+    <div>
+      <div class="play"></div>
+      <div class="placeholder-text">動画はこちらに公開されます</div>
+    </div>
+  </div>
+  <p class="video-caption">※ 動画は限定公開のYouTubeリンクに差し替えてください（現在プレースホルダー）</p>
+
+  <div class="article">
+    <p class="lede">「一生ダイエッター卒業プログラム」に参加してくださって、ありがとうございます。ここから3ヶ月間、一緒に進んでいきます。</p>
+    
+<p>最初のこの動画では、この講座をどんなふうに進めていくのか、簡単にご案内していきます。中身に入る前に、ここだけ聞いておいてもらえると、そのあとの3ヶ月がぐっと楽になると思います。</p>
+
+<h2>全8章の全体像</h2>
+<p>この講座は、全部で8つの章に分かれています。第1章は「気づく」、第2章は「整える」、第3章は「手放す」、第4章は「ゆるめる」、第5章は「身体を動かす」、第6章は「満たす」、第7章は「自分を好きになる」、そして最後、第8章が「卒業」です。</p>
+<p>運動や食事の話は、実は講座の真ん中から後半に出てきます。最初の数章は、体のことより先に、心のことに向き合っていきます。これは、この講座がとても大事にしている順番です。</p>
+
+<h2>動画とワークシートの使い方</h2>
+<p>基本的に、各章の動画を順番に見ながら、その章に対応するワークシートに取り組んでいく、という流れになっています。ワークシートは、完璧に、綺麗に書こうとしなくて大丈夫です。テストでも提出物でもありません。あなたが自分自身に気づくための、ただの道具です。</p>
+
+<h2>進めるペースについて</h2>
+<p>決まりはありません。1日1本のペースで進める方もいれば、週末にまとめて見る方もいます。忙しい時期は、少しお休みしても大丈夫です。3ヶ月というのは目安であって、あなたを縛るものではありません。</p>
+
+<h2>サポート体制</h2>
+<p>月に2回のグループZoomセッションと、月1回の個別Zoomセッションを用意しています。それ以外にも、チャットでいつでも質問していただけます。ひとりで抱え込まずに、疑問や不安があれば、いつでも声をかけてくださいね。</p>
+<p>この講座は、「痩せる方法」を教える講座ではありません。「心を整えることで、結果として、自分らしい体と関係が築けるようになる」ことを目指す講座です。体重の増減に一喜一憂するより、自分の心や気持ちの変化に、意識を向けてみてください。</p>
+
+  </div>
+
+  <div class="worksheet-card">
+    <div>
+      <div class="wtitle">第0章-① 進め方チェックシート</div>
+      <div class="wnote">講座の進め方を確認しながら、自分なりのペース目標を書き込めるシートです。</div>
+    </div>
+    <a class="wbtn" href="../worksheets/0-1.pdf">ワークシートDL</a>
+  </div>
+
+  <div class="lesson-nav">
+    <a href="../index.html"><span class="dir">← 戻る</span>トップページ</a>
+    <a href="0-2.html" class="next"><span class="dir">次のレッスン →</span>なぜ今までダイエットが苦しかったのか</a>
+  </div>
+</div>
+
+<footer>
+  © 2026 一生ダイエッター卒業プログラム　無断転載・再配布を禁じます。
+</footer>
+
+</div>
+
+<script>
+  function showApp() {
+    document.getElementById('gateScreen').style.display = 'none';
+    document.getElementById('siteContent').style.display = 'block';
+  }
+  function showGate() {
+    document.getElementById('gateScreen').style.display = 'flex';
+    document.getElementById('siteContent').style.display = 'none';
+  }
+  netlifyIdentity.on('init', function(user) { user ? showApp() : showGate(); });
+  netlifyIdentity.on('login', function() { showApp(); netlifyIdentity.close(); });
+  netlifyIdentity.on('logout', showGate);
+  netlifyIdentity.init();
+</script>
+
+</body>
+</html>

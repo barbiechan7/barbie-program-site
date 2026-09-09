@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一生ダイエッター卒業プログラム｜会員ページ</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<div class="gate-screen" id="gateScreen">
+  <div class="gate-box">
+    <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
+    <h1>会員限定ページです</h1>
+    <p>登録済みのメールアドレスとパスワードでログインしてください。</p>
+    <button class="wbtn" onclick="netlifyIdentity.open('login')">ログイン</button>
+  </div>
+</div>
+
+<div id="siteContent" style="display:none">
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
+    <div class="topnav-links">
+      <a href="#roadmap">全体の流れ</a>
+      <a href="#chapter0">第0章</a>
+      <a id="logoutLink" onclick="netlifyIdentity.logout()">ログアウト</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div>
+    <div class="hero-eyebrow">MEMBER PROGRAM</div>
+    <h1>痩せようとしない、<br>心を整える3ヶ月。</h1>
+    <p>
+      ここは「一生ダイエッター卒業プログラム」の会員ページです。
+      各章の動画・ワークシートは、このページから順番に進めてください。
+      完璧を目指さなくて大丈夫です。自分のペースで進めていきましょう。
+    </p>
+  </div>
+  <div class="hero-mark" aria-hidden="true"></div>
+</header>
+
+<section class="section" id="roadmap">
+  <div class="section-head">
+    <h2>全体の流れ</h2>
+    <span class="note">全8章・第0章「はじめに」を含む全9パート</span>
+  </div>
+  <div class="chapter-roadmap">
+    <a class="cell active" href="#chapter0">
+      <span class="cnum">第0章</span>はじめに
+      <span class="status">全6レッスン・公開中</span>
+    </a>
+    <div class="cell disabled"><span class="cnum">第1章</span>気づく<span class="status">近日公開</span></div>
+    <div class="cell disabled"><span class="cnum">第2章</span>整える<span class="status">近日公開</span></div>
+    <div class="cell disabled"><span class="cnum">第3章</span>手放す<span class="status">近日公開</span></div>
+    <div class="cell disabled"><span class="cnum">第4章</span>ゆるめる<span class="status">近日公開</span></div>
+    <div class="cell disabled"><span class="cnum">第5章</span>身体を動かす<span class="status">近日公開</span></div>
+    <div class="cell disabled"><span class="cnum">第6章</span>満たす<span class="status">近日公開</span></div>
+    <div class="cell disabled"><span class="cnum">第7章</span>自分を好きになる<span class="status">近日公開</span></div>
+    <div class="cell disabled"><span class="cnum">第8章</span>卒業<span class="status">近日公開</span></div>
+  </div>
+</section>
+
+<section class="section" id="chapter0">
+  <div class="section-head">
+    <h2>第0章　はじめに</h2>
+    <span class="note">この講座の進め方</span>
+  </div>
+  <ul class="lesson-list">
+    <li>
+      <a href="lessons/0-1.html" style="display:contents">
+        <span class="lesson-num">01</span>
+        <span class="lesson-title"><span class="kicker">はじめに</span>この講座の進め方</span>
+        <span class="lesson-go">読む</span>
+      </a>
+    </li>
+    <li>
+      <a href="lessons/0-2.html" style="display:contents">
+        <span class="lesson-num">02</span>
+        <span class="lesson-title"><span class="kicker">はじめに</span>なぜ今までダイエットが苦しかったのか</span>
+        <span class="lesson-go">読む</span>
+      </a>
+    </li>
+    <li>
+      <a href="lessons/0-3.html" style="display:contents">
+        <span class="lesson-num">03</span>
+        <span class="lesson-title"><span class="kicker">はじめに</span>この講座で大切にすること</span>
+        <span class="lesson-go">読む</span>
+      </a>
+    </li>
+    <li>
+      <a href="lessons/0-4.html" style="display:contents">
+        <span class="lesson-num">04</span>
+        <span class="lesson-title"><span class="kicker">はじめに</span>あなたが頑張らなくていい理由</span>
+        <span class="lesson-go">読む</span>
+      </a>
+    </li>
+    <li>
+      <a href="lessons/0-5.html" style="display:contents">
+        <span class="lesson-num">05</span>
+        <span class="lesson-title"><span class="kicker">はじめに</span>3ヶ月後の未来設定</span>
+        <span class="lesson-go">読む</span>
+      </a>
+    </li>
+    <li>
+      <a href="lessons/0-6.html" style="display:contents">
+        <span class="lesson-num">06</span>
+        <span class="lesson-title"><span class="kicker">はじめに</span>ダイエットの本当のゴールとは？</span>
+        <span class="lesson-go">読む</span>
+      </a>
+    </li>
+  </ul>
+</section>
+
+<footer>
+  © 2026 一生ダイエッター卒業プログラム　無断転載・再配布を禁じます。
+</footer>
+
+</div>
+
+<script>
+  function showApp() {
+    document.getElementById('gateScreen').style.display = 'none';
+    document.getElementById('siteContent').style.display = 'block';
+  }
+  function showGate() {
+    document.getElementById('gateScreen').style.display = 'flex';
+    document.getElementById('siteContent').style.display = 'none';
+  }
+  netlifyIdentity.on('init', function(user) { user ? showApp() : showGate(); });
+  netlifyIdentity.on('login', function() { showApp(); netlifyIdentity.close(); });
+  netlifyIdentity.on('logout', showGate);
+  netlifyIdentity.init();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>あなたが頑張らなくていい理由｜一生ダイエッター卒業プログラム</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<div class="gate-screen" id="gateScreen">
+  <div class="gate-box">
+    <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
+    <h1>会員限定ページです</h1>
+    <p>登録済みのメールアドレスとパスワードでログインしてください。</p>
+    <button class="wbtn" onclick="netlifyIdentity.open('login')">ログイン</button>
+  </div>
+</div>
+
+<div id="siteContent" style="display:none">
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="brand" href="../index.html">一生ダイエッター<span>卒業プログラム</span></a>
+    <div class="topnav-links">
+      <a href="../index.html">レッスン一覧に戻る</a>
+      <a id="logoutLink" onclick="netlifyIdentity.logout()">ログアウト</a>
+    </div>
+  </div>
+</nav>
+
+<div class="lesson-shell">
+  <div class="lesson-kicker">第0章　はじめに　④</div>
+  <h1>あなたが頑張らなくていい理由</h1>
+
+  <div class="video-frame">
+    <div>
+      <div class="play"></div>
+      <div class="placeholder-text">動画はこちらに公開されます</div>
+    </div>
+  </div>
+  <p class="video-caption">※ 動画は限定公開のYouTubeリンクに差し替えてください（現在プレースホルダー）</p>
+
+  <div class="article">
+    <p class="lede">ダイエット講座なのに、頑張らなくていいって、どういうこと。そう思いますよね。でも、これは、この講座の中でも、特に大切にしたい考え方です。</p>
+    
+<p>まず、はっきりお伝えしたいことがあります。ここまで、あなたは、十分すぎるくらい、頑張ってきました。何度もダイエットに挑戦して、うまくいかなくて、それでも諦めずに、また立ち上がって。それだけ努力してきた人が、「頑張りが足りない」なんてこと、絶対にありません。</p>
+<p>それなのに、なぜ、変わらなかったのか。それは、頑張る方向が、少しズレていたからなんです。</p>
+
+<h2>「頑張る」の意味を変える</h2>
+<p>これまでの「頑張る」は、多くの場合、我慢することや、根性で乗り切ることでした。この講座では、「頑張る」の意味を、少し変えてみたいと思っています。我慢することや根性ではなく、自分を理解すること、そして、心を整えることを、頑張ってみませんか、という提案です。</p>
+
+<h2>頑張らなくても、変化は起きる</h2>
+<p>自分の感情に気づく。無理をしていることに気づく。ゆっくり休む時間を作る。これらは、一見、何もしていないように見えますが、実は、とても大切な取り組みなんです。この講座を通して、無理に頑張らなくても、少しずつ、あなたの中の何かが変わっていきます。</p>
+<p>ですから、この3ヶ月の間、もし「今週は何もできなかった」という週があっても、大丈夫です。休んでいいんです。サボってもいいんです。それでも、この講座から離れずに、また戻ってきてくれれば、それで十分です。</p>
+
+  </div>
+
+  <div class="worksheet-card">
+    <div>
+      <div class="wtitle">第0章-④ 頑張ってきた自分ノート</div>
+      <div class="wnote">これまでの努力を書き出し、認めてあげるためのワークシートです。</div>
+    </div>
+    <a class="wbtn" href="../worksheets/0-4.pdf">ワークシートDL</a>
+  </div>
+
+  <div class="lesson-nav">
+    <a href="0-3.html"><span class="dir">← 前のレッスン</span>この講座で大切にすること</a>
+    <a href="0-5.html" class="next"><span class="dir">次のレッスン →</span>3ヶ月後の未来設定</a>
+  </div>
+</div>
+
+<footer>
+  © 2026 一生ダイエッター卒業プログラム　無断転載・再配布を禁じます。
+</footer>
+
+</div>
+
+<script>
+  function showApp() {
+    document.getElementById('gateScreen').style.display = 'none';
+    document.getElementById('siteContent').style.display = 'block';
+  }
+  function showGate() {
+    document.getElementById('gateScreen').style.display = 'flex';
+    document.getElementById('siteContent').style.display = 'none';
+  }
+  netlifyIdentity.on('init', function(user) { user ? showApp() : showGate(); });
+  netlifyIdentity.on('login', function() { showApp(); netlifyIdentity.close(); });
+  netlifyIdentity.on('logout', showGate);
+  netlifyIdentity.init();
+</script>
+
+</body>
+</html>

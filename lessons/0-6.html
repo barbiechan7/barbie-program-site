@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ダイエットの本当のゴールとは？｜一生ダイエッター卒業プログラム</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<div class="gate-screen" id="gateScreen">
+  <div class="gate-box">
+    <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
+    <h1>会員限定ページです</h1>
+    <p>登録済みのメールアドレスとパスワードでログインしてください。</p>
+    <button class="wbtn" onclick="netlifyIdentity.open('login')">ログイン</button>
+  </div>
+</div>
+
+<div id="siteContent" style="display:none">
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="brand" href="../index.html">一生ダイエッター<span>卒業プログラム</span></a>
+    <div class="topnav-links">
+      <a href="../index.html">レッスン一覧に戻る</a>
+      <a id="logoutLink" onclick="netlifyIdentity.logout()">ログアウト</a>
+    </div>
+  </div>
+</nav>
+
+<div class="lesson-shell">
+  <div class="lesson-kicker">第0章　はじめに　⑥</div>
+  <h1>ダイエットの本当のゴールとは？</h1>
+
+  <div class="video-frame">
+    <div>
+      <div class="play"></div>
+      <div class="placeholder-text">動画はこちらに公開されます</div>
+    </div>
+  </div>
+  <p class="video-caption">※ 動画は限定公開のYouTubeリンクに差し替えてください（現在プレースホルダー）</p>
+
+  <div class="article">
+    <p class="lede">第0章、はじめに、の最後のレッスンです。「ダイエットの本当のゴールとは、何なのか」について、一緒に考えていきます。</p>
+    
+<p>そもそも、痩せることは、ゴールなのでしょうか。私は、そうではないと思っています。痩せることは、ゴールではなく、結果であり、副産物に過ぎません。本当のゴールは、「自分自身との関係を、良くしていくこと」です。</p>
+
+<h2>体を敵にしない</h2>
+<p>私たちは、自分の体に対して、これまでどんな態度を取ってきたでしょうか。太った、痩せたと、一喜一憂する。鏡を見るたびに、粗探しをする。まるで、自分の体を、敵のように扱ってきた人も、多いのではないでしょうか。</p>
+<p>本当に目指したいのは、体重が減った状態ではなく、自分の体と、穏やかな関係を築けている状態です。多少体重が増えても、増えたことに一喜一憂しない。自分を責めるのではなく、「最近、頑張りすぎていたのかな」と、自分を理解しようとする。そんな関係性です。</p>
+
+<h2>自分との関係が良くなると</h2>
+<p>痩せることをゴールにしてしまうと、痩せたあとも、今度は「維持しなきゃ」「もっと痩せなきゃ」という不安に、追われ続けることになります。一方で、自分との関係が良くなることをゴールにすると、体重がどうであれ、心が穏やかでいられます。それこそが、この講座が目指している、本当の意味での「卒業」です。</p>
+
+<h2>第0章のまとめ</h2>
+<p>今まで苦しかったのは、あなたのせいではないこと。比べない、完璧を求めない、体重より心の状態を大切にすること。そして、頑張らなくても、変化は起きるということ。これらすべてが、「自分自身との関係を、良くしていく」という、一つのゴールにつながっています。</p>
+<p>さあ、次はいよいよ第1章「気づく」です。ここからは、あなた自身の内側に、より深く目を向けていきます。ここまで準備してきたあなたなら、きっと大丈夫です。</p>
+
+  </div>
+
+  <div class="worksheet-card">
+    <div>
+      <div class="wtitle">第0章-⑥ 本当のゴール整理シート</div>
+      <div class="wnote">「痩せること」と「本当のゴール」を切り分けて言語化するワークです。</div>
+    </div>
+    <a class="wbtn" href="../worksheets/0-6.pdf">ワークシートDL</a>
+  </div>
+
+  <div class="lesson-nav">
+    <a href="0-5.html"><span class="dir">← 前のレッスン</span>3ヶ月後の未来設定</a>
+    <a href="../index.html" class="next"><span class="dir">戻る →</span>トップページ</a>
+  </div>
+</div>
+
+<footer>
+  © 2026 一生ダイエッター卒業プログラム　無断転載・再配布を禁じます。
+</footer>
+
+</div>
+
+<script>
+  function showApp() {
+    document.getElementById('gateScreen').style.display = 'none';
+    document.getElementById('siteContent').style.display = 'block';
+  }
+  function showGate() {
+    document.getElementById('gateScreen').style.display = 'flex';
+    document.getElementById('siteContent').style.display = 'none';
+  }
+  netlifyIdentity.on('init', function(user) { user ? showApp() : showGate(); });
+  netlifyIdentity.on('login', function() { showApp(); netlifyIdentity.close(); });
+  netlifyIdentity.on('logout', showGate);
+  netlifyIdentity.init();
+</script>
+
+</body>
+</html>

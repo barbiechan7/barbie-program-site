@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3ヶ月後の未来設定｜一生ダイエッター卒業プログラム</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<div class="gate-screen" id="gateScreen">
+  <div class="gate-box">
+    <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
+    <h1>会員限定ページです</h1>
+    <p>登録済みのメールアドレスとパスワードでログインしてください。</p>
+    <button class="wbtn" onclick="netlifyIdentity.open('login')">ログイン</button>
+  </div>
+</div>
+
+<div id="siteContent" style="display:none">
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="brand" href="../index.html">一生ダイエッター<span>卒業プログラム</span></a>
+    <div class="topnav-links">
+      <a href="../index.html">レッスン一覧に戻る</a>
+      <a id="logoutLink" onclick="netlifyIdentity.logout()">ログアウト</a>
+    </div>
+  </div>
+</nav>
+
+<div class="lesson-shell">
+  <div class="lesson-kicker">第0章　はじめに　⑤</div>
+  <h1>3ヶ月後の未来設定</h1>
+
+  <div class="video-frame">
+    <div>
+      <div class="play"></div>
+      <div class="placeholder-text">動画はこちらに公開されます</div>
+    </div>
+  </div>
+  <p class="video-caption">※ 動画は限定公開のYouTubeリンクに差し替えてください（現在プレースホルダー）</p>
+
+  <div class="article">
+    <p class="lede">3ヶ月後、あなたがどんな状態でいたいか、一緒にイメージしていきたいと思います。</p>
+    
+<p>目標を考えるとき、体重や、サイズの数字を、一旦、脇に置いてみてください。「マイナス5キロ」というような目標は、一見わかりやすいのですが、実は、私たちを苦しめやすい目標でもあります。数字はあくまで結果であって、目指すべき本体ではないからです。</p>
+
+<h2>「状態」をイメージする</h2>
+<p>朝、鏡を見たとき、自分にどんな言葉をかけていたいですか。食事のときは、どんな気持ちで食べていたいですか。人と会うとき、どんな自分でいたいですか。</p>
+<p>ここで大事なのは、「痩せている自分」を想像することではなく、「心が整った自分」を想像することです。</p>
+
+<h2>具体的にイメージを膨らませる</h2>
+<p>3ヶ月後、着てみたい服はありますか。行ってみたい場所、会ってみたい人はいますか。取り戻したい自信、そういうものは、ありますか。</p>
+<p>このワークをやってみると、実は、体重が変わらなくても、今すぐ叶えられることが、たくさんあることに気づくと思います。着たい服も、行きたい場所も、会いたい人も、今の体型のままで、始められることが、意外とたくさんあるんです。</p>
+
+  </div>
+
+  <div class="worksheet-card">
+    <div>
+      <div class="wtitle">第0章-⑤ 3ヶ月後の理想の1日ワーク</div>
+      <div class="wnote">朝から夜まで、理想の1日を物語のように書き出すワークシートです。</div>
+    </div>
+    <a class="wbtn" href="../worksheets/0-5.pdf">ワークシートDL</a>
+  </div>
+
+  <div class="lesson-nav">
+    <a href="0-4.html"><span class="dir">← 前のレッスン</span>あなたが頑張らなくていい理由</a>
+    <a href="0-6.html" class="next"><span class="dir">次のレッスン →</span>ダイエットの本当のゴールとは？</a>
+  </div>
+</div>
+
+<footer>
+  © 2026 一生ダイエッター卒業プログラム　無断転載・再配布を禁じます。
+</footer>
+
+</div>
+
+<script>
+  function showApp() {
+    document.getElementById('gateScreen').style.display = 'none';
+    document.getElementById('siteContent').style.display = 'block';
+  }
+  function showGate() {
+    document.getElementById('gateScreen').style.display = 'flex';
+    document.getElementById('siteContent').style.display = 'none';
+  }
+  netlifyIdentity.on('init', function(user) { user ? showApp() : showGate(); });
+  netlifyIdentity.on('login', function() { showApp(); netlifyIdentity.close(); });
+  netlifyIdentity.on('logout', showGate);
+  netlifyIdentity.init();
+</script>
+
+</body>
+</html>
