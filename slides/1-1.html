@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第1章-① 私はなぜ痩せたいのか？｜スライド（仮）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FDF7F8; --paper:#fff; --ink:#2E2226; --ink-soft:#7A6670;
+    --accent:#D6698F; --accent-deep:#A84770; --sage-tint:#F2E9EC;
+    --accent-tint:#FBE6ED; --line:#F0DCE2;
+    --grad:linear-gradient(120deg,#D6698F,#A84770);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:'Noto Sans JP',sans-serif;line-height:1.8;
+    overflow:hidden;-webkit-font-smoothing:antialiased;
+  }
+
+  /* ---- deck ---- */
+  .deck{position:fixed;inset:0}
+  .slide{
+    position:absolute;inset:0;
+    display:none;flex-direction:column;justify-content:center;
+    padding:8vmin 10vmin;
+    opacity:0;transition:opacity .25s ease;
+  }
+  .slide.on{display:flex;opacity:1}
+
+  /* aspect box keeps text sane on wide/tall screens */
+  .slide .inner{max-width:1100px;width:100%;margin:0 auto}
+
+  .eyebrow{
+    color:var(--accent);font-size:clamp(13px,1.6vmin,20px);
+    letter-spacing:.14em;margin-bottom:2.4vmin;font-weight:700;
+  }
+  h1{font-size:clamp(28px,6.2vmin,64px);line-height:1.35;font-weight:700;letter-spacing:.01em}
+  h2{font-size:clamp(24px,5vmin,52px);line-height:1.4;font-weight:700}
+  h2 .accent{color:var(--accent)}
+  .lead{font-size:clamp(17px,2.6vmin,30px);color:var(--ink-soft);margin-top:3vmin;line-height:1.9}
+  .big-q{font-size:clamp(26px,5.6vmin,58px);font-weight:700;line-height:1.5}
+  .note{font-size:clamp(14px,1.9vmin,22px);color:var(--ink-soft);margin-top:3.5vmin}
+
+  ul.points{list-style:none;margin-top:4vmin;display:flex;flex-direction:column;gap:2.2vmin}
+  ul.points li{
+    font-size:clamp(17px,2.7vmin,30px);padding-left:4.2vmin;position:relative;
+  }
+  ul.points li::before{content:"💗";position:absolute;left:0;font-size:.85em}
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:2.4vmin;margin-top:4.5vmin}
+  .cards .c{
+    background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);
+    border-radius:14px;padding:3vmin 3.4vmin;font-size:clamp(15px,2.3vmin,26px);
+  }
+
+  .kv{display:flex;flex-wrap:wrap;gap:1.6vmin 3vmin;margin-top:4vmin}
+  .kv span{
+    background:var(--accent-tint);color:var(--accent-deep);
+    border-radius:999px;padding:1.4vmin 3vmin;font-size:clamp(14px,2vmin,24px);font-weight:500;
+  }
+
+  .work{
+    margin-top:4.5vmin;background:var(--sage-tint);border:1px solid var(--line);
+    border-radius:16px;padding:4vmin 4.4vmin;
+  }
+  .work .wt{font-size:clamp(15px,2vmin,24px);color:var(--accent-deep);font-weight:700;margin-bottom:1.6vmin}
+  .work .wb{font-size:clamp(17px,2.6vmin,30px);font-weight:500}
+
+  .center{text-align:center;align-items:center}
+  .center .inner{display:flex;flex-direction:column;align-items:center}
+
+  /* ---- chrome ---- */
+  .bar{
+    position:fixed;left:0;right:0;bottom:0;height:5px;background:var(--sage-tint);
+  }
+  .bar > i{display:block;height:100%;background:var(--grad);width:0;transition:width .25s}
+  .counter{
+    position:fixed;right:2.4vmin;bottom:2.4vmin;font-size:13px;color:var(--ink-soft);
+    background:rgba(255,255,255,.7);border-radius:999px;padding:5px 12px;font-variant-numeric:tabular-nums;
+  }
+  .hint{
+    position:fixed;left:2.4vmin;bottom:2.4vmin;font-size:12px;color:var(--ink-soft);opacity:.7;
+  }
+  @media (max-width:600px){
+    .cards{grid-template-columns:1fr}
+    .slide{padding:9vmin 7vmin}
+  }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+  <!-- 1 -->
+  <section class="slide center">
+    <div class="inner">
+      <div class="eyebrow">一生ダイエッター卒業プログラム ／ 第1章「気づく」</div>
+      <h1>①　私はなぜ<br>痩せたいのか？</h1>
+      <div class="note">— 痩せようとしない、心を整える 3ヶ月 —</div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="slide center">
+    <div class="inner">
+      <h2>この章が、<span class="accent">いちばん大事</span>です</h2>
+      <div class="lead">ここでの「気づき」がないと、<br>この先どんなワークも、表面的なテクニックで終わってしまう。</div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="slide center">
+    <div class="inner">
+      <div class="eyebrow">最初の質問</div>
+      <div class="big-q">なぜ、あなたは<br>痩せたいんですか？</div>
+      <div class="note">……パッと答えられましたか？　それとも、少し詰まりましたか？</div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="slide">
+    <div class="inner">
+      <h2>「見た目のため」「健康のため」</h2>
+      <div class="lead">— その言葉の<span style="color:var(--accent);font-weight:700">奥</span>に、<br>もっと別の理由が隠れていることが、とても多い。</div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="slide">
+    <div class="inner">
+      <div class="eyebrow">私自身の話</div>
+      <h2>やってきたのに、<br>続かなかった</h2>
+      <div class="kv">
+        <span>ダイエットに300万円以上</span>
+        <span>ライザップ</span>
+        <span>マインドコーチング 3ヶ月 30万円</span>
+        <span>何度もリバウンド</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="slide center">
+    <div class="inner">
+      <h2>ゴールが曖昧なまま走ると、<br>人は必ず<span class="accent">息切れ</span>する</h2>
+      <div class="lead">「痩せること」がゴールになっていて、<br>痩せたら本当は何が欲しいのか、が曖昧だった。</div>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="slide">
+    <div class="inner">
+      <h2>「痩せたい」の裏に<br>隠れているもの</h2>
+      <div class="cards">
+        <div class="c">好きな服が着たい</div>
+        <div class="c">人と比べて、落ち込みたくない</div>
+        <div class="c">太っている自分を見られたくない</div>
+        <div class="c">「痩せたら、もっと愛される」</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section class="slide center">
+    <div class="inner">
+      <h2>どれも、<br><span class="accent">「今の自分」を否定する</span><br>ところから始まっている</h2>
+    </div>
+  </section>
+
+  <!-- 9 -->
+  <section class="slide center">
+    <div class="inner">
+      <div class="eyebrow">今日いちばん伝えたいこと</div>
+      <h2>太ることは、<br>自分自身を守るための<br><span class="accent">無意識の行動</span></h2>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section class="slide">
+    <div class="inner">
+      <h2>こんなとき、<br>食べることで安心を得ようとする</h2>
+      <ul class="points">
+        <li>仕事で頑張りすぎて、心に余裕がない</li>
+        <li>子育てに追われて、自分の時間が取れない</li>
+        <li>ストレスを、誰にも相談できず抱え込んでいる</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 11 -->
+  <section class="slide center">
+    <div class="inner">
+      <h2>痩せられないのは、<br><span class="accent">意志が弱いから</span>じゃない</h2>
+      <div class="lead">あなたの心が、今、そうせざるを得ない状態にある。<br>ただ、それだけ。</div>
+    </div>
+  </section>
+
+  <!-- 12 -->
+  <section class="slide center">
+    <div class="inner">
+      <div class="eyebrow">心に留めておいてほしいこと</div>
+      <h2>「痩せないと愛されない」は、<br><span class="accent">思い込み</span></h2>
+      <div class="note">あなたは今のままでも、愛される価値がある人です。<br>（次の動画で、詳しくお話しします）</div>
+    </div>
+  </section>
+
+  <!-- 13 -->
+  <section class="slide">
+    <div class="inner">
+      <div class="eyebrow">3つの問い　— 今日は答えを出さなくて大丈夫 —</div>
+      <ul class="points">
+        <li>最後に「痩せたい」と強く思ったのは、いつ？ きっかけは？</li>
+        <li>もし痩せられたら、具体的に何が変わると思う？</li>
+        <li>今の体型のままでも、できることは何だろう？</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 14 -->
+  <section class="slide center">
+    <div class="inner">
+      <div class="eyebrow">まとめ</div>
+      <h2>「痩せたい」の奥には、<br>必ず、あなたの<span class="accent">感情</span>がある</h2>
+      <div class="lead">それに気づくことが、<br>頑張らなくても変わっていく、最初のステップ。</div>
+    </div>
+  </section>
+
+  <!-- 15 -->
+  <section class="slide">
+    <div class="inner">
+      <div class="work">
+        <div class="wt">💗 今日のワーク（自己理解ワークシート ①）</div>
+        <div class="wb">「なぜ私は痩せたいのか」を、<br>きれいな言葉にしようとせず、<br>本音のまま書き出してみてください。</div>
+      </div>
+      <div class="note">支離滅裂でも大丈夫。「あ、私、本当はこう思っていたんだ」— そんな発見が、第一歩です。</div>
+    </div>
+  </section>
+
+  <!-- 16 -->
+  <section class="slide center">
+    <div class="inner">
+      <div class="eyebrow">次回</div>
+      <h2>② 食べることで<br>埋めている感情</h2>
+      <div class="note">太ることで自分を守っている心理を、さらに深く見ていきます。</div>
+    </div>
+  </section>
+
+  <!-- 17 -->
+  <section class="slide center">
+    <div class="inner">
+      <h1>それでは、<br>また次の動画で。</h1>
+    </div>
+  </section>
+
+</div>
+
+<div class="bar"><i id="bar"></i></div>
+<div class="counter" id="counter">1 / 17</div>
+<div class="hint">← → / スペース：めくる　　F：全画面</div>
+
+<script>
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var i = 0;
+  function show(n){
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function(s, idx){ s.classList.toggle('on', idx === i); });
+    document.getElementById('counter').textContent = (i + 1) + ' / ' + slides.length;
+    document.getElementById('bar').style.width = ((i) / (slides.length - 1) * 100) + '%';
+    location.hash = i + 1;
+  }
+  function next(){ show(i + 1); }
+  function prev(){ show(i - 1); }
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') show(0);
+    else if (e.key === 'End') show(slides.length - 1);
+    else if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+  // tap right / left half on touch
+  document.addEventListener('click', function(e){
+    if (e.target.closest('a')) return;
+    (e.clientX > window.innerWidth / 2) ? next() : prev();
+  });
+
+  var start = parseInt((location.hash || '#1').slice(1), 10);
+  show(isNaN(start) ? 0 : start - 1);
+</script>
+</body>
+</html>
