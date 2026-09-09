@@ -259,12 +259,56 @@
     paint();
   }
 
+  /* ---------- ワークブック：記入欄の自動保存 ---------- */
+  function initWorkbook() {
+    var tas = document.querySelectorAll("textarea[data-wb]");
+    if (!tas.length) return;
+    var cache = {};
+    function key(id) {
+      return "bp:wb:" + id;
+    }
+    function load(id) {
+      if (cache[id]) return cache[id];
+      try {
+        cache[id] = JSON.parse(localStorage.getItem(key(id)) || "{}") || {};
+      } catch (e) {
+        cache[id] = {};
+      }
+      return cache[id];
+    }
+    tas.forEach(function (ta) {
+      var id = ta.getAttribute("data-wb");
+      var wf = ta.getAttribute("data-wf");
+      var data = load(id);
+      if (data[wf] != null) ta.value = data[wf];
+      var timer;
+      ta.addEventListener("input", function () {
+        var d = load(id);
+        d[wf] = ta.value;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          try {
+            localStorage.setItem(key(id), JSON.stringify(d));
+          } catch (e) {}
+          var s = document.querySelector('[data-wb-saved="' + id + '"]');
+          if (s) {
+            s.textContent = "✓ 保存しました";
+            setTimeout(function () {
+              s.textContent = "";
+            }, 1600);
+          }
+        }, 400);
+      });
+    });
+  }
+
   /* ---------- 起動 ---------- */
   function boot() {
     initSidebar();
     initAccordion();
     renderDashboard();
     initLessonPage();
+    initWorkbook();
   }
   if (document.readyState === "loading")
     document.addEventListener("DOMContentLoaded", boot);

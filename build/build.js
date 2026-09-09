@@ -7,6 +7,7 @@
 const fs = require("fs");
 const path = require("path");
 const COURSE = require("./course-data.js");
+const WS = require("./worksheets-data.js");
 
 const ROOT = path.join(__dirname, "..");
 const LESSONS_DIR = path.join(ROOT, "lessons");
@@ -65,6 +66,7 @@ function sidebar(prefix, activeKey) {
     <div class="side-group">メイン</div>
     <a class="side-link${activeKey === "home" ? " active" : ""}" href="${prefix}index.html"><span class="ic">💗</span>ホーム</a>
     <a class="side-link${activeKey === "content" ? " active" : ""}" href="${prefix}index.html#dashboard"><span class="ic">💗</span>学習コンテンツ</a>
+    <a class="side-link${activeKey === "workbook" ? " active" : ""}" href="${prefix}workbook.html"><span class="ic">💗</span>ワークブック</a>
 
     <div class="side-group">全9パート</div>
 ${chapterLinks}
@@ -217,13 +219,13 @@ function buildLesson(idx) {
 
   const ws = ls.worksheet
     ? `
-  <div class="worksheet-card">
+  <a class="worksheet-card" href="../workbook.html#wb-${id}">
     <div>
-      <div class="wtitle">${ls.worksheet.title}</div>
+      <div class="wtitle">💗 ${ls.worksheet.title}</div>
       <div class="wnote">${ls.worksheet.note}</div>
     </div>
-    <a class="wbtn" href="../worksheets/${id}.pdf">ワークシートDL</a>
-  </div>
+    <span class="wbtn">ワークを開く →</span>
+  </a>
 `
     : "";
 
@@ -290,9 +292,93 @@ ${ws}
   );
 }
 
+/* ---- workbook.html（ワークシート一括ページ） ---- */
+function buildWorkbook() {
+  const esc = (s) =>
+    String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+  const chapterBlocks = COURSE.chapters
+    .map((ch) => {
+      const cards = ch.lessons
+        .filter((ls) => ls.worksheet && WS[ch.n + "-" + ls.n])
+        .map((ls) => {
+          const id = ch.n + "-" + ls.n;
+          const w = WS[id];
+          const fields = w.fields
+            .map((f, i) => {
+              const rows = f.rows || 2;
+              return `        <label class="wb-field">
+          <span class="wb-flabel">${esc(f.label)}</span>
+          <textarea rows="${rows}" data-wb="${id}" data-wf="${i}" placeholder="ここに書いてみましょう"></textarea>
+        </label>`;
+            })
+            .join("\n");
+          return `      <article class="wb-card" id="wb-${id}">
+        <div class="wb-head">
+          <span class="wb-badge">第${ch.n}章 ${ls.mark}</span>
+          <h3 class="wb-title">💗 ${esc(ls.worksheet.title)}</h3>
+        </div>
+        <p class="wb-intro">${esc(w.intro)}</p>
+${fields}
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/${id}.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="${id}"></span>
+        </div>
+      </article>`;
+        })
+        .join("\n");
+      if (!cards) return "";
+      return `  <section class="wb-chapter" id="wbch-${ch.n}">
+    <h2 class="wb-chapter-title"><span class="wb-chapter-num">第${ch.n}章</span>${ch.title}<span class="wb-chapter-sub">${ch.subtitle}</span></h2>
+${cards}
+  </section>`;
+    })
+    .filter(Boolean)
+    .join("\n\n");
+
+  const toc = COURSE.chapters
+    .map(
+      (ch) =>
+        `<a href="#wbch-${ch.n}">第${ch.n}章 ${ch.title}</a>`
+    )
+    .join("");
+
+  return (
+    head("ワークブック｜一生ダイエッター卒業プログラム", "style.css") +
+    `
+<div id="siteContent" style="display:none">
+<div class="app">
+${mobilebar()}
+${sidebar("", "workbook")}
+
+<main class="main">
+  <div class="course-head wb-hero">
+    <h1>💗 ワークブック</h1>
+    <p>各章のワークを、このページにまとめています。書き込んだ内容は、この端末のブラウザに自動保存されます（他の端末とは同期されません）。印刷して手書きで取り組んでも大丈夫です。</p>
+    <div class="wb-toolbar">
+      <button class="wb-print" type="button" onclick="window.print()">🖨 印刷する</button>
+      <span class="wb-autosave-note">入力すると自動保存されます</span>
+    </div>
+    <nav class="wb-toc">${toc}</nav>
+  </div>
+
+${chapterBlocks}
+
+</main>
+</div>
+</div>
+
+` +
+    footScripts()
+  );
+}
+
 /* ---- 実行 ---- */
 fs.writeFileSync(path.join(ROOT, "index.html"), buildIndex());
 console.log("✓ index.html");
+
+fs.writeFileSync(path.join(ROOT, "workbook.html"), buildWorkbook());
+console.log("✓ workbook.html");
 
 if (!fs.existsSync(LESSONS_DIR)) fs.mkdirSync(LESSONS_DIR);
 FLAT.forEach((_, i) => {
@@ -301,4 +387,4 @@ FLAT.forEach((_, i) => {
   console.log("✓ lessons/" + id + ".html");
 });
 
-console.log("\n完了：" + FLAT.length + " レッスン + index.html を生成しました。");
+console.log("\n完了：" + FLAT.length + " レッスン + index.html + workbook.html を生成しました。");

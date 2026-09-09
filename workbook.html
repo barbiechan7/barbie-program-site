@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ワークブック｜一生ダイエッター卒業プログラム</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<div class="gate-screen" id="gateScreen">
+  <div class="gate-box">
+    <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
+    <h1>会員限定ページです</h1>
+    <p>登録済みのメールアドレスとパスワードでログインしてください。</p>
+    <button class="wbtn" onclick="bpLogin()">ログイン</button>
+  </div>
+</div>
+
+<div id="siteContent" style="display:none">
+<div class="app">
+<div class="mobilebar">
+  <button class="hamb" id="hamb" aria-label="メニュー">☰</button>
+  <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
+  <span style="width:38px"></span>
+</div>
+<div class="scrim" id="scrim"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="index.html">一生ダイエッター<span>卒業プログラム</span></a>
+
+  <nav class="side-nav">
+    <div class="side-group">メイン</div>
+    <a class="side-link" href="index.html"><span class="ic">💗</span>ホーム</a>
+    <a class="side-link" href="index.html#dashboard"><span class="ic">💗</span>学習コンテンツ</a>
+    <a class="side-link active" href="workbook.html"><span class="ic">💗</span>ワークブック</a>
+
+    <div class="side-group">全9パート</div>
+      <a class="side-link" href="index.html#ch0"><span class="ic">💗</span>第0章　はじめに</a>
+      <a class="side-link" href="index.html#ch1"><span class="ic">💗</span>第1章　気づく</a>
+      <a class="side-link" href="index.html#ch2"><span class="ic">💗</span>第2章　整える</a>
+      <a class="side-link" href="index.html#ch3"><span class="ic">💗</span>第3章　手放す</a>
+      <a class="side-link" href="index.html#ch4"><span class="ic">💗</span>第4章　ゆるめる</a>
+      <a class="side-link" href="index.html#ch5"><span class="ic">💗</span>第5章　身体を動かす</a>
+      <a class="side-link" href="index.html#ch6"><span class="ic">💗</span>第6章　満たす</a>
+      <a class="side-link" href="index.html#ch7"><span class="ic">💗</span>第7章　自分を好きになる</a>
+  </nav>
+
+  <div class="sidebar-foot">
+    <a href="index.html">レッスン一覧に戻る</a>
+    <a onclick="bpLogout()">ログアウト</a>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="course-head wb-hero">
+    <h1>💗 ワークブック</h1>
+    <p>各章のワークを、このページにまとめています。書き込んだ内容は、この端末のブラウザに自動保存されます（他の端末とは同期されません）。印刷して手書きで取り組んでも大丈夫です。</p>
+    <div class="wb-toolbar">
+      <button class="wb-print" type="button" onclick="window.print()">🖨 印刷する</button>
+      <span class="wb-autosave-note">入力すると自動保存されます</span>
+    </div>
+    <nav class="wb-toc"><a href="#wbch-0">第0章 はじめに</a><a href="#wbch-1">第1章 気づく</a><a href="#wbch-2">第2章 整える</a><a href="#wbch-3">第3章 手放す</a><a href="#wbch-4">第4章 ゆるめる</a><a href="#wbch-5">第5章 身体を動かす</a><a href="#wbch-6">第6章 満たす</a><a href="#wbch-7">第7章 自分を好きになる</a></nav>
+  </div>
+
+  <section class="wb-chapter" id="wbch-0">
+    <h2 class="wb-chapter-title"><span class="wb-chapter-num">第0章</span>はじめに<span class="wb-chapter-sub">この講座の進め方</span></h2>
+      <article class="wb-card" id="wb-0-1">
+        <div class="wb-head">
+          <span class="wb-badge">第0章 ①</span>
+          <h3 class="wb-title">💗 第0章-① 進め方チェックシート</h3>
+        </div>
+        <p class="wb-intro">講座の進め方を確認しながら、自分に合ったペースを決めるシートです。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">私の学習ペース目標（例：週に2本ずつ）</span>
+          <textarea rows="2" data-wb="0-1" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">特に、じっくり向き合いたい章はどこ？</span>
+          <textarea rows="2" data-wb="0-1" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">3ヶ月後、どんな自分でいたい？（体重ではなく状態で）</span>
+          <textarea rows="3" data-wb="0-1" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/0-1.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="0-1"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-0-2">
+        <div class="wb-head">
+          <span class="wb-badge">第0章 ②</span>
+          <h3 class="wb-title">💗 第0章-② 苦しさの原因チェックシート</h3>
+        </div>
+        <p class="wb-intro">過去のダイエットが苦しかった原因を、3つの視点から振り返ります。責めるためではなく、理解するために書いてみてください。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">① 極端な制限で苦しかった経験</span>
+          <textarea rows="3" data-wb="0-2" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">② 誰か・過去の自分と比べて苦しかった経験</span>
+          <textarea rows="3" data-wb="0-2" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">③ 完璧を求めすぎて、一度の失敗で投げ出した経験</span>
+          <textarea rows="3" data-wb="0-2" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/0-2.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="0-2"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-0-3">
+        <div class="wb-head">
+          <span class="wb-badge">第0章 ③</span>
+          <h3 class="wb-title">💗 第0章-③ 6つの約束シート</h3>
+        </div>
+        <p class="wb-intro">6つの約束のうち、今の自分にとって守りにくそうなものを見つけておきましょう。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">今、いちばん守りにくそうな約束は？</span>
+          <textarea rows="2" data-wb="0-3" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">それはなぜ？</span>
+          <textarea rows="3" data-wb="0-3" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">迷ったとき、自分にかけたい言葉</span>
+          <textarea rows="2" data-wb="0-3" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/0-3.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="0-3"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-0-4">
+        <div class="wb-head">
+          <span class="wb-badge">第0章 ④</span>
+          <h3 class="wb-title">💗 第0章-④ 頑張ってきた自分ノート</h3>
+        </div>
+        <p class="wb-intro">これまでの努力を書き出して、頑張ってきた自分を認めてあげるワークです。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">これまで挑戦してきたダイエット（覚えている範囲で）</span>
+          <textarea rows="4" data-wb="0-4" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">その時、どれくらい頑張った？</span>
+          <textarea rows="3" data-wb="0-4" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">ここまで頑張ってきた自分に、かけてあげたい言葉</span>
+          <textarea rows="3" data-wb="0-4" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/0-4.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="0-4"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-0-5">
+        <div class="wb-head">
+          <span class="wb-badge">第0章 ⑤</span>
+          <h3 class="wb-title">💗 第0章-⑤ 3ヶ月後の理想の1日ワーク</h3>
+        </div>
+        <p class="wb-intro">3ヶ月後の「理想の1日」を、朝から夜まで物語のように書いてみましょう。体重の数字は書きません。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">朝、目が覚めてから</span>
+          <textarea rows="3" data-wb="0-5" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">日中（仕事・家事・過ごし方）</span>
+          <textarea rows="3" data-wb="0-5" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">食事のとき、どんな気持ちで食べている？</span>
+          <textarea rows="3" data-wb="0-5" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">夜、一日を終えるとき</span>
+          <textarea rows="3" data-wb="0-5" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">その1日を通して、心はどんな状態？</span>
+          <textarea rows="2" data-wb="0-5" data-wf="4" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/0-5.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="0-5"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-0-6">
+        <div class="wb-head">
+          <span class="wb-badge">第0章 ⑥</span>
+          <h3 class="wb-title">💗 第0章-⑥ 本当のゴール整理シート</h3>
+        </div>
+        <p class="wb-intro">「痩せること」と「本当のゴール」を切り分けて言葉にします。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">私がこれまで“ゴール”にしていたこと</span>
+          <textarea rows="3" data-wb="0-6" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">本当のゴール（自分自身との関係をどうしたい？）</span>
+          <textarea rows="3" data-wb="0-6" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">そのために、今日からできる小さなこと</span>
+          <textarea rows="2" data-wb="0-6" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/0-6.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="0-6"></span>
+        </div>
+      </article>
+  </section>
+
+  <section class="wb-chapter" id="wbch-1">
+    <h2 class="wb-chapter-title"><span class="wb-chapter-num">第1章</span>気づく<span class="wb-chapter-sub">私はなぜ痩せたいのか？</span></h2>
+      <article class="wb-card" id="wb-1-1">
+        <div class="wb-head">
+          <span class="wb-badge">第1章 ①</span>
+          <h3 class="wb-title">💗 第1章-① 自己理解ワークシート</h3>
+        </div>
+        <p class="wb-intro">「なぜ私は痩せたいのか」を、きれいな言葉にしようとせず、本音のまま書き出します。支離滅裂でも大丈夫です。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">なぜ私は痩せたいのか（思いつくまま、たくさん）</span>
+          <textarea rows="5" data-wb="1-1" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">最後に強く「痩せたい」と思ったのはいつ？ きっかけは？</span>
+          <textarea rows="3" data-wb="1-1" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">もし痩せられたら、具体的に何が変わると思う？</span>
+          <textarea rows="3" data-wb="1-1" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">今の体型のままでも、できることは？</span>
+          <textarea rows="3" data-wb="1-1" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/1-1.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="1-1"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-1-2">
+        <div class="wb-head">
+          <span class="wb-badge">第1章 ②</span>
+          <h3 class="wb-title">💗 第1章-② 食べたくなった瞬間ワーク</h3>
+        </div>
+        <p class="wb-intro">「最近、なぜか食べたくなった瞬間」を一つ思い出して、そのときの心を見てみます。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">最近、特に空腹ではないのに食べたくなった瞬間</span>
+          <textarea rows="3" data-wb="1-2" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">そのとき、どんな気持ちだった？（寂しい・疲れた・など）</span>
+          <textarea rows="3" data-wb="1-2" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">本当は、心の何を満たしたかったんだと思う？</span>
+          <textarea rows="3" data-wb="1-2" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/1-2.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="1-2"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-1-3">
+        <div class="wb-head">
+          <span class="wb-badge">第1章 ③</span>
+          <h3 class="wb-title">💗 第1章-③ 思い込みの棚おろしワーク</h3>
+        </div>
+        <p class="wb-intro">「痩せないと愛されない」と感じた経験を、出来事と気持ちに分けて書き出します。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">「痩せないと愛されない」と感じた出来事</span>
+          <textarea rows="3" data-wb="1-3" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">誰に、どんな言葉を言われた？</span>
+          <textarea rows="3" data-wb="1-3" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">そのときの気持ち</span>
+          <textarea rows="3" data-wb="1-3" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">書いてみて気づいたこと（これは“事実”？ それとも“思い込み”？）</span>
+          <textarea rows="2" data-wb="1-3" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/1-3.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="1-3"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-1-4">
+        <div class="wb-head">
+          <span class="wb-badge">第1章 ④</span>
+          <h3 class="wb-title">💗 第1章-④ 思考チェック記録シート</h3>
+        </div>
+        <p class="wb-intro">一生ダイエッター思考チェックの結果と、当てはまった項目のエピソードをメモします。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">「はい」はいくつあった？</span>
+          <textarea rows="1" data-wb="1-4" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">特に当てはまった項目と、そう思う具体的なエピソード</span>
+          <textarea rows="5" data-wb="1-4" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">3ヶ月後、この数がいくつになっていたい？</span>
+          <textarea rows="1" data-wb="1-4" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/1-4.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="1-4"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-1-5">
+        <div class="wb-head">
+          <span class="wb-badge">第1章 ⑤</span>
+          <h3 class="wb-title">💗 第1章-⑤ 現在の自分ワークシート</h3>
+        </div>
+        <p class="wb-intro">「今の自分」を、良い悪いのジャッジをせず、ただ観察して書きます。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">仕事・家事・育児にどれくらいの時間とエネルギーを使っている？ 自分の時間は？</span>
+          <textarea rows="3" data-wb="1-5" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">人間関係は心地よい？ 我慢していることは？</span>
+          <textarea rows="3" data-wb="1-5" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">心と体の状態（睡眠・疲れ・イライラ・不安）</span>
+          <textarea rows="3" data-wb="1-5" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">大切な友人にこの生活を聞いたら、どんな言葉をかける？（それを自分にも）</span>
+          <textarea rows="3" data-wb="1-5" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/1-5.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="1-5"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-1-6">
+        <div class="wb-head">
+          <span class="wb-badge">第1章 ⑥</span>
+          <h3 class="wb-title">💗 第1章-⑥ 過去のふり返りワークシート</h3>
+        </div>
+        <p class="wb-intro">これまでの歩みを振り返って、「なるほど、だから今こうなっているんだ」と点と点をつなげます。つらすぎる場合は無理をしないでください。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">体型を意識し始めた時期と、きっかけ</span>
+          <textarea rows="3" data-wb="1-6" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">これまで試したダイエット経験（うまくいった／つらかった）</span>
+          <textarea rows="4" data-wb="1-6" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">リバウンドの経験と、そのときの気持ち</span>
+          <textarea rows="3" data-wb="1-6" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">家族や育った環境からの影響（食事・体型の会話など）</span>
+          <textarea rows="3" data-wb="1-6" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/1-6.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="1-6"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-1-7">
+        <div class="wb-head">
+          <span class="wb-badge">第1章 ⑦</span>
+          <h3 class="wb-title">💗 第1章-⑦ 感情日記フォーマット</h3>
+        </div>
+        <p class="wb-intro">感情と食べ方をセットで記録する「感情日記」です。今日から毎日、1日3行くらいで続けてみてください。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">日付</span>
+          <textarea rows="1" data-wb="1-7" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">今日感じた感情</span>
+          <textarea rows="2" data-wb="1-7" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">食べたもの／食べたいと思った瞬間</span>
+          <textarea rows="2" data-wb="1-7" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">続けて気づいてきた「自分のパターン」</span>
+          <textarea rows="3" data-wb="1-7" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/1-7.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="1-7"></span>
+        </div>
+      </article>
+  </section>
+
+  <section class="wb-chapter" id="wbch-2">
+    <h2 class="wb-chapter-title"><span class="wb-chapter-num">第2章</span>整える<span class="wb-chapter-sub">食べ物ではなく、心を整える</span></h2>
+      <article class="wb-card" id="wb-2-1">
+        <div class="wb-head">
+          <span class="wb-badge">第2章 ①</span>
+          <h3 class="wb-title">💗 第2章-① 安心不足マップ</h3>
+        </div>
+        <p class="wb-intro">「安心が足りない」と感じる場面と、そのとき食べたものを並べて、パターンを見つけます。3つで十分です。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">安心が足りないと感じる場面 ①</span>
+          <textarea rows="2" data-wb="2-1" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">そのとき食べたもの ①</span>
+          <textarea rows="1" data-wb="2-1" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">安心が足りないと感じる場面 ②</span>
+          <textarea rows="2" data-wb="2-1" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">そのとき食べたもの ②</span>
+          <textarea rows="1" data-wb="2-1" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">安心が足りないと感じる場面 ③</span>
+          <textarea rows="2" data-wb="2-1" data-wf="4" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">そのとき食べたもの ③</span>
+          <textarea rows="1" data-wb="2-1" data-wf="5" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/2-1.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="2-1"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-2-2">
+        <div class="wb-head">
+          <span class="wb-badge">第2章 ②</span>
+          <h3 class="wb-title">💗 第2章-② ストレスと食欲の記録シート</h3>
+        </div>
+        <p class="wb-intro">今週ストレスを感じた場面を3つ書き、そのとき食欲がどう変化したかをメモします。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">ストレスを感じた場面 ① / 食欲はどうなった？</span>
+          <textarea rows="2" data-wb="2-2" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">ストレスを感じた場面 ② / 食欲はどうなった？</span>
+          <textarea rows="2" data-wb="2-2" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">ストレスを感じた場面 ③ / 食欲はどうなった？</span>
+          <textarea rows="2" data-wb="2-2" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">気づいたこと（食欲が増える日も減る日も、あなたのせいではない）</span>
+          <textarea rows="2" data-wb="2-2" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/2-2.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="2-2"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-2-3">
+        <div class="wb-head">
+          <span class="wb-badge">第2章 ③</span>
+          <h3 class="wb-title">💗 第2章-③ 人間関係の棚おろしワーク</h3>
+        </div>
+        <p class="wb-intro">あなたを元気にしてくれる人と、消耗させる人を書き出します。人を悪者にするのではなく、心の安全地帯を広げるためのワークです。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">あなたを元気にしてくれる人（3人）</span>
+          <textarea rows="3" data-wb="2-3" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">あなたを消耗させる人（3人）</span>
+          <textarea rows="3" data-wb="2-3" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">今日、引いてみたい小さな境界線を一つ</span>
+          <textarea rows="2" data-wb="2-3" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/2-3.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="2-3"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-2-4">
+        <div class="wb-head">
+          <span class="wb-badge">第2章 ④</span>
+          <h3 class="wb-title">💗 第2章-④ 心が整うリスト</h3>
+        </div>
+        <p class="wb-intro">「食べる以外で、心が落ち着くこと」を書き出して、自分だけの「心が整うリスト」を作ります。思い浮かばなければ「試してみたいこと」でOKです。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">食べる以外で、心が落ち着くこと ①②③</span>
+          <textarea rows="3" data-wb="2-4" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">今週、一度だけ試してみたいこと</span>
+          <textarea rows="2" data-wb="2-4" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">試した感想（うまくいかなくても、試した自分を認めて）</span>
+          <textarea rows="2" data-wb="2-4" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/2-4.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="2-4"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-2-5">
+        <div class="wb-head">
+          <span class="wb-badge">第2章 ⑤</span>
+          <h3 class="wb-title">💗 第2章-⑤ 不安の裏の本音ワーク</h3>
+        </div>
+        <p class="wb-intro">「今、不安に感じていること」を3つ書き、それぞれの裏にある本音を考えます。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">今、不安に感じていること ① / その裏にある本音</span>
+          <textarea rows="2" data-wb="2-5" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">今、不安に感じていること ② / その裏にある本音</span>
+          <textarea rows="2" data-wb="2-5" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">今、不安に感じていること ③ / その裏にある本音</span>
+          <textarea rows="2" data-wb="2-5" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">不安を感じたとき、今できる小さなこと</span>
+          <textarea rows="2" data-wb="2-5" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/2-5.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="2-5"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-2-6">
+        <div class="wb-head">
+          <span class="wb-badge">第2章 ⑥</span>
+          <h3 class="wb-title">💗 第2章-⑥ 言い換えワーク</h3>
+        </div>
+        <p class="wb-intro">「痩せなきゃ」を「整えたい」に言い換える練習です。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">私の口ぐせ「痩せなきゃ」（どんな場面で出てくる？）</span>
+          <textarea rows="3" data-wb="2-6" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">「整えたい」に言い換えると？</span>
+          <textarea rows="3" data-wb="2-6" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">体重以外で気づいた、今週の小さな前進</span>
+          <textarea rows="2" data-wb="2-6" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/2-6.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="2-6"></span>
+        </div>
+      </article>
+  </section>
+
+  <section class="wb-chapter" id="wbch-3">
+    <h2 class="wb-chapter-title"><span class="wb-chapter-num">第3章</span>手放す<span class="wb-chapter-sub">ダイエット思考を卒業する</span></h2>
+      <article class="wb-card" id="wb-3-1">
+        <div class="wb-head">
+          <span class="wb-badge">第3章 ①</span>
+          <h3 class="wb-title">💗 第3章-① 比較の棚おろしワーク</h3>
+        </div>
+        <p class="wb-intro">今週、自分を落ち込ませた「比較」を3つ書き出します。誰と、何を比べたか。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">比較 ①（誰と・何を）</span>
+          <textarea rows="2" data-wb="3-1" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">比較 ②（誰と・何を）</span>
+          <textarea rows="2" data-wb="3-1" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">比較 ③（誰と・何を）</span>
+          <textarea rows="2" data-wb="3-1" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">「比較しなかった瞬間」も一つ探してみる</span>
+          <textarea rows="2" data-wb="3-1" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/3-1.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="3-1"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-3-2">
+        <div class="wb-head">
+          <span class="wb-badge">第3章 ②</span>
+          <h3 class="wb-title">💗 第3章-② 普通に食べていた記憶ワーク</h3>
+        </div>
+        <p class="wb-intro">子どもの頃、罪悪感なく食べていた記憶を思い出します。それが「普通に食べる感覚」のヒントになります。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">罪悪感なく食べていた記憶（どんな場面？）</span>
+          <textarea rows="3" data-wb="3-2" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">何を食べていた？</span>
+          <textarea rows="2" data-wb="3-2" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">そこにあった気持ち</span>
+          <textarea rows="2" data-wb="3-2" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">今日、一食だけカロリーを計算せずに食べてみた感想</span>
+          <textarea rows="2" data-wb="3-2" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/3-2.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="3-2"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-3-3">
+        <div class="wb-head">
+          <span class="wb-badge">第3章 ③</span>
+          <h3 class="wb-title">💗 第3章-③ 自分の基準を見つける3ステップシート</h3>
+        </div>
+        <p class="wb-intro">他人の基準ではなく、自分の体と心が「これなら続けられる」と感じるラインを見つける3ステップです。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">ステップ1：今まで試した食事法（何を・どれくらい続けた？）</span>
+          <textarea rows="4" data-wb="3-3" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">ステップ2：それぞれの「体の反応」と「心の反応」</span>
+          <textarea rows="4" data-wb="3-3" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">ステップ3：「続けられそう・心が楽・体調が安定」が重なる方向は？</span>
+          <textarea rows="3" data-wb="3-3" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/3-3.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="3-3"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-3-4">
+        <div class="wb-head">
+          <span class="wb-badge">第3章 ④</span>
+          <h3 class="wb-title">💗 第3章-④ 80点ワーク</h3>
+        </div>
+        <p class="wb-intro">今日、80点だった出来事を3つ書き出します。「完璧じゃなくても、悪くなかった」と思えること。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">今日80点だった出来事 ①②③</span>
+          <textarea rows="3" data-wb="3-4" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">第3章（比較・普通に食べる・自分の基準・完璧主義）で一番響いた言葉</span>
+          <textarea rows="2" data-wb="3-4" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/3-4.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="3-4"></span>
+        </div>
+      </article>
+  </section>
+
+  <section class="wb-chapter" id="wbch-4">
+    <h2 class="wb-chapter-title"><span class="wb-chapter-num">第4章</span>ゆるめる<span class="wb-chapter-sub">身体と仲直りする</span></h2>
+      <article class="wb-card" id="wb-4-1">
+        <div class="wb-head">
+          <span class="wb-badge">第4章 ①</span>
+          <h3 class="wb-title">💗 第4章-① 運動した理由の棚おろしワーク</h3>
+        </div>
+        <p class="wb-intro">これまで運動した理由を3つ書き、「痩せるため」と「それ以外」に分けます。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">運動した理由 ①②③</span>
+          <textarea rows="3" data-wb="4-1" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">そのうち「痩せるため」だったもの</span>
+          <textarea rows="2" data-wb="4-1" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">そのうち「それ以外」の理由</span>
+          <textarea rows="2" data-wb="4-1" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">今日5分、「気持ちを整えるため」に動いてみた感想（体と心の変化）</span>
+          <textarea rows="2" data-wb="4-1" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/4-1.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="4-1"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-4-2">
+        <div class="wb-head">
+          <span class="wb-badge">第4章 ②</span>
+          <h3 class="wb-title">💗 第4章-② 散歩の前後スコアシート</h3>
+        </div>
+        <p class="wb-intro">散歩を3回、10分ずつ試して、歩く前と後の「心の点数」を記録します。数字の変化より心の変化に注目。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">1回目：歩く前（10点）→ 歩いた後（10点）</span>
+          <textarea rows="1" data-wb="4-2" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">2回目：歩く前 → 歩いた後</span>
+          <textarea rows="1" data-wb="4-2" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">3回目：歩く前 → 歩いた後</span>
+          <textarea rows="1" data-wb="4-2" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">歩いてみて気づいたこと</span>
+          <textarea rows="3" data-wb="4-2" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/4-2.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="4-2"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-4-3">
+        <div class="wb-head">
+          <span class="wb-badge">第4章 ③</span>
+          <h3 class="wb-title">💗 第4章-③ 心地よさ採点ワーク</h3>
+        </div>
+        <p class="wb-intro">これまで試した運動の「心地よさ」を10点満点で採点します。評価が低いものは無理に続けなくて大丈夫です。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">試した運動 ① / 心地よさ（10点）</span>
+          <textarea rows="1" data-wb="4-3" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">試した運動 ② / 心地よさ（10点）</span>
+          <textarea rows="1" data-wb="4-3" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">試した運動 ③ / 心地よさ（10点）</span>
+          <textarea rows="1" data-wb="4-3" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">もう一度やりたい、と思えた運動</span>
+          <textarea rows="2" data-wb="4-3" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/4-3.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="4-3"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-4-4">
+        <div class="wb-head">
+          <span class="wb-badge">第4章 ④</span>
+          <h3 class="wb-title">💗 第4章-④ 体へのメッセージワーク</h3>
+        </div>
+        <p class="wb-intro">「体に、今伝えたいこと」を一行だけ書きます。「ありがとう」でも「ごめんね」でも。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">体に、今伝えたいこと</span>
+          <textarea rows="2" data-wb="4-4" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">第4章で一番響いた言葉</span>
+          <textarea rows="2" data-wb="4-4" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">卒業のサイン（自分を責めなくなった／動けない日を失敗にしない／楽しめる瞬間）で、当てはまり始めたもの</span>
+          <textarea rows="2" data-wb="4-4" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/4-4.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="4-4"></span>
+        </div>
+      </article>
+  </section>
+
+  <section class="wb-chapter" id="wbch-5">
+    <h2 class="wb-chapter-title"><span class="wb-chapter-num">第5章</span>身体を動かす<span class="wb-chapter-sub">頑張らない宅トレ習慣</span></h2>
+      <article class="wb-card" id="wb-5-1">
+        <div class="wb-head">
+          <span class="wb-badge">第5章 ①</span>
+          <h3 class="wb-title">💗 第5章-① 脚ゆるワーク記録シート</h3>
+        </div>
+        <p class="wb-intro">寝る前にベッドで脚ゆるワークを試し、やる前とやったあとの脚の感覚を一言で書きます。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">やる前の脚の感覚</span>
+          <textarea rows="1" data-wb="5-1" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">やったあとの脚の感覚（軽い・温かい・変わらない など）</span>
+          <textarea rows="1" data-wb="5-1" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">3日続けてみて感じた変化</span>
+          <textarea rows="2" data-wb="5-1" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/5-1.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="5-1"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-5-2">
+        <div class="wb-head">
+          <span class="wb-badge">第5章 ②</span>
+          <h3 class="wb-title">💗 第5章-② お腹ゆる呼吸スコアシート</h3>
+        </div>
+        <p class="wb-intro">寝る前にお腹をゆるめる呼吸（5呼吸）を試し、そのあとの心の状態を記録します。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">5呼吸のあとの心の状態（10点）</span>
+          <textarea rows="1" data-wb="5-2" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">感じた変化（眠りにつく前のモヤモヤは？）</span>
+          <textarea rows="2" data-wb="5-2" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/5-2.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="5-2"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-5-3">
+        <div class="wb-head">
+          <span class="wb-badge">第5章 ③</span>
+          <h3 class="wb-title">💗 第5章-③ 肩ゆるワーク記録シート</h3>
+        </div>
+        <p class="wb-intro">デスクワークの合間などに肩ゆるワークを試し、やる前と後の肩の感覚を書きます。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">やる前の肩の感覚</span>
+          <textarea rows="1" data-wb="5-3" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">やったあとの肩の感覚（軽い・温かい・まだ固い など）</span>
+          <textarea rows="1" data-wb="5-3" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">午後の過ごし方は変わった？</span>
+          <textarea rows="2" data-wb="5-3" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/5-3.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="5-3"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-5-4">
+        <div class="wb-head">
+          <span class="wb-badge">第5章 ④</span>
+          <h3 class="wb-title">💗 第5章-④ ながら運動チャレンジシート</h3>
+        </div>
+        <p class="wb-intro">好きな動画を見ながら「ながら運動」を試して、見たあとの体の感覚を書きます。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">試した動画・場面（洗濯を干しながら、など）</span>
+          <textarea rows="2" data-wb="5-4" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">見たあとの体の感覚</span>
+          <textarea rows="2" data-wb="5-4" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/5-4.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="5-4"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-5-5">
+        <div class="wb-head">
+          <span class="wb-badge">第5章 ⑤</span>
+          <h3 class="wb-title">💗 第5章-⑤ 寝る前5分リセット・1週間記録シート</h3>
+        </div>
+        <p class="wb-intro">寝る前5分リセット運動を1週間試して、睡眠・朝の体・心の状態を記録します。1分だけでも「体に触れた日」は成功です。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">睡眠の質</span>
+          <textarea rows="2" data-wb="5-5" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">朝の体の感覚</span>
+          <textarea rows="2" data-wb="5-5" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">心の状態</span>
+          <textarea rows="2" data-wb="5-5" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">1週間で続けられた日数（3日でも十分な成果）</span>
+          <textarea rows="1" data-wb="5-5" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/5-5.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="5-5"></span>
+        </div>
+      </article>
+  </section>
+
+  <section class="wb-chapter" id="wbch-6">
+    <h2 class="wb-chapter-title"><span class="wb-chapter-num">第6章</span>満たす<span class="wb-chapter-sub">食べる不安を手放す</span></h2>
+      <article class="wb-card" id="wb-6-1">
+        <div class="wb-head">
+          <span class="wb-badge">第6章 ①</span>
+          <h3 class="wb-title">💗 第6章-① 食べ過ぎた日の整えノート</h3>
+        </div>
+        <p class="wb-intro">食べ過ぎたと感じた日に開くシートです。翌日を「罰する日」ではなく「自分に寄り添う日」に変えます。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">「今日は、自分を責めない」と書く</span>
+          <textarea rows="1" data-wb="6-1" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">昨日、何があった？（責めるためではなく、理解するために・一文で）</span>
+          <textarea rows="2" data-wb="6-1" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">いつも通りの朝食を食べたあとの、体の感覚</span>
+          <textarea rows="2" data-wb="6-1" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/6-1.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="6-1"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-6-2">
+        <div class="wb-head">
+          <span class="wb-badge">第6章 ②</span>
+          <h3 class="wb-title">💗 第6章-② 満たされ度スコアシート</h3>
+        </div>
+        <p class="wb-intro">3食、食事の前に3呼吸してから食べ、食後の「満たされた度合い」を10段階で記録します（7前後がちょうどいい目安）。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">1食目：満たされ度（10段階）</span>
+          <textarea rows="1" data-wb="6-2" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">2食目：満たされ度（10段階）</span>
+          <textarea rows="1" data-wb="6-2" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">3食目：満たされ度（10段階）</span>
+          <textarea rows="1" data-wb="6-2" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">1週間続けて見えてきた「自分のちょうどいい」パターン</span>
+          <textarea rows="3" data-wb="6-2" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/6-2.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="6-2"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-6-3">
+        <div class="wb-head">
+          <span class="wb-badge">第6章 ③</span>
+          <h3 class="wb-title">💗 第6章-③ コンビニ定番パターンシート</h3>
+        </div>
+        <p class="wb-intro">「迷ったときのコンビニ定番」を決めておくと、選ぶ疲れが減ります。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">コンビニ定番パターン ①（例：おにぎり1つ＋サラダチキン＋野菜の副菜）</span>
+          <textarea rows="2" data-wb="6-3" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">コンビニ定番パターン ②</span>
+          <textarea rows="2" data-wb="6-3" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">コンビニ定番パターン ③</span>
+          <textarea rows="2" data-wb="6-3" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">外食で「残してもいい」と心の中で許可を出せた？</span>
+          <textarea rows="2" data-wb="6-3" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/6-3.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="6-3"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-6-4">
+        <div class="wb-head">
+          <span class="wb-badge">第6章 ④</span>
+          <h3 class="wb-title">💗 第6章-④ 15分メニュー＆頻度シート</h3>
+        </div>
+        <p class="wb-intro">毎日フル自炊が正解ではありません。続く形で「触れる習慣」を見つけます。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">15分以内でできる自分用メニュー ①②③</span>
+          <textarea rows="3" data-wb="6-4" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">週に何回、自分の手で作る？（現実的な回数を一つ）</span>
+          <textarea rows="1" data-wb="6-4" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">「作れない日」の逃げ道（コンビニ定番など）</span>
+          <textarea rows="2" data-wb="6-4" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/6-4.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="6-4"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-6-5">
+        <div class="wb-head">
+          <span class="wb-badge">第6章 ⑤</span>
+          <h3 class="wb-title">💗 第6章-⑤ 食べる許可ワークシート</h3>
+        </div>
+        <p class="wb-intro">禁止から許可へ、心の軸を移すワークです。一度に全部やらなくて大丈夫。今日はステップ1と3だけでもOKです。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">① 今、食べるのを禁止しているもの（3つ）</span>
+          <textarea rows="2" data-wb="6-5" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">② それぞれ、なぜ禁止している？</span>
+          <textarea rows="3" data-wb="6-5" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">③ 今日1回だけ許可を出すなら、どれ？</span>
+          <textarea rows="1" data-wb="6-5" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">食べ終わったあと「自分を責めない」と声に出せた？ 満足度（10段階）</span>
+          <textarea rows="2" data-wb="6-5" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/6-5.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="6-5"></span>
+        </div>
+      </article>
+  </section>
+
+  <section class="wb-chapter" id="wbch-7">
+    <h2 class="wb-chapter-title"><span class="wb-chapter-num">第7章</span>自分を好きになる<span class="wb-chapter-sub">痩せるより先に、自分を受け入れる</span></h2>
+      <article class="wb-card" id="wb-7-1">
+        <div class="wb-head">
+          <span class="wb-badge">第7章 ①</span>
+          <h3 class="wb-title">💗 第7章-① 着たい服ワークシート</h3>
+        </div>
+        <p class="wb-intro">「今、着てみたい服」を3つ書きます。サイズや今着られるかは考えなくて大丈夫。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">今、着てみたい服 ①②③</span>
+          <textarea rows="3" data-wb="7-1" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">なぜそれを着たい？（可愛い・大人っぽい・自分らしい など）</span>
+          <textarea rows="3" data-wb="7-1" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">その気持ちを、今日の自分にどう届けられる？</span>
+          <textarea rows="2" data-wb="7-1" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/7-1.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="7-1"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-7-2">
+        <div class="wb-head">
+          <span class="wb-badge">第7章 ②</span>
+          <h3 class="wb-title">💗 第7章-② 理想の平日1日ワークシート</h3>
+        </div>
+        <p class="wb-intro">5年後の「理想の平日の1日」を時系列で書きます。体重は書きません。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">朝</span>
+          <textarea rows="2" data-wb="7-2" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">日中</span>
+          <textarea rows="2" data-wb="7-2" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">夜</span>
+          <textarea rows="2" data-wb="7-2" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">その1日でいちばん心が温かくなる場面</span>
+          <textarea rows="2" data-wb="7-2" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">そのうち、今日から小さく始められること</span>
+          <textarea rows="2" data-wb="7-2" data-wf="4" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/7-2.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="7-2"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-7-3">
+        <div class="wb-head">
+          <span class="wb-badge">第7章 ③</span>
+          <h3 class="wb-title">💗 第7章-③ 本音の3つの問いワークシート</h3>
+        </div>
+        <p class="wb-intro">正解を探す問いではなく、自分の声を聞き直す問いです。「分からない」なら、その「分からない」を書いてください。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">誰のための人生を生きている？</span>
+          <textarea rows="3" data-wb="7-3" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">我慢していることを、一つ書くと？</span>
+          <textarea rows="3" data-wb="7-3" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">もし、誰にも評価されなくても、何をしたい？</span>
+          <textarea rows="3" data-wb="7-3" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/7-3.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="7-3"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-7-4">
+        <div class="wb-head">
+          <span class="wb-badge">第7章 ④</span>
+          <h3 class="wb-title">💗 第7章-④ 痩せなくても叶えたい未来ワークシート</h3>
+        </div>
+        <p class="wb-intro">「痩せなくても叶えたい未来」を3つ書きます。体重を条件にしません。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">痩せなくても叶えたい未来 ①②③</span>
+          <textarea rows="3" data-wb="7-4" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">なぜそれを叶えたい？</span>
+          <textarea rows="3" data-wb="7-4" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">今の自分で、今日から一歩近づけること</span>
+          <textarea rows="2" data-wb="7-4" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">実行したあと：「体重は関係あった？」</span>
+          <textarea rows="2" data-wb="7-4" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/7-4.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="7-4"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-7-5">
+        <div class="wb-head">
+          <span class="wb-badge">第7章 ⑤</span>
+          <h3 class="wb-title">💗 第7章-⑤ 自信の棚おろしワークシート</h3>
+        </div>
+        <p class="wb-intro">自信は体型だけでは測れません。体型と関係なく持っている自信を言葉にします。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">女性として、大切にしたい自分の資質 ①②③（優しさ・真面目さ・ユーモア など）</span>
+          <textarea rows="3" data-wb="7-5" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">最近、それを発揮した場面</span>
+          <textarea rows="3" data-wb="7-5" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">体型と関係なく、持っている自信</span>
+          <textarea rows="2" data-wb="7-5" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">「体型に結びつけて失った」と思っている自信 → それは本当に体型の問題？</span>
+          <textarea rows="3" data-wb="7-5" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/7-5.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="7-5"></span>
+        </div>
+      </article>
+      <article class="wb-card" id="wb-7-6">
+        <div class="wb-head">
+          <span class="wb-badge">第7章 ⑥</span>
+          <h3 class="wb-title">💗 第7章-⑥ 自分との関係修復ワークシート</h3>
+        </div>
+        <p class="wb-intro">いちばん長いパートナー、自分自身との関係を修復するワークです。</p>
+        <label class="wb-field">
+          <span class="wb-flabel">① これまで、自分に厳しかった言葉（3つ）</span>
+          <textarea rows="3" data-wb="7-6" data-wf="0" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">② もし友達に同じことを言ったら、どう感じる？</span>
+          <textarea rows="3" data-wb="7-6" data-wf="1" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">③ 厳しい言葉を、優しい言葉に書き換えると？</span>
+          <textarea rows="3" data-wb="7-6" data-wf="2" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <label class="wb-field">
+          <span class="wb-flabel">④ 今夜、自分にしてあげたいケアを一つ（そして実行する）</span>
+          <textarea rows="2" data-wb="7-6" data-wf="3" placeholder="ここに書いてみましょう"></textarea>
+        </label>
+        <div class="wb-foot">
+          <a class="wb-lesson-link" href="lessons/7-6.html">▶ このワークの動画・解説を見る</a>
+          <span class="wb-saved" data-wb-saved="7-6"></span>
+        </div>
+      </article>
+  </section>
+
+</main>
+</div>
+</div>
+
+<footer>
+  © 2026 一生ダイエッター卒業プログラム　無断転載・再配布を禁じます。
+</footer>
+
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -68,11 +68,16 @@
 
 ## サイトの編集方法（重要）
 
-`index.html` と `lessons/*.html` は **自動生成ファイル**です。直接編集しないでください。
+`index.html` / `workbook.html` / `lessons/*.html` は **自動生成ファイル**です。直接編集しないでください。
 
-1. `build/course-data.js` を編集（章・レッスン・本文・ワークシート情報）
+1. 内容を編集する
+   - 章・レッスン・本文・ワークシートのタイトル → `build/course-data.js`
+   - ワークシートの記入欄（問い） → `build/worksheets-data.js`
 2. リポジトリのルートで `node build/build.js` を実行
-3. `index.html` と `lessons/*.html` が再生成される
+3. `index.html` `workbook.html` `lessons/*.html` が再生成される
 4. まとめて commit / push すると Netlify が再デプロイ
 
-共通のデザインは `style.css`、ログインゲートと進捗のロジックは `assets/app.js` にあります。
+共通のデザインは `style.css`、ログインゲート・進捗・ワークブックの自動保存ロジックは `assets/app.js` にあります。
+
+- 学習の進捗、ワークブックの記入内容は、いずれも閲覧者のブラウザ（localStorage）に保存され、端末間では同期されません。
+- ワークブックはブラウザの「印刷」で手書き用にも出力できます（印刷用CSSあり）。
