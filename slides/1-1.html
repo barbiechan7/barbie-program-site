@@ -90,6 +90,43 @@
     .cards{grid-template-columns:1fr}
     .slide{padding:9vmin 7vmin}
   }
+
+  /* ---- PDF / 印刷（全スライドを1ページずつ書き出す） ---- */
+  @media print{
+    @page{ size:1280px 720px; margin:0; }
+    html,body{ overflow:visible; height:auto; background:#fff; }
+    .deck{ position:static; }
+    .slide{
+      position:relative !important;
+      display:flex !important;
+      opacity:1 !important;
+      width:1280px; height:714px;
+      padding:48px 92px;
+      overflow:hidden;
+      page-break-after:always;
+      break-after:page;
+      page-break-inside:avoid;
+      break-inside:avoid;
+      -webkit-print-color-adjust:exact;
+      print-color-adjust:exact;
+    }
+    .slide:last-child{ page-break-after:auto; break-after:auto; }
+    .slide h1{ font-size:52px; }
+    .slide h2{ font-size:40px; }
+    .slide .big-q{ font-size:46px; }
+    .slide .lead{ font-size:23px; margin-top:22px; }
+    .slide ul.points{ margin-top:30px; gap:18px; }
+    .slide ul.points li{ font-size:24px; padding-left:38px; }
+    .slide .cards{ margin-top:34px; gap:18px; }
+    .slide .cards .c{ font-size:22px; padding:22px 26px; }
+    .slide .kv{ margin-top:30px; gap:12px 22px; }
+    .slide .kv span{ font-size:20px; padding:10px 22px; }
+    .slide .work{ margin-top:30px; padding:28px 32px; }
+    .slide .work .wb{ font-size:24px; }
+    .slide .eyebrow{ font-size:16px; margin-bottom:18px; }
+    .slide .note{ font-size:18px; margin-top:24px; }
+    .bar,.counter,.hint{ display:none !important; }
+  }
 </style>
 </head>
 <body>
