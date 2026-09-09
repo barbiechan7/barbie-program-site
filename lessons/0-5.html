@@ -15,48 +15,82 @@
     <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
     <h1>会員限定ページです</h1>
     <p>登録済みのメールアドレスとパスワードでログインしてください。</p>
-    <button class="wbtn" onclick="netlifyIdentity.open('login')">ログイン</button>
+    <button class="wbtn" onclick="bpLogin()">ログイン</button>
   </div>
 </div>
 
 <div id="siteContent" style="display:none">
+<div class="app">
+<div class="mobilebar">
+  <button class="hamb" id="hamb" aria-label="メニュー">☰</button>
+  <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
+  <span style="width:38px"></span>
+</div>
+<div class="scrim" id="scrim"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="../index.html">一生ダイエッター<span>卒業プログラム</span></a>
 
-<nav class="topnav">
-  <div class="topnav-inner">
-    <a class="brand" href="../index.html">一生ダイエッター<span>卒業プログラム</span></a>
-    <div class="topnav-links">
-      <a href="../index.html">レッスン一覧に戻る</a>
-      <a id="logoutLink" onclick="netlifyIdentity.logout()">ログアウト</a>
-    </div>
-  </div>
-</nav>
-
-<div class="lesson-shell">
-  <div class="lesson-kicker">第0章　はじめに　⑤</div>
-  <h1>3ヶ月後の未来設定</h1>
-
-  <div class="video-frame">
+  <div class="sidebar-profile">
+    <div class="avatar" id="pavatar">会</div>
     <div>
-      <div class="play"></div>
-      <div class="placeholder-text">動画はこちらに公開されます</div>
+      <div class="pname" id="pname">会員のあなた</div>
+      <div class="prole">受講生</div>
     </div>
   </div>
-  <p class="video-caption">※ 動画は限定公開のYouTubeリンクに差し替えてください（現在プレースホルダー）</p>
 
-  <div class="article">
-    <p class="lede">3ヶ月後、あなたがどんな状態でいたいか、一緒にイメージしていきたいと思います。</p>
-    
+  <nav class="side-nav">
+    <div class="side-group">メイン</div>
+    <a class="side-link" href="../index.html"><span class="ic">⌂</span>ホーム</a>
+    <a class="side-link" href="../index.html#dashboard"><span class="ic">▤</span>学習コンテンツ</a>
+
+    <div class="side-group">全9パート</div>
+      <a class="side-link active" href="../index.html#ch0"><span class="ic">◍</span>第0章　はじめに</a>
+      <a class="side-link" href="../index.html#ch1"><span class="ic">◆</span>第1章　気づく</a>
+      <a class="side-link" href="../index.html#ch2"><span class="ic">◆</span>第2章　整える</a>
+      <a class="side-link" href="../index.html#ch3"><span class="ic">◆</span>第3章　手放す</a>
+      <a class="side-link" href="../index.html#ch4"><span class="ic">◆</span>第4章　ゆるめる</a>
+      <a class="side-link" href="../index.html#ch5"><span class="ic">◆</span>第5章　身体を動かす</a>
+      <a class="side-link" href="../index.html#ch6"><span class="ic">◆</span>第6章　満たす</a>
+      <a class="side-link" href="../index.html#ch7"><span class="ic">◆</span>第7章　自分を好きになる</a>
+  </nav>
+
+  <div class="sidebar-foot">
+    <a href="../index.html">レッスン一覧に戻る</a>
+    <a onclick="bpLogout()">ログアウト</a>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="breadcrumb">
+    <a href="../index.html#dashboard">学習コンテンツ</a>
+    <span class="sep">/</span>
+    <a href="../index.html#ch0">第0章　はじめに</a>
+    <span class="sep">/</span>
+    <span>3ヶ月後の未来設定</span>
+  </div>
+
+  <div class="lesson-shell">
+    <div class="lesson-kicker">第0章　はじめに　⑤</div>
+    <h1>3ヶ月後の未来設定</h1>
+
+    <div class="video-frame">
+      <div>
+        <div class="play"></div>
+        <div class="placeholder-text">動画はこちらに公開されます</div>
+      </div>
+    </div>
+    <p class="video-caption">※ 動画は限定公開のYouTubeリンクに差し替えてください（現在プレースホルダー）</p>
+
+    <div class="article">
+<p class="lede">3ヶ月後、あなたがどんな状態でいたいか、一緒にイメージしていきたいと思います。</p>
 <p>目標を考えるとき、体重や、サイズの数字を、一旦、脇に置いてみてください。「マイナス5キロ」というような目標は、一見わかりやすいのですが、実は、私たちを苦しめやすい目標でもあります。数字はあくまで結果であって、目指すべき本体ではないからです。</p>
-
 <h2>「状態」をイメージする</h2>
 <p>朝、鏡を見たとき、自分にどんな言葉をかけていたいですか。食事のときは、どんな気持ちで食べていたいですか。人と会うとき、どんな自分でいたいですか。</p>
 <p>ここで大事なのは、「痩せている自分」を想像することではなく、「心が整った自分」を想像することです。</p>
-
 <h2>具体的にイメージを膨らませる</h2>
 <p>3ヶ月後、着てみたい服はありますか。行ってみたい場所、会ってみたい人はいますか。取り戻したい自信、そういうものは、ありますか。</p>
 <p>このワークをやってみると、実は、体重が変わらなくても、今すぐ叶えられることが、たくさんあることに気づくと思います。着たい服も、行きたい場所も、会いたい人も、今の体型のままで、始められることが、意外とたくさんあるんです。</p>
-
-  </div>
+    </div>
 
   <div class="worksheet-card">
     <div>
@@ -66,10 +100,19 @@
     <a class="wbtn" href="../worksheets/0-5.pdf">ワークシートDL</a>
   </div>
 
-  <div class="lesson-nav">
-    <a href="0-4.html"><span class="dir">← 前のレッスン</span>あなたが頑張らなくていい理由</a>
-    <a href="0-6.html" class="next"><span class="dir">次のレッスン →</span>ダイエットの本当のゴールとは？</a>
+    <div class="complete-bar" id="completeBar" data-lesson="0-5">
+      <span class="cb-text">動画を見て、ワークに取り組めたら、完了にしておきましょう。</span>
+      <button class="complete-btn" type="button">このレッスンを完了にする</button>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="0-4.html"><span class="dir">← 前のレッスン</span>あなたが頑張らなくていい理由</a>
+      <a href="0-6.html" class="next"><span class="dir">次のレッスン →</span>ダイエットの本当のゴールとは？</a>
+    </div>
   </div>
+
+</main>
+</div>
 </div>
 
 <footer>
@@ -78,20 +121,6 @@
 
 </div>
 
-<script>
-  function showApp() {
-    document.getElementById('gateScreen').style.display = 'none';
-    document.getElementById('siteContent').style.display = 'block';
-  }
-  function showGate() {
-    document.getElementById('gateScreen').style.display = 'flex';
-    document.getElementById('siteContent').style.display = 'none';
-  }
-  netlifyIdentity.on('init', function(user) { user ? showApp() : showGate(); });
-  netlifyIdentity.on('login', function() { showApp(); netlifyIdentity.close(); });
-  netlifyIdentity.on('logout', showGate);
-  netlifyIdentity.init();
-</script>
-
+<script src="../assets/app.js"></script>
 </body>
 </html>

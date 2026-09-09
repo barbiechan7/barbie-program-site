@@ -15,107 +15,719 @@
     <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
     <h1>会員限定ページです</h1>
     <p>登録済みのメールアドレスとパスワードでログインしてください。</p>
-    <button class="wbtn" onclick="netlifyIdentity.open('login')">ログイン</button>
+    <button class="wbtn" onclick="bpLogin()">ログイン</button>
   </div>
 </div>
 
 <div id="siteContent" style="display:none">
+<div class="app">
+<div class="mobilebar">
+  <button class="hamb" id="hamb" aria-label="メニュー">☰</button>
+  <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
+  <span style="width:38px"></span>
+</div>
+<div class="scrim" id="scrim"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="index.html">一生ダイエッター<span>卒業プログラム</span></a>
 
-<nav class="topnav">
-  <div class="topnav-inner">
-    <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
-    <div class="topnav-links">
-      <a href="#roadmap">全体の流れ</a>
-      <a href="#chapter0">第0章</a>
-      <a id="logoutLink" onclick="netlifyIdentity.logout()">ログアウト</a>
+  <div class="sidebar-profile">
+    <div class="avatar" id="pavatar">会</div>
+    <div>
+      <div class="pname" id="pname">会員のあなた</div>
+      <div class="prole">受講生</div>
     </div>
   </div>
-</nav>
 
-<header class="hero">
-  <div>
-    <div class="hero-eyebrow">MEMBER PROGRAM</div>
-    <h1>痩せようとしない、<br>心を整える3ヶ月。</h1>
-    <p>
-      ここは「一生ダイエッター卒業プログラム」の会員ページです。
-      各章の動画・ワークシートは、このページから順番に進めてください。
-      完璧を目指さなくて大丈夫です。自分のペースで進めていきましょう。
-    </p>
-  </div>
-  <div class="hero-mark" aria-hidden="true"></div>
-</header>
+  <nav class="side-nav">
+    <div class="side-group">メイン</div>
+    <a class="side-link active" href="index.html"><span class="ic">⌂</span>ホーム</a>
+    <a class="side-link" href="index.html#dashboard"><span class="ic">▤</span>学習コンテンツ</a>
 
-<section class="section" id="roadmap">
-  <div class="section-head">
-    <h2>全体の流れ</h2>
-    <span class="note">全8章・第0章「はじめに」を含む全9パート</span>
+    <div class="side-group">全9パート</div>
+      <a class="side-link" href="index.html#ch0"><span class="ic">◍</span>第0章　はじめに</a>
+      <a class="side-link" href="index.html#ch1"><span class="ic">◆</span>第1章　気づく</a>
+      <a class="side-link" href="index.html#ch2"><span class="ic">◆</span>第2章　整える</a>
+      <a class="side-link" href="index.html#ch3"><span class="ic">◆</span>第3章　手放す</a>
+      <a class="side-link" href="index.html#ch4"><span class="ic">◆</span>第4章　ゆるめる</a>
+      <a class="side-link" href="index.html#ch5"><span class="ic">◆</span>第5章　身体を動かす</a>
+      <a class="side-link" href="index.html#ch6"><span class="ic">◆</span>第6章　満たす</a>
+      <a class="side-link" href="index.html#ch7"><span class="ic">◆</span>第7章　自分を好きになる</a>
+  </nav>
+
+  <div class="sidebar-foot">
+    <a href="index.html">レッスン一覧に戻る</a>
+    <a onclick="bpLogout()">ログアウト</a>
   </div>
-  <div class="chapter-roadmap">
-    <a class="cell active" href="#chapter0">
-      <span class="cnum">第0章</span>はじめに
-      <span class="status">全6レッスン・公開中</span>
+</aside>
+
+<main class="main" id="dashboard">
+
+  <div class="course-head">
+    <h1>一生ダイエッター卒業プログラム</h1>
+    <p>各章の動画とワークシートを、順番に進めていきましょう。完璧を目指さなくて大丈夫です。自分のペースで大丈夫です。</p>
+    <div class="progress-row">
+      <span class="progress-track"><span class="progress-fill"></span></span>
+      <span class="progress-label">0/43 (0%)</span>
+    </div>
+    <a class="resume-card" id="resumeCard" href="lessons/0-1.html">
+      <span>
+        <span class="rc-eyebrow">はじめる</span><br>
+        <span class="rc-title">この講座の進め方</span>
+      </span>
+      <span class="rc-arrow">→</span>
     </a>
-    <div class="cell disabled"><span class="cnum">第1章</span>気づく<span class="status">近日公開</span></div>
-    <div class="cell disabled"><span class="cnum">第2章</span>整える<span class="status">近日公開</span></div>
-    <div class="cell disabled"><span class="cnum">第3章</span>手放す<span class="status">近日公開</span></div>
-    <div class="cell disabled"><span class="cnum">第4章</span>ゆるめる<span class="status">近日公開</span></div>
-    <div class="cell disabled"><span class="cnum">第5章</span>身体を動かす<span class="status">近日公開</span></div>
-    <div class="cell disabled"><span class="cnum">第6章</span>満たす<span class="status">近日公開</span></div>
-    <div class="cell disabled"><span class="cnum">第7章</span>自分を好きになる<span class="status">近日公開</span></div>
-    <div class="cell disabled"><span class="cnum">第8章</span>卒業<span class="status">近日公開</span></div>
   </div>
-</section>
 
-<section class="section" id="chapter0">
-  <div class="section-head">
-    <h2>第0章　はじめに</h2>
-    <span class="note">この講座の進め方</span>
+  <div class="roadmap-wrap">
+    <h2>学習ロードマップ</h2>
+    <div class="roadmap">
+    <div class="rm-step todo" data-step="0">
+      <a href="#ch0">
+        <span class="rm-dot">0</span>
+        <span class="rm-label">第0章<br>はじめに</span>
+        <span class="rm-count">0/6</span>
+      </a>
+    </div>
+    <div class="rm-step todo" data-step="1">
+      <a href="#ch1">
+        <span class="rm-dot">1</span>
+        <span class="rm-label">第1章<br>気づく</span>
+        <span class="rm-count">0/7</span>
+      </a>
+    </div>
+    <div class="rm-step todo" data-step="2">
+      <a href="#ch2">
+        <span class="rm-dot">2</span>
+        <span class="rm-label">第2章<br>整える</span>
+        <span class="rm-count">0/6</span>
+      </a>
+    </div>
+    <div class="rm-step todo" data-step="3">
+      <a href="#ch3">
+        <span class="rm-dot">3</span>
+        <span class="rm-label">第3章<br>手放す</span>
+        <span class="rm-count">0/4</span>
+      </a>
+    </div>
+    <div class="rm-step todo" data-step="4">
+      <a href="#ch4">
+        <span class="rm-dot">4</span>
+        <span class="rm-label">第4章<br>ゆるめる</span>
+        <span class="rm-count">0/4</span>
+      </a>
+    </div>
+    <div class="rm-step todo" data-step="5">
+      <a href="#ch5">
+        <span class="rm-dot">5</span>
+        <span class="rm-label">第5章<br>身体を動かす</span>
+        <span class="rm-count">0/5</span>
+      </a>
+    </div>
+    <div class="rm-step todo" data-step="6">
+      <a href="#ch6">
+        <span class="rm-dot">6</span>
+        <span class="rm-label">第6章<br>満たす</span>
+        <span class="rm-count">0/5</span>
+      </a>
+    </div>
+    <div class="rm-step todo" data-step="7">
+      <a href="#ch7">
+        <span class="rm-dot">7</span>
+        <span class="rm-label">第7章<br>自分を好きになる</span>
+        <span class="rm-count">0/6</span>
+      </a>
+    </div>
+    </div>
   </div>
-  <ul class="lesson-list">
-    <li>
-      <a href="lessons/0-1.html" style="display:contents">
-        <span class="lesson-num">01</span>
-        <span class="lesson-title"><span class="kicker">はじめに</span>この講座の進め方</span>
-        <span class="lesson-go">読む</span>
+
+  <section class="chapter" id="ch0" data-chapter="0">
+    <button class="chapter-head" type="button">
+      <span class="chapter-badge">0</span>
+      <span class="chapter-meta">
+        <span class="ch-title">第0章　はじめに</span>
+        <span class="ch-sub">この講座の進め方</span>
+      </span>
+      <span class="chapter-count">0/6 完了</span>
+      <span class="chapter-chevron">▾</span>
+    </button>
+    <div class="chapter-body">
+      <a href="lessons/0-1.html" style="display:block">
+        <div class="lesson-row" data-lesson="0-1">
+          <span class="lr-icon">1</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第0章　はじめに　①</span>
+            <span class="lr-title">この講座の進め方</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
       </a>
-    </li>
-    <li>
-      <a href="lessons/0-2.html" style="display:contents">
-        <span class="lesson-num">02</span>
-        <span class="lesson-title"><span class="kicker">はじめに</span>なぜ今までダイエットが苦しかったのか</span>
-        <span class="lesson-go">読む</span>
+      <a href="lessons/0-2.html" style="display:block">
+        <div class="lesson-row" data-lesson="0-2">
+          <span class="lr-icon">2</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第0章　はじめに　②</span>
+            <span class="lr-title">なぜ今までダイエットが苦しかったのか</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
       </a>
-    </li>
-    <li>
-      <a href="lessons/0-3.html" style="display:contents">
-        <span class="lesson-num">03</span>
-        <span class="lesson-title"><span class="kicker">はじめに</span>この講座で大切にすること</span>
-        <span class="lesson-go">読む</span>
+      <a href="lessons/0-3.html" style="display:block">
+        <div class="lesson-row" data-lesson="0-3">
+          <span class="lr-icon">3</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第0章　はじめに　③</span>
+            <span class="lr-title">この講座で大切にすること</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
       </a>
-    </li>
-    <li>
-      <a href="lessons/0-4.html" style="display:contents">
-        <span class="lesson-num">04</span>
-        <span class="lesson-title"><span class="kicker">はじめに</span>あなたが頑張らなくていい理由</span>
-        <span class="lesson-go">読む</span>
+      <a href="lessons/0-4.html" style="display:block">
+        <div class="lesson-row" data-lesson="0-4">
+          <span class="lr-icon">4</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第0章　はじめに　④</span>
+            <span class="lr-title">あなたが頑張らなくていい理由</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
       </a>
-    </li>
-    <li>
-      <a href="lessons/0-5.html" style="display:contents">
-        <span class="lesson-num">05</span>
-        <span class="lesson-title"><span class="kicker">はじめに</span>3ヶ月後の未来設定</span>
-        <span class="lesson-go">読む</span>
+      <a href="lessons/0-5.html" style="display:block">
+        <div class="lesson-row" data-lesson="0-5">
+          <span class="lr-icon">5</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第0章　はじめに　⑤</span>
+            <span class="lr-title">3ヶ月後の未来設定</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
       </a>
-    </li>
-    <li>
-      <a href="lessons/0-6.html" style="display:contents">
-        <span class="lesson-num">06</span>
-        <span class="lesson-title"><span class="kicker">はじめに</span>ダイエットの本当のゴールとは？</span>
-        <span class="lesson-go">読む</span>
+      <a href="lessons/0-6.html" style="display:block">
+        <div class="lesson-row" data-lesson="0-6">
+          <span class="lr-icon">6</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第0章　はじめに　⑥</span>
+            <span class="lr-title">ダイエットの本当のゴールとは？</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
       </a>
-    </li>
-  </ul>
-</section>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch1" data-chapter="1">
+    <button class="chapter-head" type="button">
+      <span class="chapter-badge">1</span>
+      <span class="chapter-meta">
+        <span class="ch-title">第1章　気づく</span>
+        <span class="ch-sub">私はなぜ痩せたいのか？</span>
+      </span>
+      <span class="chapter-count">0/7 完了</span>
+      <span class="chapter-chevron">▾</span>
+    </button>
+    <div class="chapter-body">
+      <a href="lessons/1-1.html" style="display:block">
+        <div class="lesson-row" data-lesson="1-1">
+          <span class="lr-icon">1</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第1章　気づく　①</span>
+            <span class="lr-title">私はなぜ痩せたいのか？</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/1-2.html" style="display:block">
+        <div class="lesson-row" data-lesson="1-2">
+          <span class="lr-icon">2</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第1章　気づく　②</span>
+            <span class="lr-title">食べることで埋めている感情</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/1-3.html" style="display:block">
+        <div class="lesson-row" data-lesson="1-3">
+          <span class="lr-icon">3</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第1章　気づく　③</span>
+            <span class="lr-title">“痩せないと愛されない”思考</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/1-4.html" style="display:block">
+        <div class="lesson-row" data-lesson="1-4">
+          <span class="lr-icon">4</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第1章　気づく　④</span>
+            <span class="lr-title">一生ダイエッター思考チェック</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/1-5.html" style="display:block">
+        <div class="lesson-row" data-lesson="1-5">
+          <span class="lr-icon">5</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第1章　気づく　⑤</span>
+            <span class="lr-title">自己理解ワーク（現在ワーク）</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/1-6.html" style="display:block">
+        <div class="lesson-row" data-lesson="1-6">
+          <span class="lr-icon">6</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第1章　気づく　⑥</span>
+            <span class="lr-title">過去分析ワーク</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/1-7.html" style="display:block">
+        <div class="lesson-row" data-lesson="1-7">
+          <span class="lr-icon">7</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第1章　気づく　⑦</span>
+            <span class="lr-title">感情を書き出すワーク</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch2" data-chapter="2">
+    <button class="chapter-head" type="button">
+      <span class="chapter-badge">2</span>
+      <span class="chapter-meta">
+        <span class="ch-title">第2章　整える</span>
+        <span class="ch-sub">食べ物ではなく、心を整える</span>
+      </span>
+      <span class="chapter-count">0/6 完了</span>
+      <span class="chapter-chevron">▾</span>
+    </button>
+    <div class="chapter-body">
+      <a href="lessons/2-1.html" style="display:block">
+        <div class="lesson-row" data-lesson="2-1">
+          <span class="lr-icon">1</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第2章　整える　①</span>
+            <span class="lr-title">安心不足と過食の関係</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/2-2.html" style="display:block">
+        <div class="lesson-row" data-lesson="2-2">
+          <span class="lr-icon">2</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第2章　整える　②</span>
+            <span class="lr-title">ストレスと食欲の関係</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/2-3.html" style="display:block">
+        <div class="lesson-row" data-lesson="2-3">
+          <span class="lr-icon">3</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第2章　整える　③</span>
+            <span class="lr-title">人間関係ダイエット</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/2-4.html" style="display:block">
+        <div class="lesson-row" data-lesson="2-4">
+          <span class="lr-icon">4</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第2章　整える　④</span>
+            <span class="lr-title">食以外のストレス発散</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/2-5.html" style="display:block">
+        <div class="lesson-row" data-lesson="2-5">
+          <span class="lr-icon">5</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第2章　整える　⑤</span>
+            <span class="lr-title">不安との付き合い方</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/2-6.html" style="display:block">
+        <div class="lesson-row" data-lesson="2-6">
+          <span class="lr-icon">6</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第2章　整える　⑥</span>
+            <span class="lr-title">“痩せなきゃ”を緩める心理ダイエット</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch3" data-chapter="3">
+    <button class="chapter-head" type="button">
+      <span class="chapter-badge">3</span>
+      <span class="chapter-meta">
+        <span class="ch-title">第3章　手放す</span>
+        <span class="ch-sub">ダイエット思考を卒業する</span>
+      </span>
+      <span class="chapter-count">0/4 完了</span>
+      <span class="chapter-chevron">▾</span>
+    </button>
+    <div class="chapter-body">
+      <a href="lessons/3-1.html" style="display:block">
+        <div class="lesson-row" data-lesson="3-1">
+          <span class="lr-icon">1</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第3章　手放す　①</span>
+            <span class="lr-title">比較癖との向き合い方</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/3-2.html" style="display:block">
+        <div class="lesson-row" data-lesson="3-2">
+          <span class="lr-icon">2</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第3章　手放す　②</span>
+            <span class="lr-title">“普通に食べる”感覚を取り戻す</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/3-3.html" style="display:block">
+        <div class="lesson-row" data-lesson="3-3">
+          <span class="lr-icon">3</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第3章　手放す　③</span>
+            <span class="lr-title">自分に適した食事や体重などを見直すワーク</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/3-4.html" style="display:block">
+        <div class="lesson-row" data-lesson="3-4">
+          <span class="lr-icon">4</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第3章　手放す　④</span>
+            <span class="lr-title">完璧主義との向き合い方</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch4" data-chapter="4">
+    <button class="chapter-head" type="button">
+      <span class="chapter-badge">4</span>
+      <span class="chapter-meta">
+        <span class="ch-title">第4章　ゆるめる</span>
+        <span class="ch-sub">身体と仲直りする</span>
+      </span>
+      <span class="chapter-count">0/4 完了</span>
+      <span class="chapter-chevron">▾</span>
+    </button>
+    <div class="chapter-body">
+      <a href="lessons/4-1.html" style="display:block">
+        <div class="lesson-row" data-lesson="4-1">
+          <span class="lr-icon">1</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第4章　ゆるめる　①</span>
+            <span class="lr-title">“痩せるため”じゃなく動く</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/4-2.html" style="display:block">
+        <div class="lesson-row" data-lesson="4-2">
+          <span class="lr-icon">2</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第4章　ゆるめる　②</span>
+            <span class="lr-title">散歩で心を整える</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/4-3.html" style="display:block">
+        <div class="lesson-row" data-lesson="4-3">
+          <span class="lr-icon">3</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第4章　ゆるめる　③</span>
+            <span class="lr-title">自分が心地いい運動を見つける</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/4-4.html" style="display:block">
+        <div class="lesson-row" data-lesson="4-4">
+          <span class="lr-icon">4</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第4章　ゆるめる　④</span>
+            <span class="lr-title">“痩せるための運動”を卒業する</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch5" data-chapter="5">
+    <button class="chapter-head" type="button">
+      <span class="chapter-badge">5</span>
+      <span class="chapter-meta">
+        <span class="ch-title">第5章　身体を動かす</span>
+        <span class="ch-sub">頑張らない宅トレ習慣</span>
+      </span>
+      <span class="chapter-count">0/5 完了</span>
+      <span class="chapter-chevron">▾</span>
+    </button>
+    <div class="chapter-body">
+      <a href="lessons/5-1.html" style="display:block">
+        <div class="lesson-row" data-lesson="5-1">
+          <span class="lr-icon">1</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第5章　身体を動かす　①</span>
+            <span class="lr-title">寝ながらできる脚ゆるワーク</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/5-2.html" style="display:block">
+        <div class="lesson-row" data-lesson="5-2">
+          <span class="lr-icon">2</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第5章　身体を動かす　②</span>
+            <span class="lr-title">お腹をゆるめるワーク</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/5-3.html" style="display:block">
+        <div class="lesson-row" data-lesson="5-3">
+          <span class="lr-icon">3</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第5章　身体を動かす　③</span>
+            <span class="lr-title">背中・肩をゆるめるワーク</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/5-4.html" style="display:block">
+        <div class="lesson-row" data-lesson="5-4">
+          <span class="lr-icon">4</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第5章　身体を動かす　④</span>
+            <span class="lr-title">YouTube見ながらできる“ながら運動”</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/5-5.html" style="display:block">
+        <div class="lesson-row" data-lesson="5-5">
+          <span class="lr-icon">5</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第5章　身体を動かす　⑤</span>
+            <span class="lr-title">寝る前5分リセット運動</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch6" data-chapter="6">
+    <button class="chapter-head" type="button">
+      <span class="chapter-badge">6</span>
+      <span class="chapter-meta">
+        <span class="ch-title">第6章　満たす</span>
+        <span class="ch-sub">食べる不安を手放す</span>
+      </span>
+      <span class="chapter-count">0/5 完了</span>
+      <span class="chapter-chevron">▾</span>
+    </button>
+    <div class="chapter-body">
+      <a href="lessons/6-1.html" style="display:block">
+        <div class="lesson-row" data-lesson="6-1">
+          <span class="lr-icon">1</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第6章　満たす　①</span>
+            <span class="lr-title">“食べ過ぎた”日の整え方</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/6-2.html" style="display:block">
+        <div class="lesson-row" data-lesson="6-2">
+          <span class="lr-icon">2</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第6章　満たす　②</span>
+            <span class="lr-title">“ちょうどいい食事”を知る</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/6-3.html" style="display:block">
+        <div class="lesson-row" data-lesson="6-3">
+          <span class="lr-icon">3</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第6章　満たす　③</span>
+            <span class="lr-title">コンビニ・外食との付き合い方</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/6-4.html" style="display:block">
+        <div class="lesson-row" data-lesson="6-4">
+          <span class="lr-icon">4</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第6章　満たす　④</span>
+            <span class="lr-title">自分に合う自炊習慣を見つける</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/6-5.html" style="display:block">
+        <div class="lesson-row" data-lesson="6-5">
+          <span class="lr-icon">5</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第6章　満たす　⑤</span>
+            <span class="lr-title">食べる許可ワーク</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch7" data-chapter="7">
+    <button class="chapter-head" type="button">
+      <span class="chapter-badge">7</span>
+      <span class="chapter-meta">
+        <span class="ch-title">第7章　自分を好きになる</span>
+        <span class="ch-sub">痩せるより先に、自分を受け入れる</span>
+      </span>
+      <span class="chapter-count">0/6 完了</span>
+      <span class="chapter-chevron">▾</span>
+    </button>
+    <div class="chapter-body">
+      <a href="lessons/7-1.html" style="display:block">
+        <div class="lesson-row" data-lesson="7-1">
+          <span class="lr-icon">1</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第7章　自分を好きになる　①</span>
+            <span class="lr-title">着たい服を考えるワーク</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/7-2.html" style="display:block">
+        <div class="lesson-row" data-lesson="7-2">
+          <span class="lr-icon">2</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第7章　自分を好きになる　②</span>
+            <span class="lr-title">理想の人生を書き出す</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/7-3.html" style="display:block">
+        <div class="lesson-row" data-lesson="7-3">
+          <span class="lr-icon">3</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第7章　自分を好きになる　③</span>
+            <span class="lr-title">本当はどう生きたい？</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/7-4.html" style="display:block">
+        <div class="lesson-row" data-lesson="7-4">
+          <span class="lr-icon">4</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第7章　自分を好きになる　④</span>
+            <span class="lr-title">痩せなくても叶えたい未来</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/7-5.html" style="display:block">
+        <div class="lesson-row" data-lesson="7-5">
+          <span class="lr-icon">5</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第7章　自分を好きになる　⑤</span>
+            <span class="lr-title">女性としての自信を取り戻す</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+      <a href="lessons/7-6.html" style="display:block">
+        <div class="lesson-row" data-lesson="7-6">
+          <span class="lr-icon">6</span>
+          <span class="lr-body">
+            <span class="lr-kicker">第7章　自分を好きになる　⑥</span>
+            <span class="lr-title">自分との関係修復</span>
+          </span>
+          <span class="lr-type">テキスト+動画</span>
+          <span class="lr-go">›</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+</main>
+</div>
+</div>
 
 <footer>
   © 2026 一生ダイエッター卒業プログラム　無断転載・再配布を禁じます。
@@ -123,20 +735,6 @@
 
 </div>
 
-<script>
-  function showApp() {
-    document.getElementById('gateScreen').style.display = 'none';
-    document.getElementById('siteContent').style.display = 'block';
-  }
-  function showGate() {
-    document.getElementById('gateScreen').style.display = 'flex';
-    document.getElementById('siteContent').style.display = 'none';
-  }
-  netlifyIdentity.on('init', function(user) { user ? showApp() : showGate(); });
-  netlifyIdentity.on('login', function() { showApp(); netlifyIdentity.close(); });
-  netlifyIdentity.on('logout', showGate);
-  netlifyIdentity.init();
-</script>
-
+<script src="assets/app.js"></script>
 </body>
 </html>

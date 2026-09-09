@@ -15,37 +15,74 @@
     <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
     <h1>会員限定ページです</h1>
     <p>登録済みのメールアドレスとパスワードでログインしてください。</p>
-    <button class="wbtn" onclick="netlifyIdentity.open('login')">ログイン</button>
+    <button class="wbtn" onclick="bpLogin()">ログイン</button>
   </div>
 </div>
 
 <div id="siteContent" style="display:none">
+<div class="app">
+<div class="mobilebar">
+  <button class="hamb" id="hamb" aria-label="メニュー">☰</button>
+  <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
+  <span style="width:38px"></span>
+</div>
+<div class="scrim" id="scrim"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="../index.html">一生ダイエッター<span>卒業プログラム</span></a>
 
-<nav class="topnav">
-  <div class="topnav-inner">
-    <a class="brand" href="../index.html">一生ダイエッター<span>卒業プログラム</span></a>
-    <div class="topnav-links">
-      <a href="../index.html">レッスン一覧に戻る</a>
-      <a id="logoutLink" onclick="netlifyIdentity.logout()">ログアウト</a>
-    </div>
-  </div>
-</nav>
-
-<div class="lesson-shell">
-  <div class="lesson-kicker">第0章　はじめに　③</div>
-  <h1>この講座で大切にすること</h1>
-
-  <div class="video-frame">
+  <div class="sidebar-profile">
+    <div class="avatar" id="pavatar">会</div>
     <div>
-      <div class="play"></div>
-      <div class="placeholder-text">動画はこちらに公開されます</div>
+      <div class="pname" id="pname">会員のあなた</div>
+      <div class="prole">受講生</div>
     </div>
   </div>
-  <p class="video-caption">※ 動画は限定公開のYouTubeリンクに差し替えてください（現在プレースホルダー）</p>
 
-  <div class="article">
-    <p class="lede">この講座には、いくつかの約束があります。難しいことは何もありません。むしろ、これまで自分に課してきたルールを手放すためのものです。</p>
-    
+  <nav class="side-nav">
+    <div class="side-group">メイン</div>
+    <a class="side-link" href="../index.html"><span class="ic">⌂</span>ホーム</a>
+    <a class="side-link" href="../index.html#dashboard"><span class="ic">▤</span>学習コンテンツ</a>
+
+    <div class="side-group">全9パート</div>
+      <a class="side-link active" href="../index.html#ch0"><span class="ic">◍</span>第0章　はじめに</a>
+      <a class="side-link" href="../index.html#ch1"><span class="ic">◆</span>第1章　気づく</a>
+      <a class="side-link" href="../index.html#ch2"><span class="ic">◆</span>第2章　整える</a>
+      <a class="side-link" href="../index.html#ch3"><span class="ic">◆</span>第3章　手放す</a>
+      <a class="side-link" href="../index.html#ch4"><span class="ic">◆</span>第4章　ゆるめる</a>
+      <a class="side-link" href="../index.html#ch5"><span class="ic">◆</span>第5章　身体を動かす</a>
+      <a class="side-link" href="../index.html#ch6"><span class="ic">◆</span>第6章　満たす</a>
+      <a class="side-link" href="../index.html#ch7"><span class="ic">◆</span>第7章　自分を好きになる</a>
+  </nav>
+
+  <div class="sidebar-foot">
+    <a href="../index.html">レッスン一覧に戻る</a>
+    <a onclick="bpLogout()">ログアウト</a>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="breadcrumb">
+    <a href="../index.html#dashboard">学習コンテンツ</a>
+    <span class="sep">/</span>
+    <a href="../index.html#ch0">第0章　はじめに</a>
+    <span class="sep">/</span>
+    <span>この講座で大切にすること</span>
+  </div>
+
+  <div class="lesson-shell">
+    <div class="lesson-kicker">第0章　はじめに　③</div>
+    <h1>この講座で大切にすること</h1>
+
+    <div class="video-frame">
+      <div>
+        <div class="play"></div>
+        <div class="placeholder-text">動画はこちらに公開されます</div>
+      </div>
+    </div>
+    <p class="video-caption">※ 動画は限定公開のYouTubeリンクに差し替えてください（現在プレースホルダー）</p>
+
+    <div class="article">
+<p class="lede">この講座には、いくつかの約束があります。難しいことは何もありません。むしろ、これまで自分に課してきたルールを手放すためのものです。</p>
 <h2>6つの約束</h2>
 <p><strong>① 他人と比べません。</strong>他の参加者の進み具合や、体型と、あなた自身を比べる必要はまったくありません。それぞれのペースがあり、それぞれの背景があります。</p>
 <p><strong>② 過去の自分とも、無理に比べません。</strong>「前はもっと頑張れていたのに」というふうに、過去の自分を基準にしすぎると、今の自分を苦しめてしまいます。今日は今日の自分を見ていく。それで十分です。</p>
@@ -53,11 +90,9 @@
 <p><strong>④ 体重より、感情や状態を優先します。</strong>体重計の数字よりも、「今日はどんな気持ちだったか」「よく眠れているか」ということに、意識を向けていきます。体重は、あくまで結果であって、目的ではありません。</p>
 <p><strong>⑤ 自分のペースを尊重します。</strong>3ヶ月というのは、あくまで目安です。早く進みたい章もあれば、じっくり向き合いたい章もあると思います。どちらも間違いではありません。</p>
 <p><strong>⑥ ここは、ジャッジされない場所です。</strong>どんな感情も、どんな経験も、どんなに小さな一歩も、否定されることはありません。</p>
-
 <h2>迷ったときは</h2>
 <p>もし途中で、「比べてしまっている」「完璧を求めてしまっている」と気づいたときは、この章を、また読み返してみてください。</p>
-
-  </div>
+    </div>
 
   <div class="worksheet-card">
     <div>
@@ -67,10 +102,19 @@
     <a class="wbtn" href="../worksheets/0-3.pdf">ワークシートDL</a>
   </div>
 
-  <div class="lesson-nav">
-    <a href="0-2.html"><span class="dir">← 前のレッスン</span>なぜ今までダイエットが苦しかったのか</a>
-    <a href="0-4.html" class="next"><span class="dir">次のレッスン →</span>あなたが頑張らなくていい理由</a>
+    <div class="complete-bar" id="completeBar" data-lesson="0-3">
+      <span class="cb-text">動画を見て、ワークに取り組めたら、完了にしておきましょう。</span>
+      <button class="complete-btn" type="button">このレッスンを完了にする</button>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="0-2.html"><span class="dir">← 前のレッスン</span>なぜ今までダイエットが苦しかったのか</a>
+      <a href="0-4.html" class="next"><span class="dir">次のレッスン →</span>あなたが頑張らなくていい理由</a>
+    </div>
   </div>
+
+</main>
+</div>
 </div>
 
 <footer>
@@ -79,20 +123,6 @@
 
 </div>
 
-<script>
-  function showApp() {
-    document.getElementById('gateScreen').style.display = 'none';
-    document.getElementById('siteContent').style.display = 'block';
-  }
-  function showGate() {
-    document.getElementById('gateScreen').style.display = 'flex';
-    document.getElementById('siteContent').style.display = 'none';
-  }
-  netlifyIdentity.on('init', function(user) { user ? showApp() : showGate(); });
-  netlifyIdentity.on('login', function() { showApp(); netlifyIdentity.close(); });
-  netlifyIdentity.on('logout', showGate);
-  netlifyIdentity.init();
-</script>
-
+<script src="../assets/app.js"></script>
 </body>
 </html>
