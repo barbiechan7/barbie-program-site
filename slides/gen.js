@@ -199,11 +199,44 @@ var st=parseInt((location.hash||'#1').slice(1),10);show(isNaN(st)?0:st-1);
 `;
   fs.writeFileSync(path.join(OUT, key + ".html"), html);
 
-  // script json for docx
+  const plain = (s) => String(s == null ? "" : s).replace(/<br>/g, " ").replace(/<[^>]+>/g, "").trim();
+
+  const CHARJP = {
+    smile: "笑顔", "smile-hearts": "笑顔＋ハート", laugh: "笑い", cry: "泣き", angry: "怒り",
+    sparkle: "キラキラ", love: "ハート目", sleep: "ねむい", flower: "やさしい笑顔（お花）", deadpan: "無表情",
+    wink: "ウインク", surprised: "びっくり", troubled: "困り顔", think: "考え顔（？）", sad: "しょんぼり",
+    cheer: "わくわく", pout: "ふくれっ面", shy: "照れ", tired: "疲れ",
+    title: "笑顔", past: "困り顔", warm: "やさしい笑顔", bye: "笑顔＋ハート",
+  };
+
+  // スライドに表示される文字（プレーンテキスト表現）
+  function displayLines(type, p) {
+    const L = [];
+    if (p.eb) L.push(`［ラベル］${plain(p.eb)}`);
+    if (type === "q" && p.bigq) L.push(`［大きな問い］${plain(p.bigq)}`);
+    if (p.h) L.push(`［見出し］${plain(p.h)}`);
+    if (p.lead) L.push(`［本文］${plain(p.lead)}`);
+    if (p.items) p.items.forEach((x) => L.push(`　・${plain(x)}`));
+    if (type === "work") {
+      L.push(`［ワーク名］${plain(p.wt || "今日のワーク")}`);
+      if (p.wb) L.push(`［ワーク内容］${plain(p.wb)}`);
+    }
+    if (p.note && type !== "q") L.push(`［補足］${plain(p.note)}`);
+    if (type === "q" && p.note) L.push(`［補足］${plain(p.note)}`);
+    if (p.char) L.push(`（キャラ：${CHARJP[p.char] || p.char}）`);
+    return L;
+  }
+
+  // script json for docx（レビュー用）
   const sc = deck.slides.map(([type, p, range], idx) => {
     const [a, b] = range || [0, 0];
     const paras = script.slice(a, b);
-    return { no: idx + 1, total: N, screen: (p.screen || p.h || p.bigq || p.eb || "").replace(/<br>/g,"").replace(/<[^>]+>/g,""), lines: narr(paras) };
+    return {
+      no: idx + 1, total: N, type,
+      screen: plain(p.screen || p.h || p.bigq || p.eb || ""),
+      display: displayLines(type, p),
+      lines: narr(paras),
+    };
   });
   fs.writeFileSync(path.join(OUT, key + ".script.json"),
     JSON.stringify({ ch: deck.ch, n: deck.n, mark: deck.mark, title: deck.title, slides: sc }, null, 1));
