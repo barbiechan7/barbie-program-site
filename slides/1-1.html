@@ -18,7 +18,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
   body{
-    background:#F5DDE6;
+    background:#fff;
     color:var(--ink);
     font-family:'Noto Sans JP',sans-serif;line-height:1.8;
     overflow:hidden;-webkit-font-smoothing:antialiased;
@@ -28,7 +28,7 @@
   .slide{
     position:absolute;inset:0;
     display:none;opacity:0;transition:opacity .25s ease;
-    padding:3.2vmin;
+    padding:0;
   }
   .slide.on{display:block;opacity:1}
 
@@ -36,14 +36,13 @@
   .frame{
     height:100%;
     background:var(--frame);
-    border-radius:26px;
-    padding:2.8vmin;
-    box-shadow:0 3vmin 6vmin -3vmin rgba(168,71,112,.45);
+    border-radius:0;
+    padding:2.6vmin;
   }
   .panel{
     height:100%;
     background:#fff;
-    border-radius:12px;
+    border-radius:10px;
     padding:6vmin 8vmin;
     display:flex;flex-direction:column;justify-content:center;
     position:relative;overflow:hidden;
@@ -140,7 +139,7 @@
       -webkit-print-color-adjust:exact;print-color-adjust:exact;
     }
     .slide:last-child{ page-break-after:auto;break-after:auto; }
-    .frame{ padding:28px;box-shadow:none;border-radius:26px; }
+    .frame{ padding:26px;box-shadow:none;border-radius:0; }
     .panel{ padding:56px 84px; }
     .s-head.top{ left:84px;right:84px;top:52px; }
     .slide h1{ font-size:56px; }
@@ -168,7 +167,7 @@
       <span class="eyebrow">第1章「気づく」</span>
       <h1>①　私はなぜ<br>痩せたいのか？</h1>
       <div class="note">一生ダイエッター卒業プログラム<br>— 痩せようとしない、心を整える 3ヶ月 —</div>
-    </div></div></div>
+    </div><img class="s-char" src="assets/char-title.png" alt=""></div></div>
   </section>
 
   <!-- 2 -->
@@ -208,7 +207,7 @@
         <span>マインドコーチング 3ヶ月 30万円</span>
         <span>何度もリバウンド</span>
       </div>
-    </div></div></div>
+    </div><img class="s-char" src="assets/char-past.png" alt=""></div></div>
   </section>
 
   <!-- 6 -->
@@ -247,7 +246,7 @@
       <span class="eyebrow">今日いちばん伝えたいこと</span>
       <h2>太ることは、自分自身を守るための<br><span class="accent">無意識の行動</span></h2>
       <div class="arrow"></div>
-    </div></div></div>
+    </div><img class="s-char" src="assets/char-warm.png" alt=""></div></div>
   </section>
 
   <!-- 10 -->
@@ -290,7 +289,7 @@
         <li>もし痩せられたら、具体的に何が変わると思う？</li>
         <li>今の体型のままでも、できることは何だろう？</li>
       </ul>
-    </div></div></div>
+    </div><img class="s-char" src="assets/char-think.png" alt=""></div></div>
   </section>
 
   <!-- 14 -->
@@ -329,7 +328,7 @@
   <section class="slide center">
     <div class="frame"><div class="panel"><div class="inner">
       <h1>それでは、<br>また次の動画で。</h1>
-    </div></div></div>
+    </div><img class="s-char" src="assets/char-bye.png" alt=""></div></div>
   </section>
 
 </div>
