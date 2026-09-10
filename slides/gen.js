@@ -229,13 +229,19 @@ var st=parseInt((location.hash||'#1').slice(1),10);show(isNaN(st)?0:st-1);
 
   // script json for docx（レビュー用）
   const sc = deck.slides.map(([type, p, range], idx) => {
-    const [a, b] = range || [0, 0];
-    const paras = script.slice(a, b);
+    // p.say（拡張ナレーション）があれば優先。無ければ台本txtの段落範囲から
+    let lines;
+    if (p.say && p.say.length) {
+      lines = p.say;
+    } else {
+      const [a, b] = range || [0, 0];
+      lines = narr(script.slice(a, b));
+    }
     return {
       no: idx + 1, total: N, type,
       screen: plain(p.screen || p.h || p.bigq || p.eb || ""),
       display: displayLines(type, p),
-      lines: narr(paras),
+      lines,
     };
   });
   fs.writeFileSync(path.join(OUT, key + ".script.json"),
