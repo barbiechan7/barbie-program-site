@@ -6,125 +6,154 @@
 <title>第1章-① 私はなぜ痩せたいのか？｜スライド（仮）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#FDF7F8; --paper:#fff; --ink:#2E2226; --ink-soft:#7A6670;
-    --accent:#D6698F; --accent-deep:#A84770; --sage-tint:#F2E9EC;
-    --accent-tint:#FBE6ED; --line:#F0DCE2;
-    --grad:linear-gradient(120deg,#D6698F,#A84770);
+    --ink:#2E2226; --ink-soft:#7A6670;
+    --accent:#D6698F; --accent-deep:#A84770; --coral:#F0728E;
+    --sage-tint:#F7EEF1; --accent-tint:#FBE6ED; --line:#F0DCE2;
+    --frame:linear-gradient(130deg,#F7B7D0 0%,#E87BA6 30%,#D6698F 52%,#C2568A 74%,#9E4372 100%);
+    --arrow:linear-gradient(90deg,#F3A9C4,#D6698F 55%,#A84770);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
   body{
-    background:var(--bg);color:var(--ink);
+    background:#F5DDE6;
+    color:var(--ink);
     font-family:'Noto Sans JP',sans-serif;line-height:1.8;
     overflow:hidden;-webkit-font-smoothing:antialiased;
   }
 
-  /* ---- deck ---- */
   .deck{position:fixed;inset:0}
   .slide{
     position:absolute;inset:0;
-    display:none;flex-direction:column;justify-content:center;
-    padding:8vmin 10vmin;
-    opacity:0;transition:opacity .25s ease;
+    display:none;opacity:0;transition:opacity .25s ease;
+    padding:3.2vmin;
   }
-  .slide.on{display:flex;opacity:1}
+  .slide.on{display:block;opacity:1}
 
-  /* aspect box keeps text sane on wide/tall screens */
-  .slide .inner{max-width:1100px;width:100%;margin:0 auto}
+  /* gradient frame + white panel（参考デザイン準拠） */
+  .frame{
+    height:100%;
+    background:var(--frame);
+    border-radius:26px;
+    padding:2.8vmin;
+    box-shadow:0 3vmin 6vmin -3vmin rgba(168,71,112,.45);
+  }
+  .panel{
+    height:100%;
+    background:#fff;
+    border-radius:12px;
+    padding:6vmin 8vmin;
+    display:flex;flex-direction:column;justify-content:center;
+    position:relative;overflow:hidden;
+  }
+  .panel .inner{max-width:1000px;width:100%;margin:0 auto}
 
+  /* heading + arrow underline */
+  .s-head{margin-bottom:4.5vmin}
+  .s-head.top{
+    position:absolute;left:8vmin;right:8vmin;top:5.5vmin;margin:0;
+  }
+  h1{font-size:clamp(30px,6.4vmin,66px);line-height:1.32;font-weight:900;letter-spacing:.01em}
+  h2{font-size:clamp(23px,4.7vmin,50px);line-height:1.36;font-weight:900;letter-spacing:.01em}
+  .arrow{
+    position:relative;height:3px;background:var(--arrow);border-radius:2px;
+    margin-top:2.4vmin;
+  }
+  .arrow::after{
+    content:"";position:absolute;right:-2px;top:50%;
+    width:0;height:0;transform:translateY(-50%);
+    border-top:7px solid transparent;border-bottom:7px solid transparent;
+    border-left:13px solid var(--accent-deep);
+  }
+
+  .accent{color:var(--coral)}
+  .lead{font-size:clamp(16px,2.5vmin,29px);color:var(--ink);margin-top:3vmin;line-height:1.95;font-weight:500}
+  .lead.soft{color:var(--ink-soft);font-weight:400}
+  .big-q{font-size:clamp(24px,5.4vmin,56px);font-weight:900;line-height:1.5}
+  .note{font-size:clamp(13px,1.9vmin,22px);color:var(--ink-soft);margin-top:3.5vmin;line-height:1.9}
   .eyebrow{
-    color:var(--accent);font-size:clamp(13px,1.6vmin,20px);
-    letter-spacing:.14em;margin-bottom:2.4vmin;font-weight:700;
+    display:inline-block;color:#fff;background:var(--accent);
+    font-size:clamp(12px,1.55vmin,19px);font-weight:700;letter-spacing:.06em;
+    padding:.7vmin 2.4vmin;border-radius:999px;margin-bottom:3vmin;
   }
-  h1{font-size:clamp(28px,6.2vmin,64px);line-height:1.35;font-weight:700;letter-spacing:.01em}
-  h2{font-size:clamp(24px,5vmin,52px);line-height:1.4;font-weight:700}
-  h2 .accent{color:var(--accent)}
-  .lead{font-size:clamp(17px,2.6vmin,30px);color:var(--ink-soft);margin-top:3vmin;line-height:1.9}
-  .big-q{font-size:clamp(26px,5.6vmin,58px);font-weight:700;line-height:1.5}
-  .note{font-size:clamp(14px,1.9vmin,22px);color:var(--ink-soft);margin-top:3.5vmin}
 
-  ul.points{list-style:none;margin-top:4vmin;display:flex;flex-direction:column;gap:2.2vmin}
+  ul.points{list-style:none;margin-top:1vmin;display:flex;flex-direction:column;gap:2.4vmin}
   ul.points li{
-    font-size:clamp(17px,2.7vmin,30px);padding-left:4.2vmin;position:relative;
+    font-size:clamp(16px,2.6vmin,29px);padding-left:4.6vmin;position:relative;font-weight:500;line-height:1.7;
   }
-  ul.points li::before{content:"💗";position:absolute;left:0;font-size:.85em}
+  ul.points li::before{content:"💗";position:absolute;left:0;top:.05em;font-size:.8em}
 
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:2.4vmin;margin-top:4.5vmin}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:2.4vmin;margin-top:1vmin}
   .cards .c{
-    background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);
-    border-radius:14px;padding:3vmin 3.4vmin;font-size:clamp(15px,2.3vmin,26px);
+    background:var(--accent-tint);border:1px solid var(--line);border-left:4px solid var(--accent);
+    border-radius:12px;padding:2.8vmin 3.2vmin;font-size:clamp(14px,2.2vmin,25px);font-weight:500;
   }
 
-  .kv{display:flex;flex-wrap:wrap;gap:1.6vmin 3vmin;margin-top:4vmin}
+  .kv{display:flex;flex-wrap:wrap;gap:1.6vmin 2vmin;margin-top:1vmin}
   .kv span{
-    background:var(--accent-tint);color:var(--accent-deep);
-    border-radius:999px;padding:1.4vmin 3vmin;font-size:clamp(14px,2vmin,24px);font-weight:500;
+    background:var(--frame);color:#fff;
+    border-radius:999px;padding:1.5vmin 3.2vmin;font-size:clamp(13px,1.95vmin,24px);font-weight:700;
   }
 
   .work{
-    margin-top:4.5vmin;background:var(--sage-tint);border:1px solid var(--line);
-    border-radius:16px;padding:4vmin 4.4vmin;
+    margin-top:1vmin;background:var(--sage-tint);border:1px dashed var(--accent);
+    border-radius:16px;padding:3.6vmin 4vmin;
   }
-  .work .wt{font-size:clamp(15px,2vmin,24px);color:var(--accent-deep);font-weight:700;margin-bottom:1.6vmin}
-  .work .wb{font-size:clamp(17px,2.6vmin,30px);font-weight:500}
+  .work .wt{font-size:clamp(14px,1.9vmin,23px);color:var(--accent-deep);font-weight:700;margin-bottom:1.6vmin}
+  .work .wb{font-size:clamp(16px,2.5vmin,29px);font-weight:500;line-height:1.85}
 
-  .center{text-align:center;align-items:center}
-  .center .inner{display:flex;flex-direction:column;align-items:center}
+  .center .inner{text-align:center}
+  .center .panel{align-items:center}
 
-  /* ---- chrome ---- */
-  .bar{
-    position:fixed;left:0;right:0;bottom:0;height:5px;background:var(--sage-tint);
+  /* character icon */
+  .s-char{
+    position:absolute;bottom:4.2vmin;right:5vmin;
+    width:clamp(90px,15vmin,190px);height:auto;
+    filter:drop-shadow(0 1vmin 2vmin rgba(168,71,112,.25));
   }
-  .bar > i{display:block;height:100%;background:var(--grad);width:0;transition:width .25s}
+  .s-char.left{right:auto;left:5vmin}
+
+  .bar{position:fixed;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.5)}
+  .bar > i{display:block;height:100%;background:var(--arrow);width:0;transition:width .25s}
   .counter{
-    position:fixed;right:2.4vmin;bottom:2.4vmin;font-size:13px;color:var(--ink-soft);
-    background:rgba(255,255,255,.7);border-radius:999px;padding:5px 12px;font-variant-numeric:tabular-nums;
+    position:fixed;right:2.4vmin;bottom:2.4vmin;font-size:13px;color:var(--accent-deep);
+    background:rgba(255,255,255,.85);border-radius:999px;padding:5px 12px;font-variant-numeric:tabular-nums;
   }
-  .hint{
-    position:fixed;left:2.4vmin;bottom:2.4vmin;font-size:12px;color:var(--ink-soft);opacity:.7;
-  }
+  .hint{position:fixed;left:2.4vmin;bottom:2.4vmin;font-size:12px;color:var(--accent-deep);opacity:.7}
+
   @media (max-width:600px){
     .cards{grid-template-columns:1fr}
-    .slide{padding:9vmin 7vmin}
+    .panel{padding:8vmin 7vmin}
   }
 
-  /* ---- PDF / 印刷（全スライドを1ページずつ書き出す） ---- */
+  /* ---- PDF / 印刷 ---- */
   @media print{
     @page{ size:1280px 720px; margin:0; }
-    html,body{ overflow:visible; height:auto; background:#fff; }
+    html,body{ overflow:visible;height:auto;background:#fff; }
     .deck{ position:static; }
     .slide{
-      position:relative !important;
-      display:flex !important;
-      opacity:1 !important;
-      width:1280px; height:714px;
-      padding:48px 92px;
-      overflow:hidden;
-      page-break-after:always;
-      break-after:page;
-      page-break-inside:avoid;
-      break-inside:avoid;
-      -webkit-print-color-adjust:exact;
-      print-color-adjust:exact;
+      position:relative !important;display:block !important;opacity:1 !important;
+      width:1280px;height:714px;padding:26px;
+      page-break-after:always;break-after:page;overflow:hidden;
+      -webkit-print-color-adjust:exact;print-color-adjust:exact;
     }
-    .slide:last-child{ page-break-after:auto; break-after:auto; }
-    .slide h1{ font-size:52px; }
-    .slide h2{ font-size:40px; }
-    .slide .big-q{ font-size:46px; }
-    .slide .lead{ font-size:23px; margin-top:22px; }
-    .slide ul.points{ margin-top:30px; gap:18px; }
-    .slide ul.points li{ font-size:24px; padding-left:38px; }
-    .slide .cards{ margin-top:34px; gap:18px; }
-    .slide .cards .c{ font-size:22px; padding:22px 26px; }
-    .slide .kv{ margin-top:30px; gap:12px 22px; }
-    .slide .kv span{ font-size:20px; padding:10px 22px; }
-    .slide .work{ margin-top:30px; padding:28px 32px; }
-    .slide .work .wb{ font-size:24px; }
-    .slide .eyebrow{ font-size:16px; margin-bottom:18px; }
-    .slide .note{ font-size:18px; margin-top:24px; }
+    .slide:last-child{ page-break-after:auto;break-after:auto; }
+    .frame{ padding:28px;box-shadow:none;border-radius:26px; }
+    .panel{ padding:56px 84px; }
+    .s-head.top{ left:84px;right:84px;top:52px; }
+    .slide h1{ font-size:56px; }
+    .slide h2{ font-size:42px; }
+    .slide .big-q{ font-size:48px; }
+    .slide .lead{ font-size:24px;margin-top:24px; }
+    .slide ul.points li{ font-size:25px; }
+    .slide .cards .c{ font-size:22px;padding:22px 26px; }
+    .slide .kv span{ font-size:20px;padding:12px 26px; }
+    .slide .work .wb{ font-size:25px; }
+    .slide .eyebrow{ font-size:17px; }
+    .slide .note{ font-size:18px; }
+    .s-char{ width:170px;bottom:38px;right:44px; }
     .bar,.counter,.hint{ display:none !important; }
   }
 </style>
@@ -135,163 +164,172 @@
 
   <!-- 1 -->
   <section class="slide center">
-    <div class="inner">
-      <div class="eyebrow">一生ダイエッター卒業プログラム ／ 第1章「気づく」</div>
+    <div class="frame"><div class="panel"><div class="inner">
+      <span class="eyebrow">第1章「気づく」</span>
       <h1>①　私はなぜ<br>痩せたいのか？</h1>
-      <div class="note">— 痩せようとしない、心を整える 3ヶ月 —</div>
-    </div>
+      <div class="note">一生ダイエッター卒業プログラム<br>— 痩せようとしない、心を整える 3ヶ月 —</div>
+    </div></div></div>
   </section>
 
   <!-- 2 -->
   <section class="slide center">
-    <div class="inner">
+    <div class="frame"><div class="panel"><div class="inner">
       <h2>この章が、<span class="accent">いちばん大事</span>です</h2>
-      <div class="lead">ここでの「気づき」がないと、<br>この先どんなワークも、表面的なテクニックで終わってしまう。</div>
-    </div>
+      <div class="arrow"></div>
+      <div class="lead soft">ここでの「気づき」がないと、この先どんなワークも、<br>表面的なテクニックで終わってしまう。</div>
+    </div></div></div>
   </section>
 
   <!-- 3 -->
   <section class="slide center">
-    <div class="inner">
-      <div class="eyebrow">最初の質問</div>
+    <div class="frame"><div class="panel"><div class="inner">
+      <span class="eyebrow">最初の質問</span>
       <div class="big-q">なぜ、あなたは<br>痩せたいんですか？</div>
       <div class="note">……パッと答えられましたか？　それとも、少し詰まりましたか？</div>
-    </div>
+    </div></div></div>
   </section>
 
   <!-- 4 -->
   <section class="slide">
-    <div class="inner">
-      <h2>「見た目のため」「健康のため」</h2>
-      <div class="lead">— その言葉の<span style="color:var(--accent);font-weight:700">奥</span>に、<br>もっと別の理由が隠れていることが、とても多い。</div>
-    </div>
+    <div class="frame"><div class="panel"><div class="inner">
+      <div class="s-head"><h2>「見た目のため」<br>「健康のため」</h2><div class="arrow"></div></div>
+      <div class="lead">— その言葉の<span class="accent">奥</span>に、<br>もっと別の理由が隠れていることが、とても多い。</div>
+    </div></div></div>
   </section>
 
   <!-- 5 -->
   <section class="slide">
-    <div class="inner">
-      <div class="eyebrow">私自身の話</div>
-      <h2>やってきたのに、<br>続かなかった</h2>
+    <div class="frame"><div class="panel"><div class="inner">
+      <span class="eyebrow">私自身の話</span>
+      <div class="s-head"><h2>やってきたのに、続かなかった</h2><div class="arrow"></div></div>
       <div class="kv">
         <span>ダイエットに300万円以上</span>
         <span>ライザップ</span>
         <span>マインドコーチング 3ヶ月 30万円</span>
         <span>何度もリバウンド</span>
       </div>
-    </div>
+    </div></div></div>
   </section>
 
   <!-- 6 -->
   <section class="slide center">
-    <div class="inner">
+    <div class="frame"><div class="panel"><div class="inner">
       <h2>ゴールが曖昧なまま走ると、<br>人は必ず<span class="accent">息切れ</span>する</h2>
-      <div class="lead">「痩せること」がゴールになっていて、<br>痩せたら本当は何が欲しいのか、が曖昧だった。</div>
-    </div>
+      <div class="arrow"></div>
+      <div class="lead soft">「痩せること」がゴールになっていて、<br>痩せたら本当は何が欲しいのか、が曖昧だった。</div>
+    </div></div></div>
   </section>
 
   <!-- 7 -->
   <section class="slide">
-    <div class="inner">
-      <h2>「痩せたい」の裏に<br>隠れているもの</h2>
+    <div class="frame"><div class="panel"><div class="inner">
+      <div class="s-head"><h2>「痩せたい」の裏に隠れているもの</h2><div class="arrow"></div></div>
       <div class="cards">
         <div class="c">好きな服が着たい</div>
         <div class="c">人と比べて、落ち込みたくない</div>
         <div class="c">太っている自分を見られたくない</div>
         <div class="c">「痩せたら、もっと愛される」</div>
       </div>
-    </div>
+    </div></div></div>
   </section>
 
   <!-- 8 -->
   <section class="slide center">
-    <div class="inner">
+    <div class="frame"><div class="panel"><div class="inner">
       <h2>どれも、<br><span class="accent">「今の自分」を否定する</span><br>ところから始まっている</h2>
-    </div>
+      <div class="arrow"></div>
+    </div></div></div>
   </section>
 
   <!-- 9 -->
   <section class="slide center">
-    <div class="inner">
-      <div class="eyebrow">今日いちばん伝えたいこと</div>
-      <h2>太ることは、<br>自分自身を守るための<br><span class="accent">無意識の行動</span></h2>
-    </div>
+    <div class="frame"><div class="panel"><div class="inner">
+      <span class="eyebrow">今日いちばん伝えたいこと</span>
+      <h2>太ることは、自分自身を守るための<br><span class="accent">無意識の行動</span></h2>
+      <div class="arrow"></div>
+    </div></div></div>
   </section>
 
   <!-- 10 -->
   <section class="slide">
-    <div class="inner">
-      <h2>こんなとき、<br>食べることで安心を得ようとする</h2>
+    <div class="frame"><div class="panel"><div class="inner">
+      <div class="s-head"><h2>こんなとき、<br>食べることで安心を得ようとする</h2><div class="arrow"></div></div>
       <ul class="points">
         <li>仕事で頑張りすぎて、心に余裕がない</li>
         <li>子育てに追われて、自分の時間が取れない</li>
         <li>ストレスを、誰にも相談できず抱え込んでいる</li>
       </ul>
-    </div>
+    </div></div></div>
   </section>
 
   <!-- 11 -->
   <section class="slide center">
-    <div class="inner">
+    <div class="frame"><div class="panel"><div class="inner">
       <h2>痩せられないのは、<br><span class="accent">意志が弱いから</span>じゃない</h2>
-      <div class="lead">あなたの心が、今、そうせざるを得ない状態にある。<br>ただ、それだけ。</div>
-    </div>
+      <div class="arrow"></div>
+      <div class="lead soft">あなたの心が、今、そうせざるを得ない状態にある。<br>ただ、それだけ。</div>
+    </div></div></div>
   </section>
 
   <!-- 12 -->
   <section class="slide center">
-    <div class="inner">
-      <div class="eyebrow">心に留めておいてほしいこと</div>
+    <div class="frame"><div class="panel"><div class="inner">
+      <span class="eyebrow">心に留めておいてほしいこと</span>
       <h2>「痩せないと愛されない」は、<br><span class="accent">思い込み</span></h2>
+      <div class="arrow"></div>
       <div class="note">あなたは今のままでも、愛される価値がある人です。<br>（次の動画で、詳しくお話しします）</div>
-    </div>
+    </div></div></div>
   </section>
 
   <!-- 13 -->
   <section class="slide">
-    <div class="inner">
-      <div class="eyebrow">3つの問い　— 今日は答えを出さなくて大丈夫 —</div>
+    <div class="frame"><div class="panel"><div class="inner">
+      <div class="s-head"><h2>3つの問い</h2><div class="arrow"></div><div class="note" style="margin-top:1.4vmin">今日は答えを出さなくて大丈夫。心の中で考えてみてください。</div></div>
       <ul class="points">
         <li>最後に「痩せたい」と強く思ったのは、いつ？ きっかけは？</li>
         <li>もし痩せられたら、具体的に何が変わると思う？</li>
         <li>今の体型のままでも、できることは何だろう？</li>
       </ul>
-    </div>
+    </div></div></div>
   </section>
 
   <!-- 14 -->
   <section class="slide center">
-    <div class="inner">
-      <div class="eyebrow">まとめ</div>
+    <div class="frame"><div class="panel"><div class="inner">
+      <span class="eyebrow">まとめ</span>
       <h2>「痩せたい」の奥には、<br>必ず、あなたの<span class="accent">感情</span>がある</h2>
-      <div class="lead">それに気づくことが、<br>頑張らなくても変わっていく、最初のステップ。</div>
-    </div>
+      <div class="arrow"></div>
+      <div class="lead soft">それに気づくことが、<br>頑張らなくても変わっていく、最初のステップ。</div>
+    </div></div></div>
   </section>
 
   <!-- 15 -->
   <section class="slide">
-    <div class="inner">
+    <div class="frame"><div class="panel"><div class="inner">
+      <div class="s-head"><h2>今日のワーク</h2><div class="arrow"></div></div>
       <div class="work">
-        <div class="wt">💗 今日のワーク（自己理解ワークシート ①）</div>
-        <div class="wb">「なぜ私は痩せたいのか」を、<br>きれいな言葉にしようとせず、<br>本音のまま書き出してみてください。</div>
+        <div class="wt">💗 自己理解ワークシート ①</div>
+        <div class="wb">「なぜ私は痩せたいのか」を、きれいな言葉にしようとせず、<br>本音のまま書き出してみてください。</div>
       </div>
       <div class="note">支離滅裂でも大丈夫。「あ、私、本当はこう思っていたんだ」— そんな発見が、第一歩です。</div>
-    </div>
+    </div></div></div>
   </section>
 
   <!-- 16 -->
   <section class="slide center">
-    <div class="inner">
-      <div class="eyebrow">次回</div>
+    <div class="frame"><div class="panel"><div class="inner">
+      <span class="eyebrow">次回</span>
       <h2>② 食べることで<br>埋めている感情</h2>
+      <div class="arrow"></div>
       <div class="note">太ることで自分を守っている心理を、さらに深く見ていきます。</div>
-    </div>
+    </div></div></div>
   </section>
 
   <!-- 17 -->
   <section class="slide center">
-    <div class="inner">
+    <div class="frame"><div class="panel"><div class="inner">
       <h1>それでは、<br>また次の動画で。</h1>
-    </div>
+    </div></div></div>
   </section>
 
 </div>
@@ -307,12 +345,11 @@
     i = Math.max(0, Math.min(slides.length - 1, n));
     slides.forEach(function(s, idx){ s.classList.toggle('on', idx === i); });
     document.getElementById('counter').textContent = (i + 1) + ' / ' + slides.length;
-    document.getElementById('bar').style.width = ((i) / (slides.length - 1) * 100) + '%';
+    document.getElementById('bar').style.width = (i / (slides.length - 1) * 100) + '%';
     location.hash = i + 1;
   }
   function next(){ show(i + 1); }
   function prev(){ show(i - 1); }
-
   document.addEventListener('keydown', function(e){
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); next(); }
     else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
@@ -323,12 +360,10 @@
       else document.exitFullscreen();
     }
   });
-  // tap right / left half on touch
   document.addEventListener('click', function(e){
     if (e.target.closest('a')) return;
     (e.clientX > window.innerWidth / 2) ? next() : prev();
   });
-
   var start = parseInt((location.hash || '#1').slice(1), 10);
   show(isNaN(start) ? 0 : start - 1);
 </script>
