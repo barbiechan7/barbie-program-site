@@ -260,13 +260,19 @@ ${sidebar("../", "ch" + ch.n)}
     <div class="lesson-kicker">第${ch.n}章　${ch.kicker}　${ls.mark}</div>
     <h1>${ls.title}</h1>
 
-    <div class="video-frame">
+    ${
+      ls.video
+        ? `<div class="video-frame has-video">
+      <iframe src="https://www.youtube-nocookie.com/embed/${ls.video}" title="${ls.title}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>`
+        : `<div class="video-frame">
       <div>
         <div class="play"></div>
         <div class="placeholder-text">動画はこちらに公開されます</div>
       </div>
     </div>
-    <p class="video-caption">※ 動画は限定公開のYouTubeリンクに差し替えてください（現在プレースホルダー）</p>
+    <p class="video-caption">※ 動画は限定公開のYouTubeリンクに差し替えてください（現在プレースホルダー）</p>`
+    }
 
     <div class="article">
 ${ls.article}

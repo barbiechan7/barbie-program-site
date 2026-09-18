@@ -156,6 +156,7 @@ const COURSE = {
           mark: "①",
           title: "私はなぜ痩せたいのか？",
           type: "テキスト+動画",
+          video: "O-trP1ipFFA",
           worksheet: {
             title: "第1章-① 自己理解ワークシート",
             note: "「なぜ私は痩せたいのか」を、きれいな言葉にせず、本音のまま書き出すワークです。",
@@ -177,6 +178,7 @@ const COURSE = {
           mark: "②",
           title: "食べることで埋めている感情",
           type: "テキスト+動画",
+          video: "2lVPgTSQh6U",
           worksheet: {
             title: "第1章-② 食べたくなった瞬間ワーク",
             note: "「最近なぜか食べたくなった瞬間」を思い出し、そのときの気持ちを書き出すワークです。",
@@ -195,6 +197,7 @@ const COURSE = {
           mark: "③",
           title: "“痩せないと愛されない”思考",
           type: "テキスト+動画",
+          video: "-B6LfrkzJts",
           worksheet: {
             title: "第1章-③ 思い込みの棚おろしワーク",
             note: "「痩せないと愛されない」と感じた経験を、出来事と気持ちに分けて書き出すワークです。",
@@ -213,6 +216,7 @@ const COURSE = {
           mark: "④",
           title: "一生ダイエッター思考チェック",
           type: "テキスト+動画",
+          video: "0psi4v-npkI",
           worksheet: {
             title: "第1章-④ 思考チェック記録シート",
             note: "8項目のチェック結果と、「はい」の項目ごとのエピソードをメモするシートです。",
@@ -239,6 +243,7 @@ const COURSE = {
           mark: "⑤",
           title: "自己理解ワーク（現在ワーク）",
           type: "テキスト+動画",
+          video: "-Pl5XBwA3Uw",
           worksheet: {
             title: "第1章-⑤ 現在の自分ワークシート",
             note: "仕事・家事育児・人間関係・心と体、4つの視点で今の状況を書き出すワークです。",
@@ -258,6 +263,7 @@ const COURSE = {
           mark: "⑥",
           title: "過去分析ワーク",
           type: "テキスト+動画",
+          video: "uneRsoCRF-M",
           worksheet: {
             title: "第1章-⑥ 過去のふり返りワークシート",
             note: "体型を意識し始めた時期・ダイエット歴・リバウンド経験・家庭環境を書き出すワークです。",
@@ -277,6 +283,7 @@ const COURSE = {
           mark: "⑦",
           title: "感情を書き出すワーク",
           type: "テキスト+動画",
+          video: "QsIEyvdv9VA",
           worksheet: {
             title: "第1章-⑦ 感情日記フォーマット",
             note: "1日の終わりに、感じた感情と食べたもの／食べたい気持ちをセットで記録するシートです。",
@@ -306,6 +313,7 @@ const COURSE = {
           mark: "①",
           title: "安心不足と過食の関係",
           type: "テキスト+動画",
+          video: "A1rSpHmW62s",
           worksheet: {
             title: "第2章-① 安心不足マップ",
             note: "「安心が足りないと感じる場面」と「そのとき食べたもの」を3つ書き出すワークです。",
@@ -324,6 +332,7 @@ const COURSE = {
           mark: "②",
           title: "ストレスと食欲の関係",
           type: "テキスト+動画",
+          video: "cHD39jshLJI",
           worksheet: {
             title: "第2章-② ストレスと食欲の記録シート",
             note: "今週ストレスを感じた場面を3つ書き、そのとき食欲がどう変化したかをメモするシートです。",
@@ -342,6 +351,7 @@ const COURSE = {
           mark: "③",
           title: "人間関係ダイエット",
           type: "テキスト+動画",
+          video: "-HmJW60OqvM",
           worksheet: {
             title: "第2章-③ 人間関係の棚おろしワーク",
             note: "あなたを元気にしてくれる人、消耗させる人を、それぞれ3人ずつ書き出すワークです。",
