@@ -46,13 +46,13 @@ STYLES = ('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
  '</w:styles>')
 
 MARKS = {1:"①",2:"②",3:"③",4:"④",5:"⑤",6:"⑥",7:"⑦"}
-CHNAME = {1:"気づく",2:"整える"}
+CHNAME = {0:"はじめに",1:"気づく",2:"整える",3:"手放す",4:"ゆるめる",5:"身体を動かす",6:"満たす",7:"自分を好きになる"}
 
 def build(data, dst):
     ch, n, mark, title = data["ch"], data["n"], data["mark"], data["title"]
     body = []
     body.append(para(f"第{ch}章 {CHNAME.get(ch,'')} ― {mark}「{title}」　録画用台本（スライド対応版）", size=30, bold=True, after=120))
-    body.append(para("想定尺：約9〜10分／使い方：スライドを1枚ずつ表示しながら、本文を声に出して読み上げてください。（間）は一呼吸置く目安です。",
+    body.append(para("想定尺：" + (data.get("dur") or "約9〜10分") + "／使い方：スライドを1枚ずつ表示しながら、本文を声に出して読み上げてください。（間）は一呼吸置く目安です。",
                      size=19, italic=True, color="808080", after=80))
     body.append(rule())
     for s in data["slides"]:

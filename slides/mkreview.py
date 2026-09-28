@@ -47,7 +47,7 @@ STYLES = ('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
  '<w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/></w:style>'
  '</w:styles>')
 
-CHNAME = {1: "気づく", 2: "整える"}
+CHNAME = {0: "はじめに", 1: "気づく", 2: "整える", 3: "手放す", 4: "ゆるめる", 5: "身体を動かす", 6: "満たす", 7: "自分を好きになる"}
 
 def build(data, dst):
     ch, mark, title = data["ch"], data["mark"], data["title"]

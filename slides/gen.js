@@ -245,7 +245,7 @@ var st=parseInt((location.hash||'#1').slice(1),10);show(isNaN(st)?0:st-1);
     };
   });
   fs.writeFileSync(path.join(OUT, key + ".script.json"),
-    JSON.stringify({ ch: deck.ch, n: deck.n, mark: deck.mark, title: deck.title, slides: sc }, null, 1));
+    JSON.stringify({ ch: deck.ch, n: deck.n, mark: deck.mark, title: deck.title, dur: deck.dur || "", slides: sc }, null, 1));
 
   console.log(`✓ ${key}  (${N} slides)`);
 }

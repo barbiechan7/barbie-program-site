@@ -260,13 +260,15 @@ ${sidebar("../", "ch" + ch.n)}
         ? `<div class="video-frame has-video">
       <iframe src="https://www.youtube-nocookie.com/embed/${ls.video}" title="${ls.title}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>`
-        : `<div class="video-frame">
+        : /動画/.test(ls.type || "")
+        ? `<div class="video-frame">
       <div>
         <div class="play"></div>
-        <div class="placeholder-text">動画はこちらに公開されます</div>
+        <div class="placeholder-text">動画は準備中です。公開までお待ちください。</div>
       </div>
     </div>
-    <p class="video-caption">※ 動画は限定公開のYouTubeリンクに差し替えてください（現在プレースホルダー）</p>`
+    <div style="margin-bottom:36px"></div>`
+        : ""
     }
 
     <div class="article">
