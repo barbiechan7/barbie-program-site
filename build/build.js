@@ -25,6 +25,8 @@ COURSE.chapters.forEach((ch) => {
 
 /* ---- 共通パーツ ---- */
 function head(title, cssHref) {
+  // "style.css" → ""、"../style.css" → "../"
+  const prefix = cssHref.replace(/style\.css$/, "");
   return `<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -35,16 +37,9 @@ function head(title, cssHref) {
 </head>
 <body>
 
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-<div class="gate-screen" id="gateScreen">
-  <div class="gate-box">
-    <div class="brand">${BRAND}</div>
-    <h1>会員限定ページです</h1>
-    <p>登録済みのメールアドレスとパスワードでログインしてください。</p>
-    <button class="wbtn" onclick="bpLogin()">ログイン</button>
-  </div>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="${prefix}assets/supabase-config.js"></script>
+<script src="${prefix}assets/auth.js"></script>
 `;
 }
 
@@ -170,7 +165,7 @@ ${rows}
       "style.css"
     ) +
     `
-<div id="siteContent" style="display:none">
+<div id="siteContent">
 <div class="app">
 ${mobilebar()}
 ${sidebar("", "home")}
@@ -242,7 +237,7 @@ function buildLesson(idx) {
   return (
     head(`${ls.title}｜一生ダイエッター卒業プログラム`, "../style.css") +
     `
-<div id="siteContent" style="display:none">
+<div id="siteContent">
 <div class="app">
 ${mobilebar()}
 ${sidebar("../", "ch" + ch.n)}
@@ -352,7 +347,7 @@ ${cards}
   return (
     head("ワークブック｜一生ダイエッター卒業プログラム", "style.css") +
     `
-<div id="siteContent" style="display:none">
+<div id="siteContent">
 <div class="app">
 ${mobilebar()}
 ${sidebar("", "workbook")}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ログイン｜一生ダイエッター卒業プログラム</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .bp-field { text-align: left; margin-bottom: 16px; }
+  .bp-field label { display: block; font-size: 12.5px; color: var(--ink-soft); margin-bottom: 6px; }
+  .bp-field input {
+    width: 100%; box-sizing: border-box;
+    padding: 12px 13px; font-size: 15px;
+    border: 1px solid var(--line); border-radius: 2px;
+    background: var(--bg); color: var(--ink);
+    font-family: inherit;
+  }
+  .bp-field input:focus { outline: none; border-color: var(--accent); background: #fff; }
+  .gate-box .wbtn { width: 100%; padding: 14px; margin-top: 4px; }
+  .gate-box .wbtn[disabled] { opacity: .5; cursor: default; }
+  .bp-sub { margin-top: 20px; font-size: 12.5px; }
+  .bp-sub a { color: var(--accent-deep); cursor: pointer; text-decoration: underline; }
+  .bp-msg {
+    text-align: left; font-size: 13px; line-height: 1.8;
+    padding: 12px 14px; border-radius: 2px; margin-bottom: 20px;
+  }
+  .bp-msg.err { background: #FDECEF; color: #A8324F; border: 1px solid #F3C9D3; }
+  .bp-msg.ok  { background: #EAF4EE; color: #2F6B47; border: 1px solid #C6E2D1; }
+  .bp-hide { display: none; }
+</style>
+</head>
+<body>
+
+<div class="gate-screen">
+  <div class="gate-box">
+    <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
+
+    <div id="msg" class="bp-msg bp-hide"></div>
+
+    <!-- ログイン -->
+    <div id="viewSignin">
+      <h1>会員限定ページです</h1>
+      <p>ご登録のメールアドレスとパスワードでログインしてください。</p>
+      <form id="formSignin">
+        <div class="bp-field">
+          <label for="email">メールアドレス</label>
+          <input type="email" id="email" autocomplete="email" required>
+        </div>
+        <div class="bp-field">
+          <label for="password">パスワード</label>
+          <input type="password" id="password" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="wbtn" id="btnSignin">ログイン</button>
+      </form>
+      <div class="bp-sub"><a id="toForgot">パスワードを忘れた方はこちら</a></div>
+    </div>
+
+    <!-- パスワードを決める（招待メール・再設定メールから来たとき） -->
+    <div id="viewSetpw" class="bp-hide">
+      <h1>パスワードを決めてください</h1>
+      <p>これから使うパスワードを入力してください。<br>次回からは、このパスワードでログインできます。</p>
+      <form id="formSetpw">
+        <div class="bp-field">
+          <label for="newpw">新しいパスワード（8文字以上）</label>
+          <input type="password" id="newpw" autocomplete="new-password" minlength="8" required>
+        </div>
+        <div class="bp-field">
+          <label for="newpw2">もう一度入力</label>
+          <input type="password" id="newpw2" autocomplete="new-password" minlength="8" required>
+        </div>
+        <button type="submit" class="wbtn" id="btnSetpw">この内容ではじめる</button>
+      </form>
+    </div>
+
+    <!-- パスワード再設定の申し込み -->
+    <div id="viewForgot" class="bp-hide">
+      <h1>パスワードの再設定</h1>
+      <p>ご登録のメールアドレスを入力してください。<br>再設定用のご案内をお送りします。</p>
+      <form id="formForgot">
+        <div class="bp-field">
+          <label for="femail">メールアドレス</label>
+          <input type="email" id="femail" autocomplete="email" required>
+        </div>
+        <button type="submit" class="wbtn" id="btnForgot">案内メールを送る</button>
+      </form>
+      <div class="bp-sub"><a id="toSignin">ログイン画面に戻る</a></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/supabase-config.js"></script>
+<script src="assets/auth.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var params = new URLSearchParams(location.search);
+  var next = params.get("next") || "/";
+  // 外部サイトへ飛ばされないように、自分のサイト内のパスだけ許可する
+  if (next.charAt(0) !== "/" || next.indexOf("//") === 0) next = "/";
+
+  var msg = document.getElementById("msg");
+  function show(kind, text) {
+    msg.className = "bp-msg " + kind;
+    msg.textContent = text;
+  }
+  function hideMsg() { msg.className = "bp-msg bp-hide"; }
+
+  function view(name) {
+    ["Signin", "Setpw", "Forgot"].forEach(function (v) {
+      document.getElementById("view" + v).className = (v === name) ? "" : "bp-hide";
+    });
+  }
+
+  function busy(btn, on, label) {
+    btn.disabled = on;
+    btn.textContent = on ? "処理中…" : label;
+  }
+
+  /* ---- 設定が未入力のとき ---- */
+  if (!window.bpAuth || !window.bpAuth.configured()) {
+    view("Signin");
+    document.getElementById("formSignin").className = "bp-hide";
+    document.querySelector("#viewSignin .bp-sub").className = "bp-sub bp-hide";
+    show("err", "まだ接続先の設定が入っていません。assets/supabase-config.js に Supabase の Project URL と anon キーを入れてください。");
+    return;
+  }
+
+  var sb = window.bpAuth.client();
+
+  /* ---- 招待メール・再設定メールから来た場合 ---- */
+  var hash = new URLSearchParams(location.hash.replace(/^#/, ""));
+  var linkType = hash.get("type");
+  var linkError = hash.get("error_description");
+
+  if (linkError) {
+    view("Signin");
+    show("err", "リンクの有効期限が切れているか、すでに使われています。お手数ですが、下の「パスワードを忘れた方はこちら」から再設定してください。");
+  } else if (linkType === "invite" || linkType === "recovery" || linkType === "signup") {
+    view("Setpw");
+  } else {
+    view("Signin");
+    resumeIfPossible();
+  }
+
+  /* ---- すでにログイン済みなら、そのまま通す ---- */
+  function resumeIfPossible() {
+    var lastTry = Number(sessionStorage.getItem("bp:resumeAt") || 0);
+    // 関所とログイン画面を往復し続けるのを防ぐ
+    if (Date.now() - lastTry < 8000) return;
+
+    sb.auth.getSession().then(function (r) {
+      var session = r && r.data ? r.data.session : null;
+      if (!session) return;
+      if (window.bpAuth.syncFromSession(session)) {
+        sessionStorage.setItem("bp:resumeAt", String(Date.now()));
+        location.replace(next);
+      }
+    });
+  }
+
+  /* ---- ログイン ---- */
+  document.getElementById("formSignin").addEventListener("submit", function (e) {
+    e.preventDefault();
+    hideMsg();
+    var btn = document.getElementById("btnSignin");
+    busy(btn, true, "ログイン");
+    sb.auth.signInWithPassword({
+      email: document.getElementById("email").value.trim(),
+      password: document.getElementById("password").value
+    }).then(function (r) {
+      busy(btn, false, "ログイン");
+      if (r.error) {
+        show("err", "メールアドレスかパスワードが違うようです。もう一度お試しください。");
+        return;
+      }
+      window.bpAuth.syncFromSession(r.data.session);
+      sessionStorage.removeItem("bp:resumeAt");
+      location.replace(next);
+    }).catch(function () {
+      busy(btn, false, "ログイン");
+      show("err", "通信がうまくいきませんでした。少し待ってからお試しください。");
+    });
+  });
+
+  /* ---- パスワードを決める ---- */
+  document.getElementById("formSetpw").addEventListener("submit", function (e) {
+    e.preventDefault();
+    hideMsg();
+    var pw = document.getElementById("newpw").value;
+    var pw2 = document.getElementById("newpw2").value;
+    if (pw !== pw2) { show("err", "2つのパスワードが一致していません。"); return; }
+
+    var btn = document.getElementById("btnSetpw");
+    busy(btn, true, "この内容ではじめる");
+    sb.auth.updateUser({ password: pw }).then(function (r) {
+      if (r.error) {
+        busy(btn, false, "この内容ではじめる");
+        show("err", "設定できませんでした。リンクの有効期限が切れている可能性があります。");
+        return;
+      }
+      return sb.auth.getSession().then(function (s) {
+        var session = s && s.data ? s.data.session : null;
+        window.bpAuth.syncFromSession(session);
+        sessionStorage.removeItem("bp:resumeAt");
+        history.replaceState(null, "", location.pathname);
+        location.replace(next);
+      });
+    }).catch(function () {
+      busy(btn, false, "この内容ではじめる");
+      show("err", "通信がうまくいきませんでした。少し待ってからお試しください。");
+    });
+  });
+
+  /* ---- パスワード再設定の申し込み ---- */
+  document.getElementById("formForgot").addEventListener("submit", function (e) {
+    e.preventDefault();
+    hideMsg();
+    var btn = document.getElementById("btnForgot");
+    busy(btn, true, "案内メールを送る");
+    sb.auth.resetPasswordForEmail(
+      document.getElementById("femail").value.trim(),
+      { redirectTo: location.origin + "/login.html" }
+    ).then(function () {
+      busy(btn, false, "案内メールを送る");
+      show("ok", "ご案内のメールをお送りしました。届くまで数分かかることがあります。迷惑メールフォルダもご確認ください。");
+    }).catch(function () {
+      busy(btn, false, "案内メールを送る");
+      show("err", "送信できませんでした。少し待ってからお試しください。");
+    });
+  });
+
+  document.getElementById("toForgot").addEventListener("click", function () { hideMsg(); view("Forgot"); });
+  document.getElementById("toSignin").addEventListener("click", function () { hideMsg(); view("Signin"); });
+})();
+</script>
+
+</body>
+</html>

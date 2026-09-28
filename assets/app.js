@@ -1,6 +1,6 @@
 /* =====================================================================
    一生ダイエッター卒業プログラム 会員サイト — 共通スクリプト
-   - Netlify Identity ログインゲート
+   - ログインは assets/auth.js とサーバー側の関所（netlify/edge-functions/gate.ts）が担当
    - 学習の進捗管理（localStorage・端末内のみ）
    - サイドバー（モバイルのドロワー）／章アコーディオン
    ===================================================================== */
@@ -40,39 +40,6 @@
     return !!p[id];
   }
 
-  /* ---------- Netlify Identity ゲート ---------- */
-  function showApp() {
-    var g = document.getElementById("gateScreen");
-    var s = document.getElementById("siteContent");
-    if (g) g.style.display = "none";
-    if (s) s.style.display = "block";
-  }
-  function showGate() {
-    var g = document.getElementById("gateScreen");
-    var s = document.getElementById("siteContent");
-    if (g) g.style.display = "flex";
-    if (s) s.style.display = "none";
-  }
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", function (user) {
-      user ? showApp() : showGate();
-    });
-    window.netlifyIdentity.on("login", function () {
-      showApp();
-      window.netlifyIdentity.close();
-    });
-    window.netlifyIdentity.on("logout", showGate);
-    window.netlifyIdentity.init();
-  } else {
-    // ウィジェット未読込でも本文が見えないよう、既定はゲート表示
-    showGate();
-  }
-  window.bpLogout = function () {
-    if (window.netlifyIdentity) window.netlifyIdentity.logout();
-  };
-  window.bpLogin = function () {
-    if (window.netlifyIdentity) window.netlifyIdentity.open("login");
-  };
 
   /* ---------- サイドバー（モバイル・ドロワー） ---------- */
   function initSidebar() {

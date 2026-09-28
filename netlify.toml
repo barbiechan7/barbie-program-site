@@ -1,2 +1,16 @@
 [build]
   publish = "."
+
+# ── 会員限定ページの関所 ──────────────────────────────
+# ログインを確認してから中身を返す。未ログインなら中身は1文字も送らない。
+# 下の excludedPath に書いたものだけが、ログインなしで見られる。
+[[edge_functions]]
+  path = "/*"
+  excludedPath = [
+    "/login.html",
+    "/style.css",
+    "/assets/*",
+    "/favicon.ico",
+    "/.netlify/*"
+  ]
+  function = "gate"

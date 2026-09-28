@@ -8,18 +8,11 @@
 </head>
 <body>
 
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="../assets/supabase-config.js"></script>
+<script src="../assets/auth.js"></script>
 
-<div class="gate-screen" id="gateScreen">
-  <div class="gate-box">
-    <div class="brand">一生ダイエッター<span>卒業プログラム</span></div>
-    <h1>会員限定ページです</h1>
-    <p>登録済みのメールアドレスとパスワードでログインしてください。</p>
-    <button class="wbtn" onclick="bpLogin()">ログイン</button>
-  </div>
-</div>
-
-<div id="siteContent" style="display:none">
+<div id="siteContent">
 <div class="app">
 <div class="mobilebar">
   <button class="hamb" id="hamb" aria-label="メニュー">☰</button>
