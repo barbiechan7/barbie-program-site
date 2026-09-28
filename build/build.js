@@ -63,7 +63,7 @@ function sidebar(prefix, activeKey) {
     <a class="side-link${activeKey === "content" ? " active" : ""}" href="${prefix}index.html#dashboard"><span class="ic">💗</span>学習コンテンツ</a>
     <a class="side-link${activeKey === "workbook" ? " active" : ""}" href="${prefix}workbook.html"><span class="ic">💗</span>ワークブック</a>
 
-    <div class="side-group">全9パート</div>
+    <div class="side-group">全${COURSE.chapters.length}パート</div>
 ${chapterLinks}
   </nav>
 
