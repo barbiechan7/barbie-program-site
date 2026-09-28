@@ -152,6 +152,8 @@
       : reason === "setup-key" ? "SUPABASE_ANON_KEY"
       : "SUPABASE_URL と SUPABASE_ANON_KEY";
     show("err", "サイト側の設定がまだ完了していません（Netlify の環境変数 " + what + " が読めていません）。管理者にご連絡ください。");
+  } else if (reason.indexOf("token-") === 0) {
+    show("err", "ログインの確認が通りませんでした。もう一度ログインしてください。それでも入れない場合は、次のコードを管理者にお伝えください：" + reason);
   }
 
   /* ---- すでにログイン済みなら、そのまま通す ---- */
@@ -182,7 +184,14 @@
     }).then(function (r) {
       busy(btn, false, "ログイン");
       if (r.error) {
-        show("err", "メールアドレスかパスワードが違うようです。もう一度お試しください。");
+        var code = r.error.code || "";
+        if (code === "email_not_confirmed") {
+          show("err", "このアカウントは、まだメールアドレスの確認が済んでいません。管理者にご連絡ください。（email_not_confirmed）");
+        } else if (code === "invalid_credentials" || r.error.status === 400) {
+          show("err", "メールアドレスかパスワードが違うようです。もう一度お試しください。");
+        } else {
+          show("err", "ログインできませんでした。（" + (code || r.error.message || "unknown") + "）");
+        }
         return;
       }
       window.bpAuth.syncFromSession(r.data.session);

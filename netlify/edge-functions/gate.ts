@@ -28,6 +28,7 @@ export default async (request: Request, context: Context) => {
   }
 
   let ok = false;
+  let status = 0;
   try {
     const res = await fetch(`${supabaseUrl}/auth/v1/user`, {
       headers: {
@@ -36,13 +37,16 @@ export default async (request: Request, context: Context) => {
       },
     });
     ok = res.ok;
+    status = res.status;
   } catch (_e) {
     // Supabase に届かなかったときも閉じる（安全側に倒す）
     ok = false;
+    status = -1;
   }
 
   if (!ok) {
-    return toLogin(request);
+    // 印はあったのに通らなかった → 応答コードをログイン画面に伝える（原因の特定用）
+    return toLogin(request, "token-" + status);
   }
 
   // ここまで来たら本人確認ができている。中身を返す。
