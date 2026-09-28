@@ -149,7 +149,7 @@
   var reason = params.get("reason") || "";
   if (reason.indexOf("setup") === 0) {
     var what = (reason === "setup-url" || reason === "setup-url-format") ? "SUPABASE_URL"
-      : (reason === "setup-key" || reason === "setup-key-format") ? "SUPABASE_ANON_KEY"
+      : (reason === "setup-key" || reason === "setup-key-format" || reason === "setup-key-chars") ? "SUPABASE_ANON_KEY"
       : "SUPABASE_URL と SUPABASE_ANON_KEY";
     show("err", "サイト側の設定がまだ完了していません（Netlify の環境変数 " + what + " が読めていません／値の形式が正しくありません）。管理者にご連絡ください。");
   } else if (reason === "setup-url-mismatch") {

@@ -30,6 +30,10 @@ export default async (request: Request, context: Context) => {
   if (!/^(eyJ|sb_publishable_)/.test(supabaseAnonKey)) {
     return toLogin(request, "setup-key-format");
   }
+  // 鍵に、途中の改行・空白・全角文字などが混ざっていないか
+  if (!/^[A-Za-z0-9._-]+$/.test(supabaseAnonKey)) {
+    return toLogin(request, "setup-key-chars");
+  }
 
   // URL のプロジェクトIDが、鍵（anon）に入っているプロジェクトIDと一致するか
   try {
@@ -64,7 +68,8 @@ export default async (request: Request, context: Context) => {
     // Supabase に届かなかったときも閉じる（安全側に倒す）
     ok = false;
     status = -1;
-    netErr = (e && (e as Error).name) ? String((e as Error).name).replace(/[^A-Za-z0-9]/g, "").slice(0, 24) : "err";
+    netErr = String((e && (e as Error).name) || "err").replace(/[^A-Za-z0-9]/g, "").slice(0, 16) +
+      "-" + String((e && (e as Error).message) || "").replace(/https?:\/\/\S+/g, "URL").replace(/[^A-Za-z0-9]/g, "").slice(0, 40);
   }
 
   if (!ok) {
