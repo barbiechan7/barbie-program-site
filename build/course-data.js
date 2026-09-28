@@ -370,6 +370,7 @@ const COURSE = {
           mark: "④",
           title: "食以外のストレス発散",
           type: "テキスト+動画",
+          video: "7iO_n8yNrJk",
           worksheet: {
             title: "第2章-④ 心が整うリスト",
             note: "「食べる以外で、心が落ち着くこと」を3つ書き出すワーク。試してみたいことでもOKです。",
@@ -391,6 +392,7 @@ const COURSE = {
           mark: "⑤",
           title: "不安との付き合い方",
           type: "テキスト+動画",
+          video: "FpLl-bHfsWA",
           worksheet: {
             title: "第2章-⑤ 不安の裏の本音ワーク",
             note: "「今、不安に感じていること」を3つ書き、それぞれの裏にある本音を考えるワークです。",
@@ -410,6 +412,7 @@ const COURSE = {
           mark: "⑥",
           title: "“痩せなきゃ”を緩める心理ダイエット",
           type: "テキスト+動画",
+          video: "UW8gIFFLZcM",
           worksheet: {
             title: "第2章-⑥ 言い換えワーク",
             note: "「痩せなきゃ」と書いて、その下に「整えたい」と書き換えてみるワークです。",
@@ -440,6 +443,7 @@ const COURSE = {
           mark: "①",
           title: "比較癖との向き合い方",
           type: "テキスト+動画",
+          video: "UwHUDMi-Sa0",
           worksheet: {
             title: "第3章-① 比較の棚おろしワーク",
             note: "今週、自分を落ち込ませた「比較」を3つ書き出し、誰と何を比べたか整理するワークです。",
@@ -457,6 +461,7 @@ const COURSE = {
           mark: "②",
           title: "“普通に食べる”感覚を取り戻す",
           type: "テキスト+動画",
+          video: "oF7xx32FWgI",
           worksheet: {
             title: "第3章-② 普通に食べていた記憶ワーク",
             note: "子どもの頃、罪悪感なく食べていた記憶を一つ書き出すワークです。",
@@ -474,6 +479,7 @@ const COURSE = {
           mark: "③",
           title: "自分に適した食事や体重などを見直すワーク",
           type: "テキスト+動画",
+          video: "atQKKTwtoMI",
           worksheet: {
             title: "第3章-③ 自分の基準を見つける3ステップシート",
             note: "試した食事法を書き出し、体と心の反応を記録し、「続けられる方向」を丸で囲むワークです。",
@@ -493,6 +499,7 @@ const COURSE = {
           mark: "④",
           title: "完璧主義との向き合い方",
           type: "テキスト+動画",
+          video: "OOFz0casar0",
           worksheet: {
             title: "第3章-④ 80点ワーク",
             note: "今日、80点だった出来事を3つ書き出すワーク。「これ、悪くなかった」と思えることを。",
