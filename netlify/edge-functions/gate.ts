@@ -10,10 +10,13 @@
 import type { Context } from "@netlify/edge-functions";
 
 export default async (request: Request, context: Context) => {
-  // 貼り付け時に混ざりやすい前後の空白・改行は取り除く
-  const supabaseUrl = (Netlify.env.get("SUPABASE_URL") || "").trim().replace(/\/+$/, "");
-  // 鍵は英数字と . _ - だけで出来ている。貼り付け時に混ざった改行・空白・引用符・全角文字は取り除く
-  const supabaseAnonKey = (Netlify.env.get("SUPABASE_ANON_KEY") || "").replace(/[^A-Za-z0-9._-]/g, "");
+  // 接続先と anon 鍵は「公開して構わない値」で、assets/supabase-config.js にも同じものが入っている。
+  // Netlify の環境変数の貼り間違いで止まらないよう、ここに直接持つ。
+  // （service_role など秘密の鍵は、絶対にここへ書かない）
+  // 変更するときは assets/supabase-config.js と、下の2行を同じ値にそろえること。
+  const supabaseUrl = "https://csbmijlryhzzhaziitpc.supabase.co";
+  const supabaseAnonKey =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNzYm1pamxyeWh6emhhemlpdHBjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA1NjkyNjYsImV4cCI6MjEwNjE0NTI2Nn0.uhpNmKfnO7_jrdjr1Ki5e34fYIC1QiqPH_qHrhz3wqY";
 
   // 設定が未入力のときは「開ける」のではなく「閉じる」。
   // 設定ミスで中身が丸見えになる事故を防ぐため。
