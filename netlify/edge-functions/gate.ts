@@ -12,7 +12,8 @@ import type { Context } from "@netlify/edge-functions";
 export default async (request: Request, context: Context) => {
   // 貼り付け時に混ざりやすい前後の空白・改行は取り除く
   const supabaseUrl = (Netlify.env.get("SUPABASE_URL") || "").trim().replace(/\/+$/, "");
-  const supabaseAnonKey = (Netlify.env.get("SUPABASE_ANON_KEY") || "").trim();
+  // 鍵は英数字と . _ - だけで出来ている。貼り付け時に混ざった改行・空白・引用符・全角文字は取り除く
+  const supabaseAnonKey = (Netlify.env.get("SUPABASE_ANON_KEY") || "").replace(/[^A-Za-z0-9._-]/g, "");
 
   // 設定が未入力のときは「開ける」のではなく「閉じる」。
   // 設定ミスで中身が丸見えになる事故を防ぐため。
@@ -30,10 +31,7 @@ export default async (request: Request, context: Context) => {
   if (!/^(eyJ|sb_publishable_)/.test(supabaseAnonKey)) {
     return toLogin(request, "setup-key-format");
   }
-  // 鍵に、途中の改行・空白・全角文字などが混ざっていないか
-  if (!/^[A-Za-z0-9._-]+$/.test(supabaseAnonKey)) {
-    return toLogin(request, "setup-key-chars");
-  }
+
 
   // URL のプロジェクトIDが、鍵（anon）に入っているプロジェクトIDと一致するか
   try {
@@ -64,6 +62,11 @@ export default async (request: Request, context: Context) => {
     });
     ok = res.ok;
     status = res.status;
+    if (!ok) {
+      // Supabase が返した理由の頭だけ（英数字のみ・短く）。原因の特定用
+      const body = await res.text();
+      netErr = body.replace(/[^A-Za-z]/g, "").slice(0, 40);
+    }
   } catch (e) {
     // Supabase に届かなかったときも閉じる（安全側に倒す）
     ok = false;
@@ -74,7 +77,7 @@ export default async (request: Request, context: Context) => {
 
   if (!ok) {
     // 印はあったのに通らなかった → 応答コードをログイン画面に伝える（原因の特定用）
-    return toLogin(request, status === -1 ? "net-" + netErr : "token-" + status);
+    return toLogin(request, status === -1 ? "net-" + netErr : "token-" + status + (netErr ? "-" + netErr : ""));
   }
 
   // ここまで来たら本人確認ができている。中身を返す。
