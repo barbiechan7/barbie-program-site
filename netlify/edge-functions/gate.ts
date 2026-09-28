@@ -31,6 +31,18 @@ export default async (request: Request, context: Context) => {
     return toLogin(request, "setup-key-format");
   }
 
+  // URL のプロジェクトIDが、鍵（anon）に入っているプロジェクトIDと一致するか
+  try {
+    const b64 = supabaseAnonKey.split(".")[1].replace(/-/g, "+").replace(/_/g, "/");
+    const ref = JSON.parse(atob(b64 + "=".repeat((4 - (b64.length % 4)) % 4))).ref;
+    const host = new URL(supabaseUrl).hostname.split(".")[0];
+    if (ref && host !== ref) {
+      return toLogin(request, "setup-url-mismatch");
+    }
+  } catch (_e) {
+    // 鍵の形式が想定と違う場合は、ここでは判定せず先へ進む
+  }
+
   const token = context.cookies.get("bp-token");
   if (!token) {
     return toLogin(request);
@@ -38,6 +50,7 @@ export default async (request: Request, context: Context) => {
 
   let ok = false;
   let status = 0;
+  let netErr = "";
   try {
     const res = await fetch(`${supabaseUrl}/auth/v1/user`, {
       headers: {
@@ -47,15 +60,16 @@ export default async (request: Request, context: Context) => {
     });
     ok = res.ok;
     status = res.status;
-  } catch (_e) {
+  } catch (e) {
     // Supabase に届かなかったときも閉じる（安全側に倒す）
     ok = false;
     status = -1;
+    netErr = (e && (e as Error).name) ? String((e as Error).name).replace(/[^A-Za-z0-9]/g, "").slice(0, 24) : "err";
   }
 
   if (!ok) {
     // 印はあったのに通らなかった → 応答コードをログイン画面に伝える（原因の特定用）
-    return toLogin(request, "token-" + status);
+    return toLogin(request, status === -1 ? "net-" + netErr : "token-" + status);
   }
 
   // ここまで来たら本人確認ができている。中身を返す。

@@ -152,6 +152,10 @@
       : (reason === "setup-key" || reason === "setup-key-format") ? "SUPABASE_ANON_KEY"
       : "SUPABASE_URL と SUPABASE_ANON_KEY";
     show("err", "サイト側の設定がまだ完了していません（Netlify の環境変数 " + what + " が読めていません／値の形式が正しくありません）。管理者にご連絡ください。");
+  } else if (reason === "setup-url-mismatch") {
+    show("err", "Netlify の環境変数 SUPABASE_URL の綴りが、SUPABASE_ANON_KEY のプロジェクトと一致していません。管理者にご連絡ください。");
+  } else if (reason.indexOf("net-") === 0) {
+    show("err", "ログインの確認先（Supabase）に接続できませんでした。管理者にご連絡ください。（" + reason + "）");
   } else if (reason.indexOf("token-") === 0) {
     show("err", "ログインの確認が通りませんでした。もう一度ログインしてください。それでも入れない場合は、次のコードを管理者にお伝えください：" + reason);
   }
