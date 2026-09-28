@@ -16,7 +16,10 @@ export default async (request: Request, context: Context) => {
   // 設定が未入力のときは「開ける」のではなく「閉じる」。
   // 設定ミスで中身が丸見えになる事故を防ぐため。
   if (!supabaseUrl || !supabaseAnonKey) {
-    return toLogin(request, "setup");
+    // どちらが読めていないかを、ログイン画面に伝える（原因の特定用）
+    const reason = !supabaseUrl && !supabaseAnonKey ? "setup-both"
+      : !supabaseUrl ? "setup-url" : "setup-key";
+    return toLogin(request, reason);
   }
 
   const token = context.cookies.get("bp-token");
