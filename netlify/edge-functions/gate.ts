@@ -9,6 +9,9 @@
 
 import type { Context } from "@netlify/edge-functions";
 
+// プランの名前（build/plans-data.js のキーと同じ）
+const PLANS = ["self", "support", "premium"];
+
 export default async (request: Request, context: Context) => {
   // 接続先と anon 鍵は「公開して構わない値」で、assets/supabase-config.js にも同じものが入っている。
   // Netlify の環境変数の貼り間違いで止まらないよう、ここに直接持つ。
@@ -54,6 +57,7 @@ export default async (request: Request, context: Context) => {
   }
 
   let ok = false;
+  let plan = "";
   let status = 0;
   let netErr = "";
   try {
@@ -65,7 +69,16 @@ export default async (request: Request, context: Context) => {
     });
     ok = res.ok;
     status = res.status;
-    if (!ok) {
+    if (ok) {
+      // 購入したプラン。運営だけが書き換えられる app_metadata から読む（本人は変更できない）
+      try {
+        const user = await res.json();
+        const p = user && user.app_metadata && user.app_metadata.plan;
+        if (typeof p === "string" && PLANS.includes(p)) plan = p;
+      } catch (_e) {
+        // 読めなければ「プラン未設定」として扱う
+      }
+    } else {
       // Supabase が返した理由の頭だけ（英数字のみ・短く）。原因の特定用
       const body = await res.text();
       netErr = body.replace(/[^A-Za-z]/g, "").slice(0, 40);
@@ -83,7 +96,21 @@ export default async (request: Request, context: Context) => {
     return toLogin(request, status === -1 ? "net-" + netErr : "token-" + status + (netErr ? "-" + netErr : ""));
   }
 
-  // ここまで来たら本人確認ができている。中身を返す。
+  // ここまで来たら本人確認ができている。
+  // 動画・ワークなど講座の中身は、プランに関係なく全員が見られる。
+  // プランで変わるのは「サポートのご案内」ページだけ。
+  // 「.html なし」「末尾スラッシュ」でも同じ扱いにする（抜け道を作らないため）
+  const path = new URL(request.url).pathname.replace(/\/$/, "").replace(/\.html$/, "");
+  if (path === "/support" && plan) {
+    return Response.redirect(new URL(`/support-plans/${plan}.html`, request.url).toString(), 302);
+  }
+  const m = path.match(/^\/support-plans\/([a-z]+)$/);
+  if (m && m[1] !== plan) {
+    // 自分のプラン以外の案内ページは開かせない
+    return Response.redirect(new URL("/support.html", request.url).toString(), 302);
+  }
+
+  // 中身を返す。
   const response = await context.next();
   const gated = new Response(response.body, response);
   // 会員向けの中身を、途中のキャッシュに残させない

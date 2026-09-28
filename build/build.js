@@ -8,6 +8,7 @@ const fs = require("fs");
 const path = require("path");
 const COURSE = require("./course-data.js");
 const WS = require("./worksheets-data.js");
+const PLANS = require("./plans-data.js");
 
 const ROOT = path.join(__dirname, "..");
 const LESSONS_DIR = path.join(ROOT, "lessons");
@@ -62,6 +63,7 @@ function sidebar(prefix, activeKey) {
     <a class="side-link${activeKey === "home" ? " active" : ""}" href="${prefix}index.html"><span class="ic">💗</span>ホーム</a>
     <a class="side-link${activeKey === "content" ? " active" : ""}" href="${prefix}index.html#dashboard"><span class="ic">💗</span>学習コンテンツ</a>
     <a class="side-link${activeKey === "workbook" ? " active" : ""}" href="${prefix}workbook.html"><span class="ic">💗</span>ワークブック</a>
+    <a class="side-link${activeKey === "support" ? " active" : ""}" href="${prefix}support.html"><span class="ic">💗</span>サポートのご案内</a>
 
     <div class="side-group">全${COURSE.chapters.length}パート</div>
 ${chapterLinks}
@@ -376,12 +378,71 @@ ${chapterBlocks}
   );
 }
 
+
+/* ---- サポートのご案内 ----
+   support.html        … プランが未設定の人向け（関所が、プラン設定済みの人を support-plans/{plan}.html へ送る）
+   support-plans/*.html … プランごとの案内 */
+function supportBody(inner) {
+  return `
+<main class="main">
+  <div class="lesson-shell">
+    <div class="lesson-kicker">サポートのご案内</div>
+${inner}
+  </div>
+</main>
+</div>
+</div>
+
+`;
+}
+function buildSupportDefault() {
+  const inner = `    <h1>サポートのご案内</h1>
+    <div class="article">
+<p>ご購入いただいたプランに合わせて、サポートの内容をご案内します。</p>
+<p>いまこのページが表示されている場合、ご利用中のアカウントにプランがまだ登録されていない可能性があります。お手数ですが、購入時のメールアドレスを添えて、運営までご連絡ください。</p>
+<p>${PLANS.viewing}</p>
+    </div>`;
+  return (
+    head("サポートのご案内｜一生ダイエッター卒業プログラム", "style.css") +
+    `\n<div id="siteContent">\n<div class="app">\n${mobilebar()}\n${sidebar("", "support")}\n` +
+    supportBody(inner) + footScripts()
+  );
+}
+function buildSupportPlan(key) {
+  const pl = PLANS.plans[key];
+  const inner = `    <h1>サポートのご案内</h1>
+    <div class="article">
+<h2>ご利用中のプラン：${pl.name}</h2>
+<p>${pl.lead}</p>
+<h2>サポートの内容</h2>
+<p>${pl.support}</p>
+<h2>ご質問・ご連絡の方法</h2>
+<p>${pl.contact}</p>
+<h2>視聴できる期間</h2>
+<p>${PLANS.viewing}</p>
+    </div>`;
+  return (
+    head(`サポートのご案内（${pl.name}）｜一生ダイエッター卒業プログラム`, "../style.css") +
+    `\n<div id="siteContent">\n<div class="app">\n${mobilebar()}\n${sidebar("../", "support")}\n` +
+    supportBody(inner) + footScriptsLesson()
+  );
+}
+
 /* ---- 実行 ---- */
 fs.writeFileSync(path.join(ROOT, "index.html"), buildIndex());
 console.log("✓ index.html");
 
 fs.writeFileSync(path.join(ROOT, "workbook.html"), buildWorkbook());
 console.log("✓ workbook.html");
+
+fs.writeFileSync(path.join(ROOT, "support.html"), buildSupportDefault());
+console.log("✓ support.html");
+const SUPPORT_DIR = path.join(ROOT, "support-plans");
+if (!fs.existsSync(SUPPORT_DIR)) fs.mkdirSync(SUPPORT_DIR);
+Object.keys(PLANS.plans).forEach((k) => {
+  fs.writeFileSync(path.join(SUPPORT_DIR, k + ".html"), buildSupportPlan(k));
+  console.log("✓ support-plans/" + k + ".html");
+});
 
 if (!fs.existsSync(LESSONS_DIR)) fs.mkdirSync(LESSONS_DIR);
 FLAT.forEach((_, i) => {
