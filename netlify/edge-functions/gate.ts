@@ -10,8 +10,9 @@
 import type { Context } from "@netlify/edge-functions";
 
 export default async (request: Request, context: Context) => {
-  const supabaseUrl = Netlify.env.get("SUPABASE_URL");
-  const supabaseAnonKey = Netlify.env.get("SUPABASE_ANON_KEY");
+  // 貼り付け時に混ざりやすい前後の空白・改行は取り除く
+  const supabaseUrl = (Netlify.env.get("SUPABASE_URL") || "").trim().replace(/\/+$/, "");
+  const supabaseAnonKey = (Netlify.env.get("SUPABASE_ANON_KEY") || "").trim();
 
   // 設定が未入力のときは「開ける」のではなく「閉じる」。
   // 設定ミスで中身が丸見えになる事故を防ぐため。
@@ -20,6 +21,14 @@ export default async (request: Request, context: Context) => {
     const reason = !supabaseUrl && !supabaseAnonKey ? "setup-both"
       : !supabaseUrl ? "setup-url" : "setup-key";
     return toLogin(request, reason);
+  }
+
+  // 値の取り違え・貼り間違いを、ログイン画面で分かるようにする（値そのものは出さない）
+  if (!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(supabaseUrl)) {
+    return toLogin(request, "setup-url-format");
+  }
+  if (!/^(eyJ|sb_publishable_)/.test(supabaseAnonKey)) {
+    return toLogin(request, "setup-key-format");
   }
 
   const token = context.cookies.get("bp-token");

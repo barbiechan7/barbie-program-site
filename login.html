@@ -148,10 +148,10 @@
   /* ---- サイト側の設定（Netlify の環境変数）が未完了のとき ---- */
   var reason = params.get("reason") || "";
   if (reason.indexOf("setup") === 0) {
-    var what = reason === "setup-url" ? "SUPABASE_URL"
-      : reason === "setup-key" ? "SUPABASE_ANON_KEY"
+    var what = (reason === "setup-url" || reason === "setup-url-format") ? "SUPABASE_URL"
+      : (reason === "setup-key" || reason === "setup-key-format") ? "SUPABASE_ANON_KEY"
       : "SUPABASE_URL と SUPABASE_ANON_KEY";
-    show("err", "サイト側の設定がまだ完了していません（Netlify の環境変数 " + what + " が読めていません）。管理者にご連絡ください。");
+    show("err", "サイト側の設定がまだ完了していません（Netlify の環境変数 " + what + " が読めていません／値の形式が正しくありません）。管理者にご連絡ください。");
   } else if (reason.indexOf("token-") === 0) {
     show("err", "ログインの確認が通りませんでした。もう一度ログインしてください。それでも入れない場合は、次のコードを管理者にお伝えください：" + reason);
   }
