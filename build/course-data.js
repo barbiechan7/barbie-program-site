@@ -528,6 +528,7 @@ const COURSE = {
           mark: "①",
           title: "“痩せるため”じゃなく動く",
           type: "テキスト+動画",
+          video: "pUoRqBJ6w50",
           worksheet: {
             title: "第4章-① 運動した理由の棚おろしワーク",
             note: "これまで運動した理由を3つ書き、「痩せるため」と「それ以外」に分けるワークです。",
@@ -545,6 +546,7 @@ const COURSE = {
           mark: "②",
           title: "散歩で心を整える",
           type: "テキスト+動画",
+          video: "NnoV_jm1y2E",
           worksheet: {
             title: "第4章-② 散歩の前後スコアシート",
             note: "散歩を3回、10分ずつ試し、歩く前と後の心の状態を10点満点で記録するワークです。",
@@ -562,6 +564,7 @@ const COURSE = {
           mark: "③",
           title: "自分が心地いい運動を見つける",
           type: "テキスト+動画",
+          video: "_QudWzZOa_8",
           worksheet: {
             title: "第4章-③ 心地よさ採点ワーク",
             note: "これまで試した運動を3つ書き、それぞれの「心地よさ」を10点満点で評価するワークです。",
@@ -579,6 +582,7 @@ const COURSE = {
           mark: "④",
           title: "“痩せるための運動”を卒業する",
           type: "テキスト+動画",
+          video: "nd9lN1xdbDo",
           worksheet: {
             title: "第4章-④ 体へのメッセージワーク",
             note: "「体に、今伝えたいこと」を一行書くワーク。「ありがとう」でも「ごめんね」でも。",
@@ -705,6 +709,7 @@ const COURSE = {
           mark: "①",
           title: "“食べ過ぎた”日の整え方",
           type: "テキスト+動画",
+          video: "zALnKhsvJLc",
           worksheet: {
             title: "第6章-① 食べ過ぎた日の整えノート",
             note: "食べ過ぎたと感じた日、「今日は自分を責めない」と書き、翌朝の体の感覚を記録するシートです。",
@@ -725,6 +730,7 @@ const COURSE = {
           mark: "②",
           title: "“ちょうどいい食事”を知る",
           type: "テキスト+動画",
+          video: "HyC9hgDCDBw",
           worksheet: {
             title: "第6章-② 満たされ度スコアシート",
             note: "3食、食事の前に3呼吸し、食後の「満たされた度合い」を10段階で記録するシートです。",
@@ -743,6 +749,7 @@ const COURSE = {
           mark: "③",
           title: "コンビニ・外食との付き合い方",
           type: "テキスト+動画",
+          video: "m9wxHlk6z6o",
           worksheet: {
             title: "第6章-③ コンビニ定番パターンシート",
             note: "「迷ったときのコンビニ定番」を3パターン書き出すワークです。",
@@ -761,6 +768,7 @@ const COURSE = {
           mark: "④",
           title: "自分に合う自炊習慣を見つける",
           type: "テキスト+動画",
+          video: "6MiDUfxcgHM",
           worksheet: {
             title: "第6章-④ 15分メニュー＆頻度シート",
             note: "「15分以内でできる自分用メニュー」を3つ書き、週に何回作るか現実的な回数を決めるシートです。",
@@ -780,6 +788,7 @@ const COURSE = {
           mark: "⑤",
           title: "食べる許可ワーク",
           type: "テキスト+動画",
+          video: "ohTg9CdOaKA",
           worksheet: {
             title: "第6章-⑤ 食べる許可ワークシート",
             note: "禁止しているものを書き出し、1つに許可を出し、食後に「自分を責めない」と声に出すワークです。",
@@ -813,6 +822,7 @@ const COURSE = {
           mark: "①",
           title: "着たい服を考えるワーク",
           type: "テキスト+動画",
+          video: "rWKXQJU2zg8",
           worksheet: {
             title: "第7章-① 着たい服ワークシート",
             note: "「今、着てみたい服」を3つ書き、なぜ着たいか、今日の自分にどう届けられるかを書くワークです。",
@@ -833,6 +843,7 @@ const COURSE = {
           mark: "②",
           title: "理想の人生を書き出す／本当はどう生きたい？",
           type: "テキスト+動画",
+          video: "QqzS-RahnGw",
           worksheet: {
             title: "第7章-② 理想の人生と本音のワークシート",
             note: "5年後の理想の平日1日を書き（体重は書かない）、「本当はどう生きたい？」の3つの問いに答えるワークです。",
