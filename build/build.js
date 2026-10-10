@@ -382,6 +382,11 @@ ${chapterBlocks}
 /* ---- サポートのご案内 ----
    support.html        … プランが未設定の人向け（関所が、プラン設定済みの人を support-plans/{plan}.html へ送る）
    support-plans/*.html … プランごとの案内 */
+// 文字列でも配列でも受け取り、段落または箇条書きにする
+function lines(v) {
+  if (!Array.isArray(v)) return `<p>${v}</p>`;
+  return `<ul>\n${v.map((x) => `<li>${x}</li>`).join("\n")}\n</ul>`;
+}
 function supportBody(inner) {
   return `
 <main class="main">
@@ -415,9 +420,11 @@ function buildSupportPlan(key) {
 <h2>ご利用中のプラン：${pl.name}</h2>
 <p>${pl.lead}</p>
 <h2>サポートの内容</h2>
-<p>${pl.support}</p>
+${lines(pl.support)}
+<h2>卒業生コミュニティ</h2>
+${lines(PLANS.community)}
 <h2>ご質問・ご連絡の方法</h2>
-<p>${pl.contact}</p>
+${lines(pl.contact)}
 <h2>視聴できる期間</h2>
 <p>${PLANS.viewing}</p>
     </div>`;
